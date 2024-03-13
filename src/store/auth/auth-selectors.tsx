@@ -20,4 +20,4 @@ const getIsLoggedIn = (state: {
   };
 }) => state.auth.isLoggedIn;
 
-export const authSelectors = { getUserAccess, getUserInfo, getIsLoggedIn };
+export { getUserAccess, getUserInfo, getIsLoggedIn };

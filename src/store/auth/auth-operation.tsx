@@ -1,9 +1,10 @@
 // import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const signIn = createAsyncThunk<any, any, any>(`api/auth/signin`, async wallet => {
+const signInOperation = createAsyncThunk<any, any, any>(`api/auth/signin`, async values => {
   try {
     // const { data } = await axios.post(`api/auth/signIn`, { wallet });
+    console.log(values);
     const data = { accessToken: '123' };
 
     return data;
@@ -12,7 +13,7 @@ const signIn = createAsyncThunk<any, any, any>(`api/auth/signin`, async wallet =
   }
 });
 
-const signOut = createAsyncThunk<any, any, any>(`api/auth/signout`, async () => {
+const signOutOperation = createAsyncThunk<any, any, any>(`api/auth/signout`, async () => {
   try {
     // const { data } = await axios.get(`api/auth/signOut`);
     const data = true;
@@ -23,7 +24,7 @@ const signOut = createAsyncThunk<any, any, any>(`api/auth/signout`, async () => 
   }
 });
 
-const refreshToken = createAsyncThunk<any, any, any>(`api/auth/refresh`, async () => {
+const refreshTokenOperation = createAsyncThunk<any, any, any>(`api/auth/refresh`, async () => {
   try {
     // const { data } = await axios.get(`api/auth/refresh`);
     const data = { accessToken: '123' };
@@ -34,7 +35,7 @@ const refreshToken = createAsyncThunk<any, any, any>(`api/auth/refresh`, async (
   }
 });
 
-const getUser = createAsyncThunk<any, any, any>(`api/user`, async (_, thunkAPI) => {
+const getUserOperation = createAsyncThunk<any, any, any>(`api/user`, async (_, thunkAPI) => {
   try {
     // const { data } = await axios.get(`api/user`);
     const data = { email: '123' };
@@ -47,4 +48,4 @@ const getUser = createAsyncThunk<any, any, any>(`api/user`, async (_, thunkAPI) 
   }
 });
 
-export { signIn, signOut, refreshToken, getUser };
+export { signInOperation, signOutOperation, refreshTokenOperation, getUserOperation };

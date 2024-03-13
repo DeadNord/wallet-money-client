@@ -4,11 +4,15 @@ $tablet: 768px;
 $desktop: 1240px;
 
 // Colors
-$mainTextColor: #fff;
+$whiteColor: #fff;
+$inputTextColor: #F0F0F0;
+$buttonAuthBackground: #272530;
+$mainColor: #8067C8;
+
+
 
 // Gradients
-$voucherWhiteGradient: radial-gradient(41.53% 84.92% at 32.14% 40.29%, #1d46ae80 0%, #1d46ae00 100%),
-#000;
+$mainGradient: linear-gradient(90deg, #2F218C 0%, #4F147F 100%);
 
 // Exports
 :export {}

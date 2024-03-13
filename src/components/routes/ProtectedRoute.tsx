@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, To } from 'react-router-dom';
-import { authSelectors } from '../../store/auth/auth-selectors';
+import { getIsLoggedIn } from '../../store/auth/auth-selectors';
 
 interface IMyProps {
   element: JSX.Element;
@@ -8,7 +8,7 @@ interface IMyProps {
 }
 
 const ProtectedRoute: React.FC<IMyProps> = (props: IMyProps) => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   return <>{isLoggedIn ? props.element : <Navigate to={props.redirectTo} />}</>;
 };

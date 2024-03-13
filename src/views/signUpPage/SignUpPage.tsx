@@ -1,19 +1,17 @@
 import { NavLink } from 'react-router-dom';
-import s from './SignInPage.module.scss';
+import s from './SignUpPage.module.scss';
 import sprite from '../../assets/svg/sprites.svg';
 // import { useDispatch } from 'react-redux';
 // import { signInOperation } from '../../store/auth/auth-operation';
 import { Formik, Form, Field } from 'formik';
 import AuthContainer from 'components/shared/authContainer/AuthContainer';
 import classnames from 'classnames';
-import { signInOperation } from 'store/auth/auth-operation';
-import { useDispatch } from 'react-redux';
 // import { useState } from 'react';
 
-const SignInPage = () => {
+const SignUpPage = () => {
   //   const [passwordState, setPasswordToogle] = useState(false);
 
-    const dispatch = useDispatch<any>();
+  //   const dispatch = useDispatch<any>();
 
   //   const passwordToogle = () => {
   //     setPasswordToogle(!passwordState);
@@ -24,7 +22,8 @@ const SignInPage = () => {
   };
 
   const signIn = (values: any) => {
-    dispatch(signInOperation(values))
+    // Implement your authentication test logic here
+    console.log('Testing Authentication');
   };
 
   return (
@@ -35,39 +34,47 @@ const SignInPage = () => {
             <svg className={s.icon}>
               <use href={sprite + '#icon-logo'} />
             </svg>
-            <h1>Login</h1>
-            <p>Enter your username and password to login</p>
+            <h1>Register</h1>
+            <p>Enter your details to register</p>
           </div>
           <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={{
+              username: '',
+              email: '',
+              mobile: '',
+              password: '',
+              passwordConfirm: '',
+            }}
             onSubmit={values => {
               signIn(values);
             }}
           >
             <Form className={s.loginForm}>
+              <Field type="text" name="username" placeholder="Name" className={s.input} />
               <Field type="text" name="email" placeholder="Email" className={s.input} />
-              <NavLink to="#" className={s.inputLink}>
-                Forgot Username?
-              </NavLink>
+              <Field type="text" name="mobile" placeholder="Mobile Number" className={s.input} />
               <Field type="password" name="password" placeholder="Password" className={s.input} />
-              <NavLink to="#" className={s.inputLink}>
-                Forgot Password?
-              </NavLink>
+              <Field
+                type="password"
+                name="passwordConfirm"
+                placeholder="Confirm Password"
+                className={s.input}
+              />
+              <div className={s.checkboxContainer}>
+                <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" />
+                <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
+              </div>
               <button type="submit" className={`${s.button} ${s.mainLogin}`}>
                 Login
-              </button>
-              <p className={s.altLoginText}>Or login with</p>
-              <button type="button" className={`${s.button} ${s.googleLogin}`}>
-                Google
               </button>
             </Form>
           </Formik>
           <div className={s.loginFooter}>
-            <p  className={s.navText}>
-            Don't have an account? <NavLink to="/signUp" className={s.navLink}>Register</NavLink>
-            </p>
-            <p  className={s.navText}>
-            Want test? Visit our <button onClick={TestAuth} className={s.navLink}>Test Page</button>
+            <p className={s.navText}>
+              Want test? Visit our{' '}
+              <button onClick={TestAuth} className={s.navLink}>
+                Test Page
+              </button>
             </p>
           </div>
         </div>
@@ -76,4 +83,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

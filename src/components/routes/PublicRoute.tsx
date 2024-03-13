@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, To } from 'react-router-dom';
-import { authSelectors } from '../../store/auth/auth-selectors';
+import { getIsLoggedIn } from '../../store/auth/auth-selectors';
 
 interface IMyProps {
   element: JSX.Element;
@@ -9,7 +9,7 @@ interface IMyProps {
 }
 
 const PublicRoute: React.FC<IMyProps> = (props: IMyProps) => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   if (!props.redirectTo && props.restricted) {
     return <Navigate to="/" />;

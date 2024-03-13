@@ -7,6 +7,7 @@ import ProtectedRoute from './components/routes/ProtectedRoute';
 import PublicRoute from './components/routes/PublicRoute';
 
 const SignInPage = lazy(() => import('./views/signInPage/SignInPage'));
+const SignUpPage = lazy(() => import('./views/signUpPage/SignUpPage'));
 const MainPage = lazy(() => import('./views/mainPage/MainPage'));
 
 function App() {
@@ -28,10 +29,10 @@ function App() {
             path="/signIn"
             element={<PublicRoute element={<SignInPage />} redirectTo={`/`} restricted />}
           />
-          {/* <Route
-            path="/signUp/:type"
+          <Route
+            path="/signUp"
             element={<PublicRoute element={<SignUpPage />} redirectTo={`/`} restricted />}
-          /> */}
+          />
           <Route
             path="/"
             element={<ProtectedRoute element={<MainPage />} redirectTo={`/signIn`} />}

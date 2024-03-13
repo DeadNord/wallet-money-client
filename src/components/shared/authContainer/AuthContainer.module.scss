@@ -1,0 +1,11 @@
+.container {
+    background-image: url("../../../assets/backgrounds/AuthBackground.png");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding-left: 155px;
+}
