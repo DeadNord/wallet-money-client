@@ -1,0 +1,86 @@
+@import '../../../sass/variables';
+
+.headerContainer {
+    background: linear-gradient(221.56deg, #585F82 -67.81%, #13141C 19.56%);
+    border-right: 1px solid #535353;
+    width: 300px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.sidebar {
+    width: 176px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuList {}
+
+.menuItem {
+    display: flex;
+
+    padding: 15px 20px;
+    width: 176px;
+
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+
+    background-color: white;
+}
+
+.menuItem p {
+    margin-left: 18px;
+
+    font-weight: 300;
+    line-height: 24px;
+    color: white;
+}
+
+.menuItem:hover,
+.menuItem:focus {
+    border: 6px;
+    background-image: $mainGradient;
+}
+
+.profileContainer {
+    display: flex;
+    align-items: center;
+
+    margin-left: 41px;
+    margin-bottom: 54px;
+}
+
+.iconProfile{
+    width: 47px;
+    height: 47px;
+    background-color: white;
+}
+
+.profileName {
+    margin-left: 12px;
+    margin-right: 16px;
+
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 24.38px;
+}
+
+.iconInfoProfile{
+    width: 16px;
+    height: 16px;
+    background-color: white;
+}

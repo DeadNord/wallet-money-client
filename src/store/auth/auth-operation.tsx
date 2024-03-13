@@ -35,10 +35,10 @@ const refreshTokenOperation = createAsyncThunk<any, any, any>(`api/auth/refresh`
   }
 });
 
-const getUserOperation = createAsyncThunk<any, any, any>(`api/user`, async (_, thunkAPI) => {
+const getUserOperation = createAsyncThunk<any, any, any>(`api/user`, async () => {
   try {
     // const { data } = await axios.get(`api/user`);
-    const data = { email: '123' };
+    const data = { id: "123", name: "Pol", email: 'darwefew@gmail.com' };
 
     return data;
   } catch (error: any) {

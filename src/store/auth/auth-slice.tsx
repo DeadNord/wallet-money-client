@@ -5,6 +5,7 @@ const initialState = {
   accessToken: null,
   user: {
     id: null,
+    name: null,
     email: null,
   },
   isLoggedIn: false,
@@ -24,6 +25,7 @@ const authSlice = createSlice({
       state.accessToken = null;
       state.user = {
         id: null,
+        name: null,
         email: null,
       };
       state.isLoggedIn = false;

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import s from './SignInPage.module.scss';
-import sprite from '../../assets/svg/sprites.svg';
+// import sprite from '../../assets/svg/sprites.svg';
 // import { useDispatch } from 'react-redux';
 // import { signInOperation } from '../../store/auth/auth-operation';
 import { Formik, Form, Field } from 'formik';
@@ -8,6 +8,7 @@ import AuthContainer from 'components/shared/authContainer/AuthContainer';
 import classnames from 'classnames';
 import { signInOperation } from 'store/auth/auth-operation';
 import { useDispatch } from 'react-redux';
+import Icon from 'components/shared/icon/Icon';
 // import { useState } from 'react';
 
 const SignInPage = () => {
@@ -32,9 +33,7 @@ const SignInPage = () => {
       <AuthContainer>
         <div className={s.loginContainer}>
           <div className={s.loginHeader}>
-            <svg className={s.icon}>
-              <use href={sprite + '#icon-logo'} />
-            </svg>
+            <Icon/>
             <h1>Login</h1>
             <p>Enter your username and password to login</p>
           </div>

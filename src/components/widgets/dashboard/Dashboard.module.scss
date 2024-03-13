@@ -1,0 +1,74 @@
+@import "../../../sass/variables";
+
+
+.background {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+}
+
+.dashboardContainer {
+    width: 1032px;
+
+    margin: 32px;
+    margin-bottom: 36px;
+    margin-left: 79px;
+    margin-right: 81px;
+}
+
+.heroContainer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+.titleName {
+    color: white;
+}
+
+.textName {
+    color: white;
+}
+
+.iconAdd {
+    width: 64px;
+    height: 64px;
+
+    background-color: white;
+}
+
+.budgetContainer {
+    margin-bottom: 24px;
+
+    // width: 1032px;
+    height: 165px;
+    background-color: white;
+}
+
+.middleContainer {
+    width: 1032px;
+    margin-bottom: 24px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoriesContainer {
+    width: 331px;
+    height: 335px;
+    background-color: red;
+}
+
+.analyticsContainer {
+    // margin-left: 25px;
+    width: 667px;
+    height: 333px;
+    background-color: green;
+}
+
+.transactionsContainer {
+    width: 1032px;
+    height: 165px;
+    background-color: orange;
+}

@@ -6,6 +6,7 @@ import sprite from '../../assets/svg/sprites.svg';
 import { Formik, Form, Field } from 'formik';
 import AuthContainer from 'components/shared/authContainer/AuthContainer';
 import classnames from 'classnames';
+import Icon from 'components/shared/icon/Icon';
 // import { useState } from 'react';
 
 const SignUpPage = () => {
@@ -31,9 +32,7 @@ const SignUpPage = () => {
       <AuthContainer>
         <div className={s.loginContainer}>
           <div className={s.loginHeader}>
-            <svg className={s.icon}>
-              <use href={sprite + '#icon-logo'} />
-            </svg>
+            <Icon/>
             <h1>Register</h1>
             <p>Enter your details to register</p>
           </div>
