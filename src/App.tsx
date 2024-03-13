@@ -8,7 +8,7 @@ import PublicRoute from './components/routes/PublicRoute';
 
 const SignInPage = lazy(() => import('./views/signInPage/SignInPage'));
 const SignUpPage = lazy(() => import('./views/signUpPage/SignUpPage'));
-const MainPage = lazy(() => import('./views/mainPage/MainPage'));
+const DashboardPage = lazy(() => import('./views/dashboardPage/DashboardPage'));
 
 function App() {
   // const token = useSelector(authSelectors.getUserAccess);
@@ -35,7 +35,7 @@ function App() {
           />
           <Route
             path="/"
-            element={<ProtectedRoute element={<MainPage />} redirectTo={`/signIn`} />}
+            element={<ProtectedRoute element={<DashboardPage />} redirectTo={`/signIn`} />}
           />
         </Routes>
       </Suspense>
