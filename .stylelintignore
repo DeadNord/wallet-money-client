@@ -1,0 +1,14 @@
+node_modules
+build
+bin
+obj
+*.*
+!*.css
+!*.scss
+TheReasonSliderNav.scss
+OurProductsSliders.scss
+sliderStyles.scss
+ToastsContainer.scss
+Academy.module.scss
+MobileMenu.module.scss
+Header.module.scss
