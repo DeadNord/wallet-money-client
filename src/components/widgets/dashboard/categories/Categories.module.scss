@@ -48,13 +48,17 @@
     fill: white;
 }
 
-.categoriesListContainer {
 
+.categoriesListContainer {
+    scrollbar-color: $mainColor transparent;
 }
+
 
 .categoryItem {
     display: flex;
     justify-content: space-between;
+
+    padding-right: 10px;
 }
 
 .categoryNameContainer {
