@@ -1,0 +1,17 @@
+@import "../../../../sass/variables";
+
+.contentBackground {
+    background: $dachboardGradient;
+    box-shadow: $dashboardShadow;
+
+    border-radius: 6px;
+    padding: 16px;
+}
+
+
+.analyticsContainer {
+    // margin-left: 25px;
+    width: 667px;
+    height: 333px;
+    background-color: green;
+}

@@ -4,6 +4,10 @@ import { Route, Router, Routes } from 'react-router-dom';
 import Icon from 'components/shared/icon/Icon';
 import { getUserInfo } from 'store/auth/auth-selectors';
 import { useSelector } from 'react-redux';
+import Budget from './budget/Budget';
+import Categories from './categories/Categories';
+import Analytics from './analytics/Analytics';
+import Transactions from './transactions/Transactions';
 
 const Dashboard = () => {
   const user = useSelector(getUserInfo);
@@ -22,12 +26,12 @@ const Dashboard = () => {
             </div>
           </div>
           <div>
-            <div className={s.budgetContainer}></div>
+            <Budget />
             <div className={s.middleContainer}>
-              <div className={s.categoriesContainer}></div>
-              <div className={s.analyticsContainer}></div>
+              <Categories />
+              <Analytics />
             </div>
-            <div className={s.transactionsContainer}></div>
+            <Transactions />
           </div>
         </div>
       </div>

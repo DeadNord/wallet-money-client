@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, PersistConfig } from 'redux-persist';
 
 import authReducer from './auth/auth-slice';
+import financesReducer from './finances/finances-slice';
 
 const authPersistConfig: PersistConfig<any, any, any, any> = {
   key: 'auth',
@@ -10,9 +11,17 @@ const authPersistConfig: PersistConfig<any, any, any, any> = {
   // whitelist: ['token'],
 };
 
+const financesPersistConfig: PersistConfig<any, any, any, any> = {
+  key: 'finances',
+  storage,
+  // whitelist: ['token'],
+};
+
+
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    finances: persistReducer(financesPersistConfig, financesReducer),
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({
     serializableCheck: {

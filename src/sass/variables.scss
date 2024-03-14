@@ -4,15 +4,24 @@ $tablet: 768px;
 $desktop: 1240px;
 
 // Colors
-$whiteColor: #fff;
-$inputTextColor: #F0F0F0;
+$mainTextColor: #F0F0F0;
 $buttonAuthBackground: #272530;
 $mainColor: #8067C8;
+$barColor: #22222E;
 
 
 
 // Gradients
+$startMainGradient: #2F218C;
+$endMainGradient: #4F147F;
 $mainGradient: linear-gradient(90deg, #2F218C 0%, #4F147F 100%);
+$dachboardGradient: linear-gradient(0deg, #101116 -4.81%, #181921 104.81%);
+
+// Shadows
+$dashboardShadow: 0px 4px 4px 0px #00000014;
 
 // Exports
-:export {}
+:export {
+    startMainGradient: $startMainGradient;
+    endMainGradient: $endMainGradient;
+}

@@ -1,0 +1,16 @@
+@import "../../../../sass/variables";
+
+.contentBackground {
+    background: $dachboardGradient;
+    box-shadow: $dashboardShadow;
+
+    border-radius: 6px;
+    padding: 16px;
+}
+
+
+.categoriesContainer {
+    width: 331px;
+    height: 335px;
+    background-color: red;
+}

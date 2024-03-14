@@ -1,0 +1,15 @@
+@import "../../../../sass/variables";
+
+.contentBackground {
+    background: $dachboardGradient;
+    box-shadow: $dashboardShadow;
+
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.transactionsContainer {
+    width: 1032px;
+    height: 165px;
+    background-color: orange;
+}

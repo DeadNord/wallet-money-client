@@ -23,14 +23,14 @@
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
-    color: $inputTextColor;
+    
 }
 
 .loginHeader p {
     font-weight: 300;
 
     line-height: 24px;
-    color: $inputTextColor;
+    
     ;
 }
 
@@ -48,13 +48,13 @@
 
     font-weight: 300;
     line-height: 24px;
-    color: $inputTextColor;
+    
 }
 
 .input::placeholder {
     font-weight: 300;
     line-height: 24px;
-    color: $inputTextColor;
+    
 }
 
 .inputLink {
@@ -64,7 +64,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    color: $inputTextColor;
+    
 }
 
 .button {
@@ -72,7 +72,7 @@
 
     padding: 12px;
     border-radius: 6px;
-    color: $inputTextColor;
+    
 }
 
 .button:hover {
@@ -90,7 +90,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    color: $inputTextColor;
+    
 }
 
 .googleLogin {
@@ -107,7 +107,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    color: $inputTextColor;
+    
 }
 
 .navText:first-child {

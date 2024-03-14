@@ -9,6 +9,7 @@ const getUserAccess = (state: {
 const getUserInfo = (state: {
   auth: {
     user: {
+      id: string;
       name: string;
       email: string;
     };
