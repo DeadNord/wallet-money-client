@@ -15,12 +15,6 @@ const Budget = () => {
   const budgetProgress = [
     { value: Math.round((budget.monthlyExpenses / budget.budgetLimit) * 100) },
   ];
-  console.log(budgetProgress);
-  const dispatch: AppDispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getBudgetOperation(null));
-  }, [dispatch]);
 
   return (
     <>

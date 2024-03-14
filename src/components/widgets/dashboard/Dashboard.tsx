@@ -3,14 +3,24 @@ import sprite from '../../assets/svg/sprites.svg';
 import { Route, Router, Routes } from 'react-router-dom';
 import Icon from 'components/shared/icon/Icon';
 import { getUserInfo } from 'store/auth/auth-selectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Budget from './budget/Budget';
 import Categories from './categories/Categories';
 import Analytics from './analytics/Analytics';
 import Transactions from './transactions/Transactions';
+import { useEffect } from 'react';
+import { getBudgetOperation, getTransactionsOperation } from 'store/finances/finances-operation';
+import { AppDispatch } from 'store/store';
 
 const Dashboard = () => {
   const user = useSelector(getUserInfo);
+
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBudgetOperation(null));
+    dispatch(getTransactionsOperation(null));
+  }, [dispatch]);
 
   return (
     <>

@@ -1,17 +1,23 @@
 // @import './variables';
 
-// /* width */
 // *::-webkit-scrollbar {
-//   width: 8px;
+//     width: 8px; /* ширина скроллбара */
 // }
 
-// /* Track */
 // *::-webkit-scrollbar-track {
-//   background: $headerColor;
+//     background: #f1f1f1; /* цвет дорожки скроллбара */
 // }
 
-// /* Handle */
 // *::-webkit-scrollbar-thumb {
-//   background: $secondTextColor;
-//   border-radius: 3px;
+//     background: #888; /* цвет самого скроллбара */
+// }
+
+// *::-webkit-scrollbar-thumb:hover {
+//     background: #555; /* цвет скроллбара при наведении */
+// }
+
+// /* Стили для Firefox */
+// * {
+//     scrollbar-width: thin; /* "auto" или "thin" */
+//     scrollbar-color: #ffffff #101116; /* цвет скроллбара и дорожки */
 // }

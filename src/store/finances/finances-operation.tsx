@@ -27,12 +27,28 @@ const getTransactionsOperation = createAsyncThunk<any, any, any>(`api/finances/t
           date: "03.03.2024",
           amount: 25,
           type: 'Expense',
+          category: "Groceries"
         },
         {
-          name: '',
+          name: "Internet",
+          date: "03.03.2024",
+          amount: 25,
+          type: 'Expense',
+          category: "Digital"
+        },
+        {
+          name: "Shops",
+          date: "03.03.2024",
+          amount: 25,
+          type: 'Expense',
+          category: "Others"
+        },
+        {
+          name: 'Salary',
           date: "03.03.2024",
           amount: 25,
           type: 'Income',
+          category: "Digital"
         },
       ],
     };

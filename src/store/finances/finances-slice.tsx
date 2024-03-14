@@ -11,6 +11,7 @@ const initialState = {
       date: '',
       amount: 0,
       type: '',
+      category: '',
     }
   ],
 };
