@@ -1,5 +1,5 @@
 {
-  "name": "money-flow",
+  "name": "wallet-money",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.tsx",
