@@ -1,1 +1,1 @@
-# wallet-money-flow-client
+# wallet-money-client
