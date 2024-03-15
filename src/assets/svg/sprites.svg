@@ -1,5 +1,11 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-google" viewBox="0 0 32 32">
+<path fill="#f0f0f0" style="fill: var(--color1, #f0f0f0)" d="M32 16.364c0 9.091-6.4 15.636-15.754 15.636-8.985 0-16.246-7.152-16.246-16s7.262-16 16.246-16c4.431 0 8 1.576 10.831 4.242l-4.308 4.121c-5.785-5.455-16.615-1.333-16.615 7.636 0 5.576 4.554 10.061 10.092 10.061 6.4 0 8.861-4.485 9.231-6.909h-9.231v-5.455h15.508c0.123 0.848 0.246 1.576 0.246 2.667z"></path>
+</symbol>
+<symbol id="icon-arrow" viewBox="0 0 56 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color2, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M4 3l26 26 22-26"></path>
+</symbol>
 <symbol id="icon-calendar" viewBox="0 0 34 32">
 <path fill="none" stroke="#f0f0f0" style="stroke: var(--color1, #f0f0f0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="4" stroke-width="2.2857" d="M4.581 7.090h25.123M10.611 18.345h1.005M10.611 12.717h1.005M10.611 23.972h1.005M16.641 18.345h1.005M16.641 12.717h1.005M16.641 23.972h1.005M22.67 18.345h1.005M22.67 12.717h1.005M22.67 23.972h1.005M8.601 29.6h17.084c1.066 0 4.020 0 4.020 0s0-2.757 0-3.752v-19.697c0-0.995 0-3.752 0-3.752s-2.954-0-4.020-0h-17.084c-1.066 0-4.019 0-4.019 0s-0 2.757-0 3.752v19.697c0 0.995 0 3.752 0 3.752s2.953 0 4.019 0z"></path>
 </symbol>

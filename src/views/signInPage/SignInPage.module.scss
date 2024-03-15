@@ -2,7 +2,7 @@
 
 
 .loginContainer {
-   width: 322px;
+    width: 322px;
 }
 
 .icon {
@@ -23,14 +23,14 @@
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
-    
+
 }
 
 .loginHeader p {
     font-weight: 300;
 
     line-height: 24px;
-    
+
     ;
 }
 
@@ -48,13 +48,14 @@
 
     font-weight: 300;
     line-height: 24px;
-    
+    color: $mainTextColor;
 }
 
 .input::placeholder {
     font-weight: 300;
     line-height: 24px;
-    
+    color: $mainTextColor;
+
 }
 
 .inputLink {
@@ -64,15 +65,21 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    
+
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     margin-bottom: 18px;
 
     padding: 12px;
     border-radius: 6px;
-    
+
+    color: $mainTextColor;
+
 }
 
 .button:hover {
@@ -83,6 +90,13 @@
     background: $mainGradient;
 }
 
+.iconGoogle {
+    width: 16px;
+    height: 16px;
+
+    margin-right: 14px;
+}
+
 .altLoginText {
     align-self: center;
     margin-bottom: 18px;
@@ -90,7 +104,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    
+
 }
 
 .googleLogin {
@@ -107,7 +121,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    
+
 }
 
 .navText:first-child {

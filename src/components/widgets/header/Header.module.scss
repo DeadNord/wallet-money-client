@@ -38,7 +38,7 @@
     width: 24px;
     height: 24px;
 
-    background-color: white;
+    // background-color: white;
 }
 
 .menuItem p {
@@ -63,9 +63,11 @@
     margin-bottom: 54px;
 }
 
-.iconProfile{
+.iconProfile {
     width: 47px;
     height: 47px;
+
+    border-radius: 100px;
     background-color: white;
 }
 
@@ -79,8 +81,8 @@
     line-height: 24.38px;
 }
 
-.iconInfoProfile{
+.iconInfoProfile {
     width: 16px;
     height: 16px;
-    background-color: white;
+    // background-color: white;
 }

@@ -1,7 +1,6 @@
 import s from './Transactions.module.scss';
-import sprite from '../../assets/svg/sprites.svg';
-import Icon from 'components/shared/icon/Icon';
-import { getUserInfo } from 'store/auth/auth-selectors';
+import sprite from '../../../../assets/svg/sprites.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactions } from 'store/finances/finances-selectors';
 import { AutoSizer, Column, List, Table } from 'react-virtualized';
@@ -74,7 +73,9 @@ const Transactions = () => {
                     type="text"
                     placeholder="Search for anything..."
                   />
-                  <div className={s.searchIcon}></div>
+                  <svg className={s.searchIcon}>
+                    <use href={sprite + '#icon-search'} />
+                  </svg>
                 </div>
                 {/* <DatePicker
                   name="startDate"

@@ -32,7 +32,7 @@
 //     background-color: white;
 // }
 
-.chartBudget{
+.chartBudget {
     font-weight: 700;
     font-size: 28px;
     line-height: 36px;
@@ -40,7 +40,7 @@
     fill: white;
 }
 
-.chartText{
+.chartText {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -67,13 +67,11 @@
     align-items: center;
 }
 
-.categoryIcon {
-
+.icon {
     width: 9px;
     height: 9px;
 
-
-    background-color: white;
+    border-radius: 10px;
 }
 
 .categoryText {

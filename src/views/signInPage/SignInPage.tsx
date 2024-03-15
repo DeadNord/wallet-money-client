@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import s from './SignInPage.module.scss';
-// import sprite from '../../assets/svg/sprites.svg';
+import sprite from '../../assets/svg/sprites.svg';
 // import { useDispatch } from 'react-redux';
 // import { signInOperation } from '../../store/auth/auth-operation';
 import { Formik, Form, Field } from 'formik';
@@ -14,7 +14,7 @@ import Icon from 'components/shared/icon/Icon';
 const SignInPage = () => {
   //   const [passwordState, setPasswordToogle] = useState(false);
 
-    const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<any>();
 
   //   const passwordToogle = () => {
   //     setPasswordToogle(!passwordState);
@@ -25,7 +25,7 @@ const SignInPage = () => {
   };
 
   const signIn = (values: any) => {
-    dispatch(signInOperation(values))
+    dispatch(signInOperation(values));
   };
 
   return (
@@ -33,7 +33,7 @@ const SignInPage = () => {
       <AuthContainer>
         <div className={s.loginContainer}>
           <div className={s.loginHeader}>
-            <Icon/>
+            <Icon />
             <h1>Login</h1>
             <p>Enter your username and password to login</p>
           </div>
@@ -57,16 +57,25 @@ const SignInPage = () => {
               </button>
               <p className={s.altLoginText}>Or login with</p>
               <button type="button" className={`${s.button} ${s.googleLogin}`}>
+                <svg className={s.iconGoogle}>
+                  <use href={sprite + '#icon-google'} />
+                </svg>
                 Google
               </button>
             </Form>
           </Formik>
           <div className={s.loginFooter}>
-            <p  className={s.navText}>
-            Don't have an account? <NavLink to="/signUp" className={s.navLink}>Register</NavLink>
+            <p className={s.navText}>
+              Don't have an account?{' '}
+              <NavLink to="/signUp" className={s.navLink}>
+                Register
+              </NavLink>
             </p>
-            <p  className={s.navText}>
-            Want test? Visit our <button onClick={TestAuth} className={s.navLink}>Test Page</button>
+            <p className={s.navText}>
+              Want test? Visit our{' '}
+              <button onClick={TestAuth} className={s.navLink}>
+                Test Page
+              </button>
             </p>
           </div>
         </div>

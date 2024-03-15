@@ -35,11 +35,21 @@
     color: white;
 }
 
-.iconAdd {
-    width: 64px;
-    height: 64px;
+.iconContainer {
+    width: 60px;
+    height: 60px;
 
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+    background-image: $mainGradient;
+}
+
+.iconAdd {
+    width: 24px;
+    height: 24px;
 }
 
 .middleContainer {

@@ -49,6 +49,11 @@
     width: 124px;
 
     background-color: transparent;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: $mainTextColor;
 }
 
 .searchInput::placeholder {
@@ -64,8 +69,6 @@
     height: 10px;
 
     margin-left: 26px;
-
-    background-color: white;
 }
 
 
