@@ -15,13 +15,13 @@ import { AppDispatch } from 'store/store';
 const Dashboard = () => {
   const user = useSelector(getUserInfo);
 
-  const dispatch: AppDispatch = useDispatch();
+  // const dispatch: AppDispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getBudgetOperation(null));
-    dispatch(getTransactionsOperation(null));
-    // dispatch(getTransactionsByWeekOperation(null));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // dispatch(getBudgetOperation(null));
+  //   // dispatch(getTransactionsOperation(null));
+  //   // dispatch(getTransactionsByWeekOperation(null));
+  // }, [dispatch]);
 
   return (
     <>

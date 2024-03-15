@@ -30,7 +30,7 @@ const Analytics = () => {
     dispatch(getTransactionsByWeekOperation(null));
   }, [dispatch]);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <>

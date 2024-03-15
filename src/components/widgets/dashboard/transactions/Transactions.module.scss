@@ -5,11 +5,122 @@
     box-shadow: $dashboardShadow;
 
     border-radius: 6px;
-    padding: 16px;
+    padding: 10px 16px 16px 16px;
 }
 
 .transactionsContainer {
     width: 1032px;
     height: 165px;
-    background-color: orange;
+}
+
+.titleContainer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.title {
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.formContainer {
+    display: flex;
+    align-items: center;
+}
+
+.seachContainer {
+    display: flex;
+    align-items: center;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    background-image: $mainGradient;
+    box-shadow: $searchShadow;
+
+}
+
+.searchInput {
+    width: 124px;
+
+    background-color: transparent;
+}
+
+.searchInput::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+
+    color: $mainTextColor;
+}
+
+.searchIcon {
+    width: 10px;
+    height: 10px;
+
+    margin-left: 26px;
+
+    background-color: white;
+}
+
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 14px;
+}
+
+.headerItem {
+    width: 25%;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+
+.tableContainer {
+    scrollbar-color: $mainColor transparent;
+}
+
+.tableItem {
+    display: flex;
+    align-items: center;
+}
+
+.tableItem:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.tableCell {
+    width: 25%;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+
+.amount {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.type {
+    width: 71px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+
+    box-shadow: $searchShadow;
 }

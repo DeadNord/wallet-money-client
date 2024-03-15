@@ -4,30 +4,29 @@ import { Route, Router, Routes } from 'react-router-dom';
 import Icon from 'components/shared/icon/Icon';
 import { getUserInfo } from 'store/auth/auth-selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getBudget,
-  getExpensesByCategory,
-  getTransactions,
-} from 'store/finances/finances-selectors';
+import { getBudget, getExpensesByCategories } from 'store/finances/finances-selectors';
 import { AppDispatch } from 'store/store';
-import { getBudgetOperation } from 'store/finances/finances-operation';
+import {
+  getBudgetOperation,
+  getExpensesByCategoriesOperation,
+} from 'store/finances/finances-operation';
 import { useEffect } from 'react';
 import { List } from 'react-virtualized';
 import { Cell, Pie, PieChart, ResponsiveContainer, Text } from 'recharts';
 import Scrollbar from 'react-scrollbars-custom';
 
-const generatePurpleShades = (numShades: number) => {
-  const shades = [];
-  const maxLightness = 90; // Максимальная светлость для самого светлого оттенка
-  const minLightness = 30; // Минимальная светлость для самого темного оттенка
+// const generatePurpleShades = (numShades: number) => {
+//   const shades = [];
+//   const maxLightness = 90; // Максимальная светлость для самого светлого оттенка
+//   const minLightness = 30; // Минимальная светлость для самого темного оттенка
 
-  for (let i = 0; i < numShades; i++) {
-    const lightness = minLightness + (maxLightness - minLightness) * (i / (numShades - 1));
-    shades.push(`hsl(270, 50%, ${lightness}%)`); // HSL для фиолетового цвета (270°)
-  }
+//   for (let i = 0; i < numShades; i++) {
+//     const lightness = minLightness + (maxLightness - minLightness) * (i / (numShades - 1));
+//     shades.push(`hsl(270, 50%, ${lightness}%)`); // HSL для фиолетового цвета (270°)
+//   }
 
-  return shades;
-};
+//   return shades;
+// };
 
 interface RowRendererParams {
   key: string;
@@ -36,25 +35,33 @@ interface RowRendererParams {
 }
 
 const Categories = () => {
-  const categories = useSelector(getExpensesByCategory);
-  const categoriesEntries = Object.entries(categories);
-  const purpleShades = generatePurpleShades(categoriesEntries.length);
-  const data = categoriesEntries.map(([name, value], index) => ({
-    name,
-    value,
-    color: purpleShades[index], // Присваиваем каждой категории случайный цвет
-  }));
+  const expenses = useSelector(getExpensesByCategories);
+
+  console.log(expenses);
+  // const categoriesEntries = Object.entries(categories);
+  // const purpleShades = generatePurpleShades(categoriesEntries.length);
+  // const data = categoriesEntries.map(([name, value], index) => ({
+  //   name,
+  //   value,
+  //   color: purpleShades[index], // Присваиваем каждой категории случайный цвет
+  // }));
   const budget = useSelector(getBudget);
 
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getExpensesByCategoriesOperation(null));
+  }, [dispatch]);
+
   const rowRenderer = ({ key, index, style }: RowRendererParams) => {
-    const [categoryName, amount] = categoriesEntries[index];
+    const expense = expenses[index];
     return (
       <li key={key} style={style} className={s.categoryItem}>
         <div className={s.categoryNameContainer}>
           <div className={s.categoryIcon}></div>
-          <p className={`${s.categoryText} ${s.categoryName}`}>{categoryName}</p>
+          <p className={`${s.categoryText} ${s.categoryName}`}>{expense.category}</p>
         </div>
-        <p className={s.categoryText}>€{amount}</p>
+        <p className={s.categoryText}>€{expense.value}</p>
       </li>
     );
   };
@@ -66,7 +73,7 @@ const Categories = () => {
         <ResponsiveContainer width="100%" height={188}>
           <PieChart>
             <Pie
-              data={data}
+              data={expenses}
               cx="50%"
               cy="50%"
               labelLine={false}
@@ -76,7 +83,7 @@ const Categories = () => {
               dataKey="value"
               stroke="none"
             >
-              {data.map((entry, index) => (
+              {expenses.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Pie>
@@ -104,7 +111,7 @@ const Categories = () => {
           <List
             width={300}
             height={40}
-            rowCount={data.length}
+            rowCount={expenses.length}
             rowHeight={21}
             rowRenderer={rowRenderer}
           />

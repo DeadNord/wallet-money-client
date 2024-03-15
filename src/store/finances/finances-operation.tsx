@@ -52,6 +52,13 @@ const getTransactionsOperation = createAsyncThunk<any, any, any>(
             type: 'Income',
             category: 'Digital',
           },
+          {
+            name: 'Freelance',
+            date: '03.03.2024',
+            amount: 25,
+            type: 'Income',
+            category: 'Digital',
+          },
         ],
       };
 
@@ -62,27 +69,40 @@ const getTransactionsOperation = createAsyncThunk<any, any, any>(
   },
 );
 
-const getTransactionsByCategoriesPerMountsOperation = createAsyncThunk<any, any, any>(
+const getExpensesByCategoriesOperation = createAsyncThunk<any, any, any>(
   `api/finances/categories`,
   async values => {
     try {
       // const { data } = await axios.post(`api/auth/signIn`, { wallet });
 
+      // const generatePurpleShades = (numShades: number) => {
+      //   const shades = [];
+      //   const maxLightness = 90; // Максимальная светлость для самого светлого оттенка
+      //   const minLightness = 30; // Минимальная светлость для самого темного оттенка
+
+      //   for (let i = 0; i < numShades; i++) {
+      //     const lightness = minLightness + (maxLightness - minLightness) * (i / (numShades - 1));
+      //     shades.push(`hsl(270, 50%, ${lightness}%)`); // HSL для фиолетового цвета (270°)
+      //   }
+
+      //   return shades;
+      // };
+
       const data = [
         {
-          category: '',
-          value: '',
-          color: '',
+          category: 'Groceries',
+          value: '25',
+          color: '#8067C9',
         },
         {
-          category: '',
-          value: '',
-          color: '',
+          category: 'Digital',
+          value: '25',
+          color: '#8067C8',
         },
         {
-          category: '',
-          value: '',
-          color: '',
+          category: 'Others',
+          value: '25',
+          color: '#8067C7',
         },
       ];
 
@@ -120,5 +140,5 @@ export {
   getBudgetOperation,
   getTransactionsOperation,
   getTransactionsByWeekOperation,
-  getTransactionsByCategoriesPerMountsOperation,
+  getExpensesByCategoriesOperation,
 };

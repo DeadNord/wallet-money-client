@@ -16,6 +16,12 @@ const Budget = () => {
     { value: Math.round((budget.monthlyExpenses / budget.budgetLimit) * 100) },
   ];
 
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBudgetOperation(null));
+  }, [dispatch]);
+
   return (
     <>
       <div className={`${s.contentBackground} ${s.budgetContainer}`}>

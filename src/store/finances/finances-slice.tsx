@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getBudgetOperation,
-  getTransactionsByCategoriesPerMountsOperation,
+  getExpensesByCategoriesOperation,
   getTransactionsByWeekOperation,
   getTransactionsOperation,
 } from './finances-operation';
@@ -19,8 +19,14 @@ const initialState = {
       category: '',
     },
   ],
-  transactionsByWeek: [],
-  transactionByCategories: [
+  transactionsByWeek: [
+    {
+      name: '',
+      Income: 0,
+      Outcome: 0,
+    }
+  ],
+  expensesByCategories: [
     {
       category: '',
       value: '',
@@ -46,8 +52,8 @@ const financesSlice = createSlice({
     builder.addCase(getTransactionsByWeekOperation.fulfilled, (state, action) => {
       state.transactionsByWeek = action.payload;
     });
-    builder.addCase(getTransactionsByCategoriesPerMountsOperation.fulfilled, (state, action) => {
-      state.transactionByCategories = action.payload;
+    builder.addCase(getExpensesByCategoriesOperation.fulfilled, (state, action) => {
+      state.expensesByCategories = action.payload;
     });
   },
 });

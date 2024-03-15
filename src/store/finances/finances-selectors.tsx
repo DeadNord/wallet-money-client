@@ -26,31 +26,27 @@ const getTransactions = (state: {
 const getTransactionsByWeek = (state: {
   finances: {
     transactionsByWeek: [
-      { name: 'Mo'; Income: number; Outcome: number },
-      { name: 'Tu'; Income: number; Outcome: number },
-      { name: 'We'; Income: number; Outcome: number },
-      { name: 'Th'; Income: number; Outcome: number },
-      { name: 'Fr'; Income: number; Outcome: number },
-      { name: 'St'; Income: number; Outcome: number },
-      { name: 'Sn'; Income: number; Outcome: number },
+      { name: 'Mo'; income: number; outcome: number },
+      { name: 'Tu'; income: number; outcome: number },
+      { name: 'We'; income: number; outcome: number },
+      { name: 'Th'; income: number; outcome: number },
+      { name: 'Fr'; income: number; outcome: number },
+      { name: 'St'; income: number; outcome: number },
+      { name: 'Sn'; income: number; outcome: number },
     ];
   };
 }) => state.finances.transactionsByWeek;
 
-const getExpensesByCategory = createSelector(
-  [getTransactions], // Список зависимостей селектора
-  transactions => {
-    const categories = transactions
-      .filter(transaction => transaction.type === 'Expense') // Фильтруем только расходы
-      .reduce((acc, transaction) => {
-        if (!acc[transaction.category]) {
-          acc[transaction.category] = 0;
-        }
-        acc[transaction.category] += transaction.amount;
-        return acc;
-      }, {} as Record<string, number>);
-    return categories;
-  },
-);
+const getExpensesByCategories = (state: {
+  finances: {
+    expensesByCategories: [
+      {
+        category: string;
+        value: number;
+        color: string;
+      },
+    ];
+  };
+}) => state.finances.expensesByCategories;
 
-export { getBudget, getTransactions, getExpensesByCategory, getTransactionsByWeek };
+export { getBudget, getTransactions, getExpensesByCategories, getTransactionsByWeek };

@@ -5,12 +5,16 @@
     background-color: black;
     height: 100vh;
     width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboardContainer {
     width: 1032px;
 
-    margin: 32px;
+    margin-top: 32px;
     margin-bottom: 36px;
     margin-left: 79px;
     margin-right: 81px;
