@@ -91,17 +91,17 @@ const getExpensesByCategoriesOperation = createAsyncThunk<any, any, any>(
       const data = [
         {
           category: 'Groceries',
-          value: '25',
+          value: 25,
           color: '#8067C9',
         },
         {
           category: 'Digital',
-          value: '25',
+          value: 25,
           color: '#8067C8',
         },
         {
           category: 'Others',
-          value: '25',
+          value: 25,
           color: '#8067C7',
         },
       ];

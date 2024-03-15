@@ -37,7 +37,7 @@ const Transactions = () => {
     const transaction = data[index];
 
     return (
-      <div key={key} className={s.tableItem}>
+      <div key={key} style={style} className={s.tableItem}>
         <div className={s.tableCell}>{transaction.name}</div>
         <div className={s.tableCell}>{transaction.date}</div>
         <div className={`${s.tableCell} ${s.amount}`}>€{transaction.amount}</div>
@@ -114,7 +114,7 @@ const Transactions = () => {
                 width={width}
                 height={52}
                 rowCount={data.length}
-                rowHeight={21}
+                rowHeight={26}
                 rowRenderer={rowRenderer}
               />
             )}

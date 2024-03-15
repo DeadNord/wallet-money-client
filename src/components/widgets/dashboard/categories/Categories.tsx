@@ -37,14 +37,7 @@ interface RowRendererParams {
 const Categories = () => {
   const expenses = useSelector(getExpensesByCategories);
 
-  console.log(expenses);
-  // const categoriesEntries = Object.entries(categories);
-  // const purpleShades = generatePurpleShades(categoriesEntries.length);
-  // const data = categoriesEntries.map(([name, value], index) => ({
-  //   name,
-  //   value,
-  //   color: purpleShades[index], // Присваиваем каждой категории случайный цвет
-  // }));
+
   const budget = useSelector(getBudget);
 
   const dispatch: AppDispatch = useDispatch();
