@@ -8,6 +8,8 @@ $mainTextColor: #F0F0F0;
 $buttonAuthBackground: #272530;
 $mainColor: #8067C8;
 $barColor: #22222E;
+$incomeColor: #19C1B7;
+$outcomeColor: #4151DC;
 
 
 
@@ -24,4 +26,7 @@ $dashboardShadow: 0px 4px 4px 0px #00000014;
 :export {
     startMainGradient: $startMainGradient;
     endMainGradient: $endMainGradient;
+    mainTextColor: $mainTextColor;
+    incomeColor: $incomeColor;
+    outcomeColor: $outcomeColor;
 }

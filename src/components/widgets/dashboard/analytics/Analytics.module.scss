@@ -13,5 +13,54 @@
     // margin-left: 25px;
     width: 667px;
     height: 333px;
-    background-color: green;
+}
+
+.titleContainer{
+    margin-bottom: 21px;
+}
+
+.flex{
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title{
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.text{
+    font-weight: 300;
+    line-height: 21px;
+}
+
+.iconContainer{
+    margin-left: 32px;
+}
+
+.icon{
+    width: 9px;
+    height: 9px;
+
+    margin-right: 16px;
+
+    border-radius: 10px;
+}
+
+.iconIncome{
+    background-color: $incomeColor;
+}
+
+.iconOutcome{
+    background-color: $outcomeColor;
+}
+
+.charText{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18;
+
+    color: $mainTextColor;
 }

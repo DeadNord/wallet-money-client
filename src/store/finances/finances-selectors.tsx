@@ -23,6 +23,20 @@ const getTransactions = (state: {
   };
 }) => state.finances.transactions;
 
+const getTransactionsByWeek = (state: {
+  finances: {
+    transactionsByWeek: [
+      { name: 'Mo'; Income: number; Outcome: number },
+      { name: 'Tu'; Income: number; Outcome: number },
+      { name: 'We'; Income: number; Outcome: number },
+      { name: 'Th'; Income: number; Outcome: number },
+      { name: 'Fr'; Income: number; Outcome: number },
+      { name: 'St'; Income: number; Outcome: number },
+      { name: 'Sn'; Income: number; Outcome: number },
+    ];
+  };
+}) => state.finances.transactionsByWeek;
+
 const getExpensesByCategory = createSelector(
   [getTransactions], // Список зависимостей селектора
   transactions => {
@@ -35,8 +49,8 @@ const getExpensesByCategory = createSelector(
         acc[transaction.category] += transaction.amount;
         return acc;
       }, {} as Record<string, number>);
-      return categories;
+    return categories;
   },
 );
 
-export { getBudget, getTransactions, getExpensesByCategory };
+export { getBudget, getTransactions, getExpensesByCategory, getTransactionsByWeek };

@@ -9,7 +9,7 @@ import Categories from './categories/Categories';
 import Analytics from './analytics/Analytics';
 import Transactions from './transactions/Transactions';
 import { useEffect } from 'react';
-import { getBudgetOperation, getTransactionsOperation } from 'store/finances/finances-operation';
+import { getBudgetOperation, getTransactionsByWeekOperation, getTransactionsOperation } from 'store/finances/finances-operation';
 import { AppDispatch } from 'store/store';
 
 const Dashboard = () => {
@@ -20,6 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getBudgetOperation(null));
     dispatch(getTransactionsOperation(null));
+    // dispatch(getTransactionsByWeekOperation(null));
   }, [dispatch]);
 
   return (

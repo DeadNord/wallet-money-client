@@ -72,7 +72,7 @@ const Categories = () => {
               labelLine={false}
               innerRadius="60%"
               outerRadius="80%"
-              fill="#8884d8"
+              // fill="#8884d8"
               dataKey="value"
               stroke="none"
             >
