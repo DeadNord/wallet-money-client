@@ -81,9 +81,23 @@ describe('App component accessibility testing', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+});
+
+describe('ErrorBoundary tests', () => {
+  let originalConsoleError: typeof console.error;
+
+  beforeEach(() => {
+    originalConsoleError = console.error;
+    console.error = jest.fn(); // Mock console.error
+  });
+
+  afterEach(() => {
+    console.error = originalConsoleError; // Restore original console.error
+    jest.clearAllMocks(); // Clear all mocks
+  });
 
   // Error Boundary tests
-  test('ErrorBoundary catches errors from child components and displays fallback UI', () => {
+  test('ErrorBoundary catches errors from фchild components and displays fallback UI', () => {
     const FailingComponent = () => {
       throw new Error('Test error');
     };
