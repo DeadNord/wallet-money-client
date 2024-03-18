@@ -5,7 +5,7 @@ import {
   signOutOperation,
   getUserOperation,
   refreshTokenOperation,
-} from './auth-operation';
+} from './auth-operations';
 import { AuthState, User } from './AuthTypes';
 
 // Define the initial state of the authentication module

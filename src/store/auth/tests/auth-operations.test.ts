@@ -5,7 +5,7 @@ import {
   refreshTokenOperation,
   signInOperation,
   getUserOperation,
-} from '../auth-operation';
+} from '../auth-operations';
 import authReducer, { initialState as authInitialState } from '../auth-slice';
 
 // Setup function for configuring the store for tests

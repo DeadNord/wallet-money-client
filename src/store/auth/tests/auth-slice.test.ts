@@ -6,7 +6,7 @@ import {
   getUserOperation,
   refreshTokenOperation,
   signUpOperation,
-} from '../auth-operation';
+} from '../auth-operations';
 import { AuthState } from '../AuthTypes';
 
 // Setup function for configuring the store for tests

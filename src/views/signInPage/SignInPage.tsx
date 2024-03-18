@@ -6,7 +6,7 @@ import s from './SignInPage.module.scss';
 import { Formik, Form, Field } from 'formik';
 import AuthContainer from 'components/shared/authContainer/AuthContainer';
 import classnames from 'classnames';
-import { signInOperation } from 'store/auth/auth-operation';
+import { signInOperation } from 'store/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import Logo from 'components/shared/icons/logo/Logo';
 import SvgIcon from 'components/shared/icons/SvgIcon';

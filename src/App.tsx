@@ -14,7 +14,7 @@ import PublicRoute from './components/routes/PublicRoute'; // Component for publ
 // Redux-related imports
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'store/auth/auth-selectors'; // Selector to check if the user is logged in
-import { getUserOperation } from 'store/auth/auth-operation'; // Operation to fetch user details
+import { getUserOperation } from 'store/auth/auth-operations'; // Operation to fetch user details
 import { AppDispatch } from 'store/store'; // Type definition for the Redux dispatch function
 
 // Error handling
