@@ -1,37 +1,42 @@
 import s from './Header.module.scss';
 import sprite from '../../../assets/svg/sprites.svg';
 import { Route, Router, Routes } from 'react-router-dom';
-import Icon from 'components/shared/icon/Icon';
+import Logo from 'components/shared/icons/logo/Logo';
+import SvgIcon from 'components/shared/icons/SvgIcon';
 
 const Header = () => {
   return (
     <>
       <div className={s.headerContainer}>
         <div className={s.sidebar}>
-          <Icon />
+          <Logo />
           <ul className={s.menuList}>
             <li className={s.menuItem}>
-              <svg className={s.icon}>
+              {/* <svg className={s.icon}>
                 <use href={sprite + '#icon-board'} />
-              </svg>
+              </svg> */}
+              <SvgIcon name={'icon-board'} className={s.icon} />
               <p>Dashboard</p>
             </li>
             <li className={s.menuItem}>
-              <svg className={s.icon}>
+              {/* <svg className={s.icon}>
                 <use href={sprite + '#icon-chart'} />
-              </svg>
+              </svg> */}
+              <SvgIcon name={'icon-chart'} className={s.icon} />
               <p>Analytics</p>
             </li>
             <li className={s.menuItem}>
-              <svg className={s.icon}>
+              {/* <svg className={s.icon}>
                 <use href={sprite + '#icon-user'} />
-              </svg>
+              </svg> */}
+              <SvgIcon name={'icon-user'} className={s.icon} />
               <p>Accounts</p>
             </li>
             <li className={s.menuItem}>
-              <svg className={s.icon}>
+              {/* <svg className={s.icon}>
                 <use href={sprite + '#icon-settings'} />
-              </svg>
+              </svg> */}
+              <SvgIcon name={'icon-settings'} className={s.icon} />
               <p>Settings</p>
             </li>
           </ul>

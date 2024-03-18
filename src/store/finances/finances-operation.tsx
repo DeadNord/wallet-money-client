@@ -120,13 +120,13 @@ const getTransactionsByWeekOperation = createAsyncThunk<any, any, any>(
       // const { data } = await axios.post(`api/auth/signIn`, { wallet });
 
       const data = [
-        { name: 'Mo', Income: 4000, Outcome: 2400 },
-        { name: 'Tu', Income: 3000, Outcome: 1398 },
-        { name: 'We', Income: 2000, Outcome: 9800 },
-        { name: 'Th', Income: 2780, Outcome: 3908 },
-        { name: 'Fr', Income: 1890, Outcome: 4800 },
-        { name: 'St', Income: 2390, Outcome: 3800 },
-        { name: 'Sn', Income: 3490, Outcome: 4300 },
+        { name: 'Mo', income: 4000, outcome: 2400 },
+        { name: 'Tu', income: 3000, outcome: 1398 },
+        { name: 'We', income: 2000, outcome: 9800 },
+        { name: 'Th', income: 2780, outcome: 3908 },
+        { name: 'Fr', income: 1890, outcome: 4800 },
+        { name: 'St', income: 2390, outcome: 3800 },
+        { name: 'Sn', income: 3490, outcome: 4300 },
       ];
 
       return data;

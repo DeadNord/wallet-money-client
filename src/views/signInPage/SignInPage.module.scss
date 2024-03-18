@@ -58,6 +58,10 @@
 
 }
 
+input:-webkit-autofill {
+    -webkit-text-fill-color: $mainTextColor;
+}
+
 .inputLink {
     margin-left: auto;
     margin-bottom: 18px;

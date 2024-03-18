@@ -1,23 +1,16 @@
 import s from './Transactions.module.scss';
-import sprite from '../../../../assets/svg/sprites.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactions } from 'store/finances/finances-selectors';
-import { AutoSizer, Column, List, Table } from 'react-virtualized';
-import { Field, Formik, Form } from 'formik';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import { Field, Formik, Form } from 'formik';
 
-import variables from '../../../../sass/variables.scss';
 import { getTransactionsOperation } from 'store/finances/finances-operation';
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { AppDispatch } from 'store/store';
+// import SvgIcon from 'components/shared/icons/SvgIcon';
 
-interface RowRendererParams {
-  key: string;
-  index: number;
-  style: React.CSSProperties;
-}
+const TransactionList = lazy(() => import('./transactionList/TransactionList'));
+const TransactionSearchForm = lazy(() => import('./transactionSearchForm/TransactionSearchForm'));
 
 const Transactions = () => {
   const data = useSelector(getTransactions);
@@ -32,75 +25,14 @@ const Transactions = () => {
     console.log(values);
   };
 
-  const rowRenderer = ({ key, index, style }: RowRendererParams) => {
-    const transaction = data[index];
-
-    return (
-      <div key={key} style={style} className={s.tableItem}>
-        <div className={s.tableCell}>{transaction.name}</div>
-        <div className={s.tableCell}>{transaction.date}</div>
-        <div className={`${s.tableCell} ${s.amount}`}>€{transaction.amount}</div>
-        <div
-          className={`${s.tableCell} ${s.type}`}
-          style={{
-            backgroundColor:
-              transaction.type === 'Income' ? variables.incomeColor : variables.outcomeColor,
-          }}
-        >
-          {transaction.type}
-        </div>
-      </div>
-    );
-  };
-
   return (
     <>
       <div className={`${s.contentBackground} ${s.transactionsContainer}`}>
         <div className={s.titleContainer}>
           <h2 className={s.title}>Transactions</h2>
-          <Formik
-            initialValues={{ searchTerm: '', startDate: new Date(), endDate: new Date() }}
-            onSubmit={(values, { setSubmitting }) => {
-              submitForm(values);
-            }}
-          >
-            {formikProps => (
-              <Form className={s.formContainer}>
-                <div className={s.seachContainer}>
-                  <Field
-                    name="search"
-                    className={s.searchInput}
-                    type="text"
-                    placeholder="Search for anything..."
-                  />
-                  <svg className={s.searchIcon}>
-                    <use href={sprite + '#icon-search'} />
-                  </svg>
-                </div>
-                {/* <DatePicker
-                  name="startDate"
-                  selected={formikProps.values.startDate}
-                  onChange={(date: Date | null) => formikProps.setFieldValue('startDate', date)}
-                  selectsStart
-                  startDate={formikProps.values.startDate}
-                  endDate={formikProps.values.endDate}
-                  isClearable
-                  placeholderText="Start Date"
-                />
-                <DatePicker
-                  name="endDate"
-                  selected={formikProps.values.endDate}
-                  onChange={(date: Date | null) => formikProps.setFieldValue('endDate', date)}
-                  selectsEnd
-                  startDate={formikProps.values.startDate}
-                  endDate={formikProps.values.endDate}
-                  minDate={formikProps.values.startDate}
-                  isClearable
-                  placeholderText="End Date"
-                /> */}
-              </Form>
-            )}
-          </Formik>
+          <Suspense fallback={<div>Loading Search Form...</div>}>
+            <TransactionSearchForm onSubmit={submitForm} />
+          </Suspense>
         </div>
         <div>
           <div className={s.headerContainer}>
@@ -109,17 +41,9 @@ const Transactions = () => {
             <div className={s.headerItem}>Amount</div>
             <div className={s.headerItem}>Status</div>
           </div>
-          <AutoSizer className={s.tableContainer}>
-            {({ width, height }) => (
-              <List
-                width={width}
-                height={52}
-                rowCount={data.length}
-                rowHeight={26}
-                rowRenderer={rowRenderer}
-              />
-            )}
-          </AutoSizer>
+          <Suspense fallback={<div>Loading Transactions...</div>}>
+            <TransactionList data={data} />
+          </Suspense>
         </div>
       </div>
     </>

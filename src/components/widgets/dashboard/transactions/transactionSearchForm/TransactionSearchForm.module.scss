@@ -1,0 +1,46 @@
+@import "../../../../../sass/variables";
+
+
+.formContainer {
+    display: flex;
+    align-items: center;
+}
+
+.seachContainer {
+    display: flex;
+    align-items: center;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    background-image: $mainGradient;
+    box-shadow: $searchShadow;
+
+}
+
+.searchInput {
+    width: 124px;
+
+    background-color: transparent;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: $mainTextColor;
+}
+
+.searchInput::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+
+    color: $mainTextColor;
+}
+
+.searchIcon {
+    width: 10px;
+    height: 10px;
+
+    margin-left: 26px;
+}

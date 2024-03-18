@@ -1,5 +1,7 @@
 import s from './Dashboard.module.scss';
-import sprite from '../../../assets/svg/sprites.svg';
+// import sprite from '../../../assets/svg/sprites.svg';
+// import { ReactComponent as ReactSprite } from '../../../assets/svg/sprites.svg';
+
 import { Route, Router, Routes } from 'react-router-dom';
 import { getUserInfo } from 'store/auth/auth-selectors';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +16,7 @@ import {
   getTransactionsOperation,
 } from 'store/finances/finances-operation';
 import { AppDispatch } from 'store/store';
+import SvgIcon from 'components/shared/icons/SvgIcon';
 
 const Dashboard = () => {
   const user = useSelector(getUserInfo);
@@ -36,9 +39,10 @@ const Dashboard = () => {
               <p className={s.textName}>Here’s what’s happening with your store today.</p>
             </div>
             <div className={s.iconContainer}>
-              <svg className={s.iconAdd}>
+              {/* <svg className={s.iconAdd}>
                 <use href={sprite + '#icon-plus'} />
-              </svg>
+              </svg> */}
+              <SvgIcon name={'icon-plus'} className={s.iconAdd} />
             </div>
           </div>
           <div>

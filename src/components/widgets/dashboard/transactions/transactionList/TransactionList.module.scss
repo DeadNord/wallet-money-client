@@ -1,0 +1,37 @@
+@import "../../../../../sass/variables";
+
+.tableContainer {
+    scrollbar-color: $mainColor transparent;
+}
+
+.tableItem {
+    display: flex;
+    align-items: center;
+}
+
+.tableCell {
+    width: 25%;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+
+.amount {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.type {
+    width: 71px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+
+    box-shadow: $searchShadow;
+}

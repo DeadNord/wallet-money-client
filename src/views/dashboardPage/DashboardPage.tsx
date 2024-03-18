@@ -8,8 +8,8 @@ const DashboardPage = () => {
   return (
     <>
       <div className={s.flex}>
-      <Header/>
-      <Dashboard/>
+        {/* <Header /> */}
+        <Dashboard />
       </div>
     </>
   );

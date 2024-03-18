@@ -1,5 +1,5 @@
 import s from './Budget.module.scss';
-import sprite from '../../../../assets/svg/sprites.svg';
+// import sprite from '../../../../assets/svg/sprites.svg';
 
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { getBudgetOperation } from 'store/finances/finances-operation';
 
 import variables from '../../../../sass/variables.scss';
+import SvgIcon from 'components/shared/icons/SvgIcon';
 
 const Budget = () => {
   const budget = useSelector(getBudget);
@@ -56,9 +57,10 @@ const Budget = () => {
           </ResponsiveContainer>
         </div>
         <div className={s.iconContainer}>
-          <svg className={s.iconBudget}>
+          {/* <svg className={s.iconBudget}>
             <use href={sprite + '#icon-checkCircle'} />
-          </svg>
+          </svg> */}
+          <SvgIcon name={'icon-checkCircle'} className={s.iconBudget} />
           <p className={s.budgetText}>Budget on track</p>
         </div>
       </div>

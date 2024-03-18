@@ -22,9 +22,9 @@ const initialState = {
   transactionsByWeek: [
     {
       name: '',
-      Income: 0,
-      Outcome: 0,
-    }
+      income: 0,
+      outcome: 0,
+    },
   ],
   expensesByCategories: [
     {

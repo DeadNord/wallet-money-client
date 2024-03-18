@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import s from './SignInPage.module.scss';
-import sprite from '../../assets/svg/sprites.svg';
+// import sprite from '../../assets/svg/sprites.svg';
 // import { useDispatch } from 'react-redux';
 // import { signInOperation } from '../../store/auth/auth-operation';
 import { Formik, Form, Field } from 'formik';
@@ -8,7 +8,8 @@ import AuthContainer from 'components/shared/authContainer/AuthContainer';
 import classnames from 'classnames';
 import { signInOperation } from 'store/auth/auth-operation';
 import { useDispatch } from 'react-redux';
-import Icon from 'components/shared/icon/Icon';
+import Logo from 'components/shared/icons/logo/Logo';
+import SvgIcon from 'components/shared/icons/SvgIcon';
 // import { useState } from 'react';
 
 const SignInPage = () => {
@@ -33,7 +34,7 @@ const SignInPage = () => {
       <AuthContainer>
         <div className={s.loginContainer}>
           <div className={s.loginHeader}>
-            <Icon />
+            <Logo />
             <h1>Login</h1>
             <p>Enter your username and password to login</p>
           </div>
@@ -57,9 +58,10 @@ const SignInPage = () => {
               </button>
               <p className={s.altLoginText}>Or login with</p>
               <button type="button" className={`${s.button} ${s.googleLogin}`}>
-                <svg className={s.iconGoogle}>
+                {/* <svg className={s.iconGoogle}>
                   <use href={sprite + '#icon-google'} />
-                </svg>
+                </svg> */}
+                <SvgIcon name={'icon-google'} className={s.iconGoogle} />
                 Google
               </button>
             </Form>
