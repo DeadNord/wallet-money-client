@@ -8,7 +8,7 @@ const DashboardPage = () => {
   return (
     <>
       <div className={s.flex}>
-        {/* <Header /> */}
+        <Header />
         <Dashboard />
       </div>
     </>
