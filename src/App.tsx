@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     // Fetch user details if logged in
     if (isLoggedIn) {
-      dispatch(getUserOperation(null)); // Note: Check if passing null is intended or a placeholder
+      dispatch(getUserOperation());
     }
   }, [isLoggedIn, dispatch]);
 

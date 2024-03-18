@@ -8,4 +8,5 @@ export interface AuthState {
   accessToken: string | null;
   user: User;
   isLoggedIn: boolean;
+  error: string | null;
 }

@@ -35,6 +35,12 @@ const financesPersistConfig = {
   storage,
 };
 
+const middleware = {
+  serializableCheck: {
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  },
+};
+
 // Use Redux's combineReducer to bring them together under one top-level state
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
@@ -44,12 +50,7 @@ const rootReducer = combineReducers({
 // Create the store with reducers and middleware to handle serializable checks correctly
 const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  middleware: getDefaultMiddleware => getDefaultMiddleware(middleware),
   devTools: process.env.NODE_ENV !== 'production', // Enable Redux dev tools only in development
 });
 

@@ -8,6 +8,7 @@ describe('Redux Store Integration Tests', () => {
       accessToken: null,
       user: { id: null, name: null, email: null },
       isLoggedIn: false,
+      error: null,
     });
   });
 
