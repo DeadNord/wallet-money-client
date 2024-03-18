@@ -1,5 +1,7 @@
 // import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { User } from './AuthTypes';
+import { ErrorResponse } from 'store/ReduxTypes';
 
 // Types definitions
 interface SignInValues {
@@ -13,19 +15,8 @@ interface SignUpValues {
   name: string;
 }
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-
 interface AuthResponse {
   accessToken: string;
-}
-
-// Define types for the errors if you have specific error formats
-interface ErrorResponse {
-  message: string;
 }
 
 const signInOperation = createAsyncThunk<
@@ -38,7 +29,7 @@ const signInOperation = createAsyncThunk<
     // const response = await axios.post<AuthResponse>('/api/auth/signIn', values);
     return { accessToken: '123' }; // Simulate successful sign-in
   } catch (error: any) {
-    return rejectWithValue({ message: 'Sign-in failed' });
+    return rejectWithValue({ message: error.message || 'Failed to sign-in' });
   }
 });
 
@@ -52,7 +43,7 @@ const signUpOperation = createAsyncThunk<void, SignUpValues, { rejectValue: Erro
       // No need to return anything for a void operation
     } catch (error: any) {
       // Ensure rejection is handled correctly
-      return rejectWithValue({ message: 'Sign-up failed' });
+      return rejectWithValue({ message: error.message || 'Failed to sign-up' });
     }
   },
 );
@@ -65,8 +56,7 @@ const signOutOperation = createAsyncThunk<void, void, { rejectValue: ErrorRespon
       // await axios.get('/api/auth/signOut');
       // No need to return anything for a void operation
     } catch (error: any) {
-      // Ensure rejection is handled correctly
-      return rejectWithValue({ message: 'Sign-out failed' });
+      return rejectWithValue({ message: error.message || 'Failed to sign-in' });
     }
   },
 );
@@ -78,7 +68,7 @@ const refreshTokenOperation = createAsyncThunk<AuthResponse, void, { rejectValue
       // const response = await axios.get<AuthResponse>('/api/auth/refresh');
       return { accessToken: '456' }; // Simulate token refresh
     } catch (error: any) {
-      return rejectWithValue({ message: 'Token refresh failed' });
+      return rejectWithValue({ message: error.message || 'Token refresh failed' });
     }
   },
 );
@@ -91,7 +81,7 @@ const getUserOperation = createAsyncThunk<User, void, { rejectValue: ErrorRespon
       // const response = await axios.get<User>('/api/user');
       return { id: '123', name: 'John Doe', email: 'johndoe@example.com' }; // Simulate fetching user
     } catch (error: any) {
-      return rejectWithValue({ message: 'Failed to fetch user' });
+      return rejectWithValue({ message: error.message || 'Failed to fetch user' });
     }
   },
 );

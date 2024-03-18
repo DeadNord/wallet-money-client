@@ -8,7 +8,7 @@ import { AppDispatch } from 'store/store';
 import {
   getBudgetOperation,
   getExpensesByCategoriesOperation,
-} from 'store/finances/finances-operation';
+} from 'store/finances/finances-operations';
 import { Suspense, lazy, useEffect } from 'react';
 import { List } from 'react-virtualized';
 import { Cell, Pie, PieChart, ResponsiveContainer, Text } from 'recharts';
@@ -30,7 +30,7 @@ const Categories = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getExpensesByCategoriesOperation(null));
+    dispatch(getExpensesByCategoriesOperation());
   }, [dispatch]);
 
   const rowRenderer = ({ key, index, style }: RowRendererParams) => {

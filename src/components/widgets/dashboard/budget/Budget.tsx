@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBudget } from 'store/finances/finances-selectors';
 import { AppDispatch } from 'store/store';
 import { useEffect } from 'react';
-import { getBudgetOperation } from 'store/finances/finances-operation';
+import { getBudgetOperation } from 'store/finances/finances-operations';
 
 import variables from '../../../../sass/variables.scss';
 import SvgIcon from 'components/shared/icons/SvgIcon';
@@ -21,7 +21,7 @@ const Budget = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBudgetOperation(null));
+    dispatch(getBudgetOperation());
   }, [dispatch]);
 
   return (

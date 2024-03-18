@@ -15,12 +15,11 @@ describe('Redux Store Integration Tests', () => {
   test('should have the correct initial finances state', () => {
     const { _persist, ...initialState } = store.getState().finances;
     expect(initialState).toEqual({
-      budget: 0,
-      budgetLimit: 0,
-      monthlyExpenses: 0,
-      transactions: [{ name: '', date: '', amount: 0, type: '', category: '' }],
-      transactionsByWeek: [{ name: '', income: 0, outcome: 0 }],
-      expensesByCategories: [{ category: '', value: 0, color: '' }],
+      budgetData: { budget: null, budgetLimit: null, monthlyExpenses: null },
+      transactions: [{ name: null, date: null, amount: null, type: null, category: null }],
+      transactionsByWeek: [{ name: null, income: null, outcome: null }],
+      expensesByCategories: [{ category: null, value: null, color: null }],
+      error: null,
     });
   });
 

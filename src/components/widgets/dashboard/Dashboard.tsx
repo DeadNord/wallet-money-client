@@ -14,7 +14,7 @@ import {
   getBudgetOperation,
   getTransactionsByWeekOperation,
   getTransactionsOperation,
-} from 'store/finances/finances-operation';
+} from 'store/finances/finances-operations';
 import { AppDispatch } from 'store/store';
 import SvgIcon from 'components/shared/icons/SvgIcon';
 

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTransactions } from 'store/finances/finances-selectors';
 // import { Field, Formik, Form } from 'formik';
 
-import { getTransactionsOperation } from 'store/finances/finances-operation';
+import { getTransactionsOperation } from 'store/finances/finances-operations';
 import { Suspense, lazy, useEffect } from 'react';
 import { AppDispatch } from 'store/store';
 // import SvgIcon from 'components/shared/icons/SvgIcon';
@@ -18,7 +18,7 @@ const Transactions = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTransactionsOperation(null));
+    dispatch(getTransactionsOperation());
   }, [dispatch]);
 
   const submitForm = (values: any) => {

@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactionsByWeek } from 'store/finances/finances-selectors';
-import { getTransactionsByWeekOperation } from 'store/finances/finances-operation';
+import { getTransactionsByWeekOperation } from 'store/finances/finances-operations';
 import s from './Analytics.module.scss';
 // import AnalyticsChart from './analyticsChart/AnalyticsChart';
 import { AppDispatch } from 'store/store';
@@ -13,7 +13,7 @@ const Analytics = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTransactionsByWeekOperation(null));
+    dispatch(getTransactionsByWeekOperation());
   }, [dispatch]);
 
   return (
