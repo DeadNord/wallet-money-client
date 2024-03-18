@@ -48,48 +48,50 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-// Test cases
-test('renders SignInPage for ROUTES.signIn when user is not logged in and checks for accessibility violations', async () => {
-  const initialState = { auth: { isLoggedIn: false } };
-  const { container } = renderAppWithState(initialState, ROUTES.signIn);
-  const signInElement = await waitFor(() => screen.getByText('Mocked SignIn Page'));
-  expect(signInElement).toBeInTheDocument();
+describe('App component accessibility testing', () => {
+  // Test cases
+  test('renders SignInPage for ROUTES.signIn when user is not logged in and checks for accessibility violations', async () => {
+    const initialState = { auth: { isLoggedIn: false } };
+    const { container } = renderAppWithState(initialState, ROUTES.signIn);
+    const signInElement = await waitFor(() => screen.getByText('Mocked SignIn Page'));
+    expect(signInElement).toBeInTheDocument();
 
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});
-
-test('renders SignUpPage for ROUTES.signUp when user is not logged in and checks for accessibility violations', async () => {
-  const initialState = { auth: { isLoggedIn: false } };
-  const { container } = renderAppWithState(initialState, ROUTES.signUp);
-  const signUpElement = await waitFor(() => screen.getByText('Mocked SignUp Page'));
-  expect(signUpElement).toBeInTheDocument();
-
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});
-
-test('renders DashboardPage for ROUTES.dashboard when user is logged in and checks for accessibility violations', async () => {
-  const initialState = { auth: { isLoggedIn: true } };
-  const { container } = renderAppWithState(initialState, ROUTES.dashboard);
-  const dashboardElement = await waitFor(() => screen.getByText('Mocked Dashboard'), {
-    timeout: 5000,
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
-  expect(dashboardElement).toBeInTheDocument();
 
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});
+  test('renders SignUpPage for ROUTES.signUp when user is not logged in and checks for accessibility violations', async () => {
+    const initialState = { auth: { isLoggedIn: false } };
+    const { container } = renderAppWithState(initialState, ROUTES.signUp);
+    const signUpElement = await waitFor(() => screen.getByText('Mocked SignUp Page'));
+    expect(signUpElement).toBeInTheDocument();
 
-// Error Boundary tests
-test('ErrorBoundary catches errors from child components and displays fallback UI', () => {
-  const FailingComponent = () => {
-    throw new Error('Test error');
-  };
-  render(
-    <ErrorBoundary>
-      <FailingComponent />
-    </ErrorBoundary>,
-  );
-  expect(screen.getByText(/Mocked Fallback Component/i)).toBeInTheDocument();
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  test('renders DashboardPage for ROUTES.dashboard when user is logged in and checks for accessibility violations', async () => {
+    const initialState = { auth: { isLoggedIn: true } };
+    const { container } = renderAppWithState(initialState, ROUTES.dashboard);
+    const dashboardElement = await waitFor(() => screen.getByText('Mocked Dashboard'), {
+      timeout: 5000,
+    });
+    expect(dashboardElement).toBeInTheDocument();
+
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  // Error Boundary tests
+  test('ErrorBoundary catches errors from child components and displays fallback UI', () => {
+    const FailingComponent = () => {
+      throw new Error('Test error');
+    };
+    render(
+      <ErrorBoundary>
+        <FailingComponent />
+      </ErrorBoundary>,
+    );
+    expect(screen.getByText(/Mocked Fallback Component/i)).toBeInTheDocument();
+  });
 });

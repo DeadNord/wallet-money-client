@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signInOperation, signOutOperation, getUserOperation, refreshTokenOperation } from './auth-operation';
+import {
+  signInOperation,
+  signOutOperation,
+  getUserOperation,
+  refreshTokenOperation,
+} from './auth-operation';
+import { AuthState } from './AuthTypes';
 
-const initialState = {
+const initialState: AuthState = {
   accessToken: null,
   user: {
     id: null,

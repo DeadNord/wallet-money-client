@@ -5,8 +5,9 @@ import {
   getTransactionsByWeekOperation,
   getTransactionsOperation,
 } from './finances-operation';
+import { FinancesState } from './FinancesTypes';
 
-const initialState = {
+const initialState: FinancesState = {
   budget: 0,
   budgetLimit: 0,
   monthlyExpenses: 0,
@@ -29,7 +30,7 @@ const initialState = {
   expensesByCategories: [
     {
       category: '',
-      value: '',
+      value: 0,
       color: '',
     },
   ],
