@@ -1,6 +1,5 @@
 import s from './Header.module.scss';
-import sprite from '../../../assets/svg/sprites.svg';
-import { Route, Router, Routes } from 'react-router-dom';
+import sprite from '../../../assets/svg/sprite.svg';
 import Logo from 'components/shared/icons/logo/Logo';
 import SvgIcon from 'components/shared/icons/SvgIcon';
 
