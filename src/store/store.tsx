@@ -8,26 +8,24 @@ import financesReducer from './finances/finances-slice';
 const authPersistConfig: PersistConfig<any, any, any, any> = {
   key: 'auth',
   storage,
-  // whitelist: ['token'],
 };
 
 const financesPersistConfig: PersistConfig<any, any, any, any> = {
   key: 'finances',
   storage,
-  // whitelist: ['token'],
 };
-
 
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     finances: persistReducer(financesPersistConfig, financesReducer),
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
-    },
-  }),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+      },
+    }),
   devTools: process.env.NODE_ENV === 'development',
 });
 

@@ -1,5 +1,5 @@
 import s from './Header.module.scss';
-import sprite from '../../../assets/svg/sprite.svg';
+
 import Logo from 'components/shared/icons/logo/Logo';
 import SvgIcon from 'components/shared/icons/SvgIcon';
 
@@ -11,30 +11,18 @@ const Header = () => {
           <Logo />
           <ul className={s.menuList}>
             <li className={s.menuItem}>
-              {/* <svg className={s.icon}>
-                <use href={sprite + '#icon-board'} />
-              </svg> */}
               <SvgIcon name={'icon-board'} className={s.icon} />
               <p>Dashboard</p>
             </li>
             <li className={s.menuItem}>
-              {/* <svg className={s.icon}>
-                <use href={sprite + '#icon-chart'} />
-              </svg> */}
               <SvgIcon name={'icon-chart'} className={s.icon} />
               <p>Analytics</p>
             </li>
             <li className={s.menuItem}>
-              {/* <svg className={s.icon}>
-                <use href={sprite + '#icon-user'} />
-              </svg> */}
               <SvgIcon name={'icon-user'} className={s.icon} />
               <p>Accounts</p>
             </li>
             <li className={s.menuItem}>
-              {/* <svg className={s.icon}>
-                <use href={sprite + '#icon-settings'} />
-              </svg> */}
               <SvgIcon name={'icon-settings'} className={s.icon} />
               <p>Settings</p>
             </li>
@@ -46,9 +34,7 @@ const Header = () => {
           </div>
           <p className={s.profileName}>Ali Riaz</p>
           <div>
-            <svg className={s.iconInfoProfile}>
-              <use href={sprite + '#icon-arrow'} />
-            </svg>
+            <SvgIcon name={'icon-arrow'} className={s.iconInfoProfile} />
           </div>
         </div>
       </div>

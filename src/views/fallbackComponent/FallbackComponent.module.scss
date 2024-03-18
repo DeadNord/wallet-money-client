@@ -1,0 +1,35 @@
+@import '../../sass/variables';
+
+.fallbackBackground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-color: $buttonAuthBackground;
+}
+
+.fallbackContainer {
+    max-width: 600px;
+
+    text-align: center;
+    padding: 20px;
+
+    background-image: $dachboardGradient;
+    border-radius: 5px;
+}
+
+.fallbackHeader {
+    color: darkred;
+}
+
+.fallbackDetails {
+    margin-top: 15px;
+}
+
+.fallbackMessage {
+    padding: 10px;
+
+    background-color: $buttonAuthBackground;
+    border-radius: 4px;
+}

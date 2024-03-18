@@ -1,146 +1,142 @@
-@import './sass/scrollBar.module';
-@import './sass/fontStyles';
-@import './sass/variables';
+// Global style imports
+@import './sass/scrollBar.module'; // Custom scrollbars for webkit browsers
+@import './sass/fontStyles'; // Centralized font styles
+@import './sass/variables'; // SCSS variables for colors, font sizes, etc.
 
-w3m-modal {
-  zoom: 90%;
-}
-
+// Body - Basic Reset Styles
 body {
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 400;
-  margin: 0;
-  width: 100%;
-  background-color: white;
-  overflow-x: hidden;
-  color: $mainTextColor;
+  font-size: 16px; // Standard font size, enhancing readability across devices
+  line-height: 1.4; // Improves text readability by increasing space between lines
+  font-weight: 400; // Default font weight to ensure text is neither too bold nor too thin
+  margin: 0; // Resets default browser margin to ensure consistency
+  width: 100%; // Ensures body takes full width of the viewport, preventing unnecessary horizontal scroll
+  background-color: white; // Sets a consistent background color
+  overflow-x: hidden; // Prevents horizontal scrolling on smaller screens or zoomed-in views
+  color: $mainTextColor; // Centralized control for main text color, enhancing theme consistency
+  font-family: 'Poppins-Regular', sans-serif; // Ensures typography consistency, with sans-serif as fallback
 }
 
-* {
-  box-sizing: border-box;
-  font-family: Mariupol, sans-serif;
-}
-
+// Universal Box-Sizing
+*,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; // Ensures padding and border are included in the total width and height
 }
 
+// Headings Reset
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  padding: 0;
+  margin: 0; // Removes default margin to allow custom spacing
+  padding: 0; // Removes default padding for consistent spacing control
 }
 
+// Paragraphs Reset
 p {
-  margin: 0;
-  padding: 0;
+  margin: 0; // Resets default margin to prevent unexpected spacing
+  padding: 0; // Resets default padding for a clean start
 }
 
+// Anchor Tags - Consistency Across Platforms
 a {
-  text-decoration: none;
-  text-transform: none;
-  color: inherit;
-  cursor: pointer;
+  text-decoration: none; // Removes underline to allow custom text decoration
+  text-transform: none; // Prevents automatic case transformation for consistency
+  color: inherit; // Ensures links inherit color from parent elements for uniformity
+  cursor: pointer; // Changes cursor to indicate clickable items
 }
 
+// Button Reset for Custom Styling
 button {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  background: none; // Clears default background for full customization
+  border: none; // Removes default border for a cleaner look
+  outline: none; // Removes focus outline to handle focus styles manually
+  cursor: pointer; // Indicates an interactive button element
 }
 
+// List Reset
 ul,
 ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  list-style: none; // Removes default list styles for full control over appearance
+  margin: 0; // Resets default margin for consistent list spacing
+  padding: 0; // Resets default padding for uniform list item alignment
 }
 
-textarea {
-  outline: none;
-}
-
+// Form Elements Reset
+textarea,
 input {
-  outline: none;
-  margin: 0;
-  border: none;
+  outline: none; // Removes default focus outline for custom styling
+  margin: 0; // Resets default margin to align properly within layouts
+  border: none; // Clears default borders for cohesive design integration
 }
 
-input ::-webkit-outer-spin-button,
+// Input Elements - Browser Specific Fixes
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
+  -webkit-appearance: none; // Removes numeric input spinners in WebKit browsers
+  margin: 0; // Aligns content properly by removing default margin
 }
 
 input::-ms-clear {
-  display: none;
+  display: none; // Hides the clear button in IE and Edge for consistent appearance
 }
 
 input[type='number'] {
-  appearance: textfield;
+  -moz-appearance: textfield; // Removes spinner in Firefox for consistency
+  appearance: textfield; // Standardizes appearance across browsers
 }
 
+// Autofill Styling Adjustments
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s; // Prevents abrupt background color change on autofill
 }
 
+// Typography - Desktop Specific Styles
+h1.descktop,
+h2.descktop,
+h3.descktop,
+h4.descktop,
+h5.descktop,
+h6.descktop {
+  font-style: normal; // Resets font style for clear, consistent heading appearance
+  font-weight: 400; // Default weight for readability without being overly bold
+}
+
+// Desktop Headings - Specific Sizes
 h1.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
   font-size: 46px;
 }
 
+// Large primary headings
 h2.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
   font-size: 30px;
 }
 
+// Secondary headings
 h3.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
   font-size: 18px;
 }
 
+// Tertiary headings
 h4.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
   font-size: 15px;
 }
 
-h5.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-}
-
+// Quaternary headings
+h5.descktop,
 h6.descktop {
-  font-family: 'Artegra Sans Extended';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.06em;
+  font-size: 11px; // Smallest headings, for less prominent sections
+  letter-spacing: 0.06em; // Improves readability at small sizes
 }
 
+// Desktop Paragraphs - Standard Style
 p.descktop {
-  font-family: Mariupol;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  opacity: 0.8;
+  font-style: normal; // Maintains default styling for paragraph consistency
+  font-weight: 400; // Optimal weight for body text readability
+  font-size: 16px; // Standard text size for body content
+  opacity: 0.8; // Slightly faded text for a subtle design touch
 }
