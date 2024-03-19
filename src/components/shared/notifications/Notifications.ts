@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify';
 
-// Функция для успешного уведомления
 export const notifySuccess = (message: string): void => {
   toast.success(message, {
     position: 'top-right',
@@ -13,7 +12,6 @@ export const notifySuccess = (message: string): void => {
   });
 };
 
-// Функция для уведомления об ошибке
 export const notifyError = (message: string): void => {
   toast.error(message, {
     position: 'top-right',
