@@ -31,7 +31,7 @@
 
 // Container for titles, applying flexbox mixin
 .titleContainer {
-    @include flexDisplay(space-between); // Utilizing mixin with justify-content
+    @include flexDisplay(center, space-between); // Utilizing mixin with justify-content
     margin-bottom: 12px;
 }
 

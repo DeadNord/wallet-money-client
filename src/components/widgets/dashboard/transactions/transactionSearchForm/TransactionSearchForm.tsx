@@ -22,7 +22,7 @@ const TransactionSearchForm: React.FC<TransactionSearchFormProps> = React.memo((
       onSubmit={onSubmit}
     >
       <Form className={s.formContainer}>
-        <div className={s.seachContainer}>
+        <div className={s.searchContainer}>
           <Field
             name="search"
             className={s.searchInput}
