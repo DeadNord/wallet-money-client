@@ -1,13 +1,10 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import s from './ExpensePieChart.module.scss'; // Убедитесь, что у вас правильные пути к файлам стилей
+import { CategoryExpense } from 'store/finances/FinancesTypes';
 
 interface ExpensePieChartProps {
-  expenses: {
-    category: string;
-    value: number;
-    color: string;
-  }[];
+  expenses: CategoryExpense[];
   monthlyExpenses: number;
 }
 
@@ -26,7 +23,7 @@ const ExpensePieChart = React.memo(({ expenses, monthlyExpenses }: ExpensePieCha
           stroke="none"
         >
           {expenses.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
+            <Cell key={`cell-${index}`} fill={entry.color || s.basicBackground} />
           ))}
         </Pie>
         <text

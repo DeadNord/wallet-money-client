@@ -24,7 +24,6 @@ interface RowRendererParams {
 
 const Categories = () => {
   const expenses = useSelector(getExpensesByCategories);
-
   const budget = useSelector(getBudget);
 
   const dispatch: AppDispatch = useDispatch();
@@ -38,7 +37,10 @@ const Categories = () => {
     return (
       <li key={key} style={style} className={s.categoryItem}>
         <div className={s.categoryNameContainer}>
-          <div className={s.icon} style={{ backgroundColor: expense.color }}></div>
+          <div
+            className={s.icon}
+            style={{ backgroundColor: expense.color || s.basicBackground }}
+          ></div>
           <p className={`${s.categoryText} ${s.categoryName}`}>{expense.category}</p>
         </div>
         <p className={s.categoryText}>€{expense.value}</p>

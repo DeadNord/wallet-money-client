@@ -18,21 +18,21 @@ import {
 // Initial state setup with types applied correctly
 const initialState: FinancesState = {
   budgetData: {
-    budget: null,
-    budgetLimit: null,
-    monthlyExpenses: null,
+    budget: 0,
+    budgetLimit: 0,
+    monthlyExpenses: 0,
   },
   transactions: [
     {
       name: null,
       date: null,
-      amount: null,
+      amount: 0,
       type: null,
       category: null,
     },
   ],
-  transactionsByWeek: [{ name: null, income: null, outcome: null }],
-  expensesByCategories: [{ category: null, value: null, color: null }],
+  transactionsByWeek: [{ name: null, income: 0, outcome: 0 }],
+  expensesByCategories: [{ category: null, value: 0, color: null }],
   error: null,
 };
 

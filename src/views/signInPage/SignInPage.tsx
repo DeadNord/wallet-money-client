@@ -13,13 +13,8 @@ import SvgIcon from 'components/shared/icons/SvgIcon';
 // import { useState } from 'react';
 
 const SignInPage = () => {
-  //   const [passwordState, setPasswordToogle] = useState(false);
-
   const dispatch = useDispatch<any>();
 
-  //   const passwordToogle = () => {
-  //     setPasswordToogle(!passwordState);
-  //   };
   const TestAuth = () => {
     // Implement your authentication test logic here
     console.log('Testing Authentication');
@@ -58,9 +53,6 @@ const SignInPage = () => {
               </button>
               <p className={s.altLoginText}>Or login with</p>
               <button type="button" className={`${s.button} ${s.googleLogin}`}>
-                {/* <svg className={s.iconGoogle}>
-                  <use href={sprite + '#icon-google'} />
-                </svg> */}
                 <SvgIcon name={'icon-google'} className={s.iconGoogle} />
                 Google
               </button>
@@ -68,13 +60,13 @@ const SignInPage = () => {
           </Formik>
           <div className={s.loginFooter}>
             <p className={s.navText}>
-              Don't have an account?{' '}
+              Don't have an account?
               <NavLink to="/signUp" className={s.navLink}>
                 Register
               </NavLink>
             </p>
             <p className={s.navText}>
-              Want test? Visit our{' '}
+              Want test? Visit our
               <button onClick={TestAuth} className={s.navLink}>
                 Test Page
               </button>

@@ -1,13 +1,7 @@
 import React from 'react';
 import { List, AutoSizer } from 'react-virtualized';
 import s from './TransactionList.module.scss'; // Убедитесь, что у вас правильные пути к файлам стилей
-
-interface Transaction {
-  name: string;
-  date: string;
-  amount: number;
-  type: string;
-}
+import { Transaction } from 'store/finances/FinancesTypes';
 
 interface TransactionListProps {
   data: Transaction[];

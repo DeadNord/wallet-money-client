@@ -53,6 +53,9 @@
     scrollbar-color: $mainColor transparent;
 }
 
+.basicBackground {
+    background-color: $mainColor;
+}
 
 .categoryItem {
     display: flex;

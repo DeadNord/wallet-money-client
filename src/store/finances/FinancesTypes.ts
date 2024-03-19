@@ -7,7 +7,7 @@ export enum TransactionType {
 export interface Transaction {
   name: string | null; // The name or description of the transaction
   date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
-  amount: number | null; // The monetary amount of the transaction
+  amount: number; // The monetary amount of the transaction
   type: TransactionType | null; // The type of transaction (e.g., "income" or "expense")
   category: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
 }
@@ -15,21 +15,21 @@ export interface Transaction {
 // Summarizes transactions over a weekly period, categorizing them as income or outcome.
 export interface WeeklyTransactionSummary {
   name: string | null; // The name representing the week or identifier, or null if not available
-  income: number | null; // Total income for the week
-  outcome: number | null; // Total expenses/outcome for the week
+  income: number; // Total income for the week
+  outcome: number; // Total expenses/outcome for the week
 }
 
 // Represents expenses aggregated by category, typically for visualization.
 export interface CategoryExpense {
   category: string | null; // Name of the category (e.g., "Utilities", "Groceries") or null if not available
-  value: number | null; // Total expense amount for this category
+  value: number; // Total expense amount for this category
   color: string | null; // Color code (hex, RGB, etc.) used for distinguishing this category in charts or null if not defined
 }
 
 export interface BudgetData {
-  budget: number | null; // Current available budget or null if not defined
-  budgetLimit: number | null; // The set upper limit for the budget or null if not defined
-  monthlyExpenses: number | null; // Total expenses incurred in the current month or null if not defined
+  budget: number; // Current available budget or null if not defined
+  budgetLimit: number; // The set upper limit for the budget or null if not defined
+  monthlyExpenses: number; // Total expenses incurred in the current month or null if not defined
 }
 
 // API response data

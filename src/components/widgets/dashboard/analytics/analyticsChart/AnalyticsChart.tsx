@@ -1,15 +1,10 @@
 import React from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Bar } from 'recharts';
 import variables from '../../../../../sass/variables.scss';
-
-interface DataPoint {
-  name: string;
-  income: number;
-  outcome: number;
-}
+import { WeeklyTransactionSummary } from 'store/finances/FinancesTypes';
 
 interface AnalyticsChartProps {
-  data: DataPoint[];
+  data: WeeklyTransactionSummary[];
 }
 
 const AnalyticsChart: React.FC<AnalyticsChartProps> = React.memo(({ data }) => {

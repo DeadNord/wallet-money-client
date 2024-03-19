@@ -42,7 +42,7 @@ const Transactions = () => {
             <div className={s.headerItem}>Status</div>
           </div>
           <Suspense fallback={<div>Loading Transactions...</div>}>
-            <TransactionList data={data} />
+            {data && <TransactionList data={data} />}
           </Suspense>
         </div>
       </div>

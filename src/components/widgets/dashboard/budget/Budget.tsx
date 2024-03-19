@@ -15,7 +15,7 @@ import SvgIcon from 'components/shared/icons/SvgIcon';
 const Budget = () => {
   const budget = useSelector(getBudget);
   const budgetProgress = [
-    { value: Math.round((budget.monthlyExpenses / budget.budgetLimit) * 100) },
+    { value: Math.round((budget.monthlyExpenses / budget.budgetLimit) * 100) || 0 },
   ];
 
   const dispatch: AppDispatch = useDispatch();
