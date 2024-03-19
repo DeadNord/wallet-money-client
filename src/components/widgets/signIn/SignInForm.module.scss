@@ -7,55 +7,50 @@
 
 .input {
     margin-bottom: 6px;
-
     padding: 12px;
     border-radius: 6px;
     background-color: $buttonAuthBackground;
-
-    font-weight: 300;
-    line-height: 24px;
-    color: $mainTextColor;
-}
-
-.input::placeholder {
     font-weight: 300;
     line-height: 24px;
     color: $mainTextColor;
 
-}
+    &::placeholder {
+        font-weight: 300;
+        line-height: 24px;
+        color: $mainTextColor;
+    }
 
-input:-webkit-autofill {
-    -webkit-text-fill-color: $mainTextColor;
+    // Autofill color change
+    &:-webkit-autofill {
+        -webkit-text-fill-color: $mainTextColor;
+        transition: background-color 5000s ease-in-out 0s; // Fades background color of autofill to match design
+    }
 }
 
 .inputLink {
-    margin-left: auto;
+    margin-left: auto; // Aligns link to the right side within its container
     margin-bottom: 18px;
-
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-
 }
 
 .button {
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 18px;
-
     padding: 12px;
     border-radius: 6px;
-
     color: $mainTextColor;
+    background: $mainGradient;
+    transition: opacity 0.3s; // Smooth transition for hover effect
 
-}
-
-.button:hover {
-    opacity: 0.8;
+    &:hover {
+        opacity: 0.8; // Reduces opacity on hover
+    }
 }
 
 .mainLogin {
-    background: $mainGradient;
+    background: $mainGradient; // Ensures specific buttons have main gradient background
 }

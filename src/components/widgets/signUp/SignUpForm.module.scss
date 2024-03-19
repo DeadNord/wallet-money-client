@@ -7,64 +7,51 @@
 
 .input {
     margin-bottom: 18px;
-
     padding: 12px;
     border-radius: 6px;
     background-color: $buttonAuthBackground;
-
     font-weight: 300;
     line-height: 24px;
     color: $mainTextColor;
-}
 
-.input::placeholder {
-    font-weight: 300;
-    line-height: 24px;
-    color: $mainTextColor;
-}
-
-.inputLink {
-    margin-left: auto;
-    margin-bottom: 18px;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-
+    &::placeholder {
+        font-weight: 300;
+        line-height: 24px;
+        color: $mainTextColor;
+    }
 }
 
 .checkboxContainer {
     margin-bottom: 18px;
-
     display: flex;
-    // justify-content: center;
     align-items: center;
-}
 
-.checkboxContainer input {
-    width: 22px;
-    height: 22px;
-}
+    input {
+        width: 22px;
+        height: 22px;
+    }
 
-.checkboxContainer label {
-    margin-left: 12px;
-    font-weight: 700;
-    line-height: 16.94px;
-
+    label {
+        margin-left: 12px;
+        font-weight: 700;
+        line-height: 16.94px;
+    }
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 18px;
-
     padding: 12px;
     border-radius: 6px;
-
     color: $mainTextColor;
+    background: $mainGradient;
+    transition: opacity 0.3s;
 
-}
-
-.button:hover {
-    opacity: 0.8;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .mainLogin {
