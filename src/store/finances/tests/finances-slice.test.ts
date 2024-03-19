@@ -56,6 +56,8 @@ describe('financesSlice', () => {
         amount: 5,
         type: TransactionType.expense,
         category: 'Food',
+        fromAccount: 'Savings',
+        notes: 'Cafe',
       },
       {
         name: 'Book',
@@ -63,6 +65,8 @@ describe('financesSlice', () => {
         amount: 15,
         type: TransactionType.expense,
         category: 'Entertainment',
+        fromAccount: 'Savings',
+        notes: 'Book',
       },
     ];
     const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);

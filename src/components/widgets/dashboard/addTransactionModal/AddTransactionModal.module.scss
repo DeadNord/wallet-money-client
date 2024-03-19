@@ -1,0 +1,118 @@
+@import "../../../../sass/variables";
+
+// Mixin for common flexbox layout
+@mixin flexbox($align: flex-start, $justify: flex-start) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+.modalContent {
+    width: 472px;
+}
+
+.buttonGroup {
+    @include flexbox(center, center); // Center buttons in the button group
+    margin-bottom: 42px;
+}
+
+.typeButton {
+    width: 105px;
+    height: 44px;
+    padding: 10px;
+    background-image: $dashboardGradient;
+    border-radius: 5px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $mainTextColor;
+
+    &.active {
+        background-image: $mainGradient;
+    }
+}
+
+.sectionContainer {
+    margin-bottom: 10px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid $buttonAuthBackground;
+}
+
+.inputContainer {
+    margin-bottom: 2px;
+}
+
+.inputLabel {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 35px;
+    color: $mainTextColor;
+}
+
+.input {
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 35px;
+    color: $mainTextColor;
+
+    &::placeholder {
+        color: $mainTextColor;
+    }
+}
+
+.icon {
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+}
+
+.flex {
+    @include flexbox(center); // Assuming default alignment, modify as needed
+}
+
+.label {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.notesContainer {
+    margin-bottom: 32px;
+}
+
+.notesLabelContainer {
+    margin-bottom: 10px;
+}
+
+.textInput {
+    width: 100%;
+    height: 108px;
+    border: 1px solid $buttonAuthBackground;
+    background-color: transparent;
+    color: $mainTextColor;
+
+    &::placeholder {
+        color: $mainTextColor;
+    }
+}
+
+.saveButtonContainer {
+    @include flexbox(center, center); // Centering the save button
+}
+
+.saveButton {
+    width: 320px;
+    height: 44px;
+    text-align: center;
+    border-radius: 5px;
+    background-image: $mainGradient;
+    font-weight: 600;
+    line-height: 24px;
+    color: $mainTextColor;
+}
+
+.select {
+    background-color: transparent;
+    border: none;
+    color: $mainTextColor;
+}

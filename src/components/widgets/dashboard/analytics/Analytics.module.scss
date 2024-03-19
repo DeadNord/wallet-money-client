@@ -3,7 +3,7 @@
 // General styling for content background areas
 .contentBackground {
     background: $dashboardGradient;
-    box-shadow: $dashboardShadow;
+    box-shadow: $mainShadow;
     border-radius: 6px; // Rounded corners for modern look
     padding: 16px; // Consistent spacing inside the container
 }

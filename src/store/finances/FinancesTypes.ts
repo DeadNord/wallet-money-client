@@ -5,11 +5,13 @@ export enum TransactionType {
 
 // Defines the structure of a single financial transaction.
 export interface Transaction {
+  type: TransactionType | null; // The type of transaction (e.g., "income" or "expense")
   name: string | null; // The name or description of the transaction
   date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
   amount: number; // The monetary amount of the transaction
-  type: TransactionType | null; // The type of transaction (e.g., "income" or "expense")
+  fromAccount: string | null; // The account this transaction was made from or null if not available
   category: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
+  notes: string | null; // Additional notes about the transaction or null if not available
 }
 
 // Summarizes transactions over a weekly period, categorizing them as income or outcome.

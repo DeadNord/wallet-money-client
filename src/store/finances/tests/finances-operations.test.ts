@@ -60,6 +60,8 @@ describe('Finances operations', () => {
         amount: 3000,
         type: TransactionType.income,
         category: 'Job',
+        fromAccount: 'Savings',
+        notes: 'Monthly',
       },
       {
         name: 'Rent',
@@ -67,6 +69,8 @@ describe('Finances operations', () => {
         amount: 1200,
         type: TransactionType.expense,
         category: 'Housing',
+        fromAccount: 'Savings',
+        notes: 'Monthly',
       },
     ];
     const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);
@@ -162,6 +166,8 @@ describe('Finances operations', () => {
         amount: 100,
         type: TransactionType.expense,
         category: 'Food',
+        fromAccount: 'Savings',
+        notes: 'Groceries',
       },
     );
     await store.dispatch(rejectAction);

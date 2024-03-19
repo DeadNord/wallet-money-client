@@ -37,6 +37,8 @@ const getTransactionsOperation = createAsyncThunk<
         amount: 25,
         type: TransactionType.expense,
         category: 'Groceries',
+        fromAccount: 'Savings',
+        notes: 'Groceries',
       },
       {
         name: 'Internet',
@@ -44,6 +46,8 @@ const getTransactionsOperation = createAsyncThunk<
         amount: 25,
         type: TransactionType.expense,
         category: 'Digital',
+        fromAccount: 'Savings',
+        notes: 'Internet',
       },
       {
         name: 'Shops',
@@ -51,6 +55,8 @@ const getTransactionsOperation = createAsyncThunk<
         amount: 25,
         type: TransactionType.expense,
         category: 'Others',
+        fromAccount: 'Savings',
+        notes: 'Shops',
       },
       {
         name: 'Salary',
@@ -58,6 +64,8 @@ const getTransactionsOperation = createAsyncThunk<
         amount: 25,
         type: TransactionType.income,
         category: 'Digital',
+        fromAccount: 'Savings',
+        notes: 'Salary',
       },
       {
         name: 'Freelance',
@@ -65,6 +73,8 @@ const getTransactionsOperation = createAsyncThunk<
         amount: 25,
         type: TransactionType.income,
         category: 'Digital',
+        fromAccount: 'Savings',
+        notes: 'Freelance',
       },
     ];
     return transactions;
@@ -125,22 +135,22 @@ const getTransactionsByWeekOperation = createAsyncThunk<
   }
 });
 
-const addTransactionOperation = createAsyncThunk<
-  Transaction,
-  Transaction,
-  { rejectValue: ErrorResponse }
->('api/finances/add', async (transactionData, { rejectWithValue }) => {
-  try {
-    // Replace with actual API call
-    // const response = await axios.post<Transaction>('api/finances/add', transactionData);
-    // return response.data;
-    return transactionData; // Remove this when API is connected
-  } catch (error: any) {
-    return rejectWithValue({
-      message: error.response?.data?.message || 'Failed to add transaction',
-    });
-  }
-});
+const addTransactionOperation = createAsyncThunk<void, Transaction, { rejectValue: ErrorResponse }>(
+  'api/finances/add',
+  async (transactionData, { rejectWithValue }) => {
+    try {
+      console.log(transactionData);
+      // Replace with actual API call
+      // const response = await axios.post<Transaction>('api/finances/add', transactionData);
+      // return response.data;
+      // return transactionData; // Remove this when API is connected
+    } catch (error: any) {
+      return rejectWithValue({
+        message: error.response?.data?.message || 'Failed to add transaction',
+      });
+    }
+  },
+);
 
 // Removing an existing transaction
 const removeTransactionOperation = createAsyncThunk<string, string, { rejectValue: ErrorResponse }>(

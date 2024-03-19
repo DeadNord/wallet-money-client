@@ -21,12 +21,14 @@ const Header = () => {
         <div className={s.sidebar}>
           <Logo />
           <nav>
-            {MENU_ITEMS.map(item => (
-              <li key={item.name} className={s.menuItem}>
-                <SvgIcon name={item.icon} className={s.icon} />
-                <p>{item.name}</p>
-              </li>
-            ))}
+            <ul>
+              {MENU_ITEMS.map(item => (
+                <li key={item.name} className={s.menuItem}>
+                  <SvgIcon name={item.icon} className={s.icon} />
+                  <p>{item.name}</p>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
         <div className={s.profileContainer}>

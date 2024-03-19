@@ -7,11 +7,19 @@ import Categories from './categories/Categories';
 import Analytics from './analytics/Analytics';
 import Transactions from './transactions/Transactions';
 import SvgIcon from 'components/shared/icons/SvgIcon';
+import { useState } from 'react';
+import Modal from 'components/shared/modal/Modal';
+import AddTransactionModal from './addTransactionModal/AddTransactionModal';
 
 // Dashboard component
 const Dashboard = () => {
   // Retrieving the current user's information from the store
   const user = useSelector(getUserInfo);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   // Rendering the dashboard content
   return (
@@ -23,9 +31,9 @@ const Dashboard = () => {
               <h1 className={s.titleName}>Welcome Back, {user.name}</h1>
               <p className={s.textName}>Here’s what’s happening with your store today.</p>
             </div>
-            <div className={s.iconContainer}>
+            <button className={s.iconContainer} onClick={openModal}>
               <SvgIcon name={'icon-plus'} className={s.iconAdd} />
-            </div>
+            </button>
           </div>
           <div>
             <Budget />
@@ -37,6 +45,9 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <AddTransactionModal />
+      </Modal>
     </>
   );
 };

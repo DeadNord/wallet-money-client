@@ -24,6 +24,8 @@ const mockState: FinancesState = {
       amount: 150,
       type: TransactionType.expense,
       category: 'Food',
+      fromAccount: 'Savings',
+      notes: 'Groceries',
     },
     {
       name: 'Salary',
@@ -31,6 +33,8 @@ const mockState: FinancesState = {
       amount: 3000,
       type: TransactionType.income,
       category: 'Job',
+      fromAccount: 'Savings',
+      notes: 'Salary',
     },
   ],
   transactionsByWeek: [

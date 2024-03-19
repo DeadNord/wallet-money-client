@@ -24,11 +24,13 @@ const initialState: FinancesState = {
   },
   transactions: [
     {
+      type: null,
       name: null,
       date: null,
       amount: 0,
-      type: null,
+      fromAccount: null,
       category: null,
+      notes: null,
     },
   ],
   transactionsByWeek: [{ name: null, income: 0, outcome: 0 }],

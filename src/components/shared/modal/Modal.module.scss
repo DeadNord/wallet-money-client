@@ -1,0 +1,49 @@
+// Importing Sass variables for consistent theming and easier changes
+@import "../../../sass/variables";
+
+// Mixin for centering content
+@mixin centerContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalBackground {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    @include centerContent; // Using mixin for centering
+    background-color: $modalOverlay; // Make sure the variable name matches what's declared
+}
+
+.modalContent {
+    position: relative;
+    width: 576px; // Consider making this responsive if needed
+    height: 602px; // Consider making this responsive if needed
+    @include centerContent; // Using mixin for centering
+    flex-direction: column; // Since you're using padding-top and padding-bottom
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-radius: 6px;
+    background-image: $dashboardGradient;
+    box-shadow: $mainShadow;
+}
+
+.closeButton {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    cursor: pointer; // Add this for better UX indicating it’s clickable
+    background: none; // Ensure no default styles affect this button
+    border: none; // Remove any default browser styling
+    padding: 0; // Remove any default padding
+    // Consider adding :hover and :focus styles for better UX
+}
+
+.iconClose {
+    width: 24px;
+    height: 24px;
+}
