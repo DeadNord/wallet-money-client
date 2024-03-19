@@ -1,0 +1,61 @@
+@import '../../../sass/variables';
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-bottom: 6px;
+
+    padding: 12px;
+    border-radius: 6px;
+    background-color: $buttonAuthBackground;
+
+    font-weight: 300;
+    line-height: 24px;
+    color: $mainTextColor;
+}
+
+.input::placeholder {
+    font-weight: 300;
+    line-height: 24px;
+    color: $mainTextColor;
+
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: $mainTextColor;
+}
+
+.inputLink {
+    margin-left: auto;
+    margin-bottom: 18px;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    padding: 12px;
+    border-radius: 6px;
+
+    color: $mainTextColor;
+
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.mainLogin {
+    background: $mainGradient;
+}

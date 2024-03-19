@@ -1,93 +1,46 @@
 @import '../../sass/variables';
 
-
 .loginContainer {
     width: 322px;
 }
 
 .icon {
-    width: 144px
+    width: 144px;
 }
 
 .loginHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-bottom: 42px;
+
+    h1 {
+        margin-bottom: 24px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    p {
+        font-weight: 300;
+        line-height: 24px;
+    }
 }
 
-.loginHeader h1 {
-    margin-bottom: 24px;
-
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 35px;
-
-}
-
-.loginHeader p {
-    font-weight: 300;
-
-    line-height: 24px;
-
-    ;
-}
-
-.loginForm {
-    display: flex;
-    flex-direction: column;
-}
-
-.input {
-    margin-bottom: 6px;
-
-    padding: 12px;
-    border-radius: 6px;
-    background-color: $buttonAuthBackground;
-
-    font-weight: 300;
-    line-height: 24px;
-    color: $mainTextColor;
-}
-
-.input::placeholder {
-    font-weight: 300;
-    line-height: 24px;
-    color: $mainTextColor;
-
-}
-
-input:-webkit-autofill {
-    -webkit-text-fill-color: $mainTextColor;
-}
-
-.inputLink {
-    margin-left: auto;
-    margin-bottom: 18px;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-
-}
-
+// Utilizing SCSS mixins or extends for repeated styles could further improve this
 .button {
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 18px;
-
     padding: 12px;
     border-radius: 6px;
-
     color: $mainTextColor;
+    transition: opacity 0.3s;
 
-}
-
-.button:hover {
-    opacity: 0.8;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .mainLogin {
@@ -97,18 +50,24 @@ input:-webkit-autofill {
 .iconGoogle {
     width: 16px;
     height: 16px;
-
     margin-right: 14px;
 }
 
-.altLoginText {
-    align-self: center;
-    margin-bottom: 18px;
+.altLoginContainer {
+    display: flex;
+    flex-direction: column;
+}
 
+.altLoginText,
+.navText {
+    align-self: center;
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
+}
 
+.altLoginText {
+    margin-bottom: 18px;
 }
 
 .googleLogin {
@@ -121,17 +80,15 @@ input:-webkit-autofill {
     align-items: center;
 }
 
-.navText {
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-
-}
-
 .navText:first-child {
     margin-bottom: 42px;
 }
 
 .navLink {
     color: $mainColor;
+    margin-left: 6px;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }

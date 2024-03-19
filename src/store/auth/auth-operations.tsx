@@ -1,23 +1,7 @@
 // import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User } from './AuthTypes';
+import { AuthResponse, SignInValues, SignUpValues, User } from './AuthTypes';
 import { ErrorResponse } from 'store/ReduxTypes';
-
-// Types definitions
-interface SignInValues {
-  email: string;
-  password: string;
-}
-
-interface SignUpValues {
-  email: string;
-  password: string;
-  name: string;
-}
-
-interface AuthResponse {
-  accessToken: string;
-}
 
 const signInOperation = createAsyncThunk<
   AuthResponse,
@@ -32,6 +16,20 @@ const signInOperation = createAsyncThunk<
     return rejectWithValue({ message: error.message || 'Failed to sign-in' });
   }
 });
+
+// const signInGoogleOperation = createAsyncThunk<
+//   AuthResponse,
+//   SignInValues,
+//   { rejectValue: ErrorResponse }
+// >('auth/signIn', async (values, { rejectWithValue }) => {
+//   try {
+//     // Simulated API call
+//     // const response = await axios.post<AuthResponse>('/api/auth/signIn', values);
+//     return { accessToken: '123' }; // Simulate successful sign-in
+//   } catch (error: any) {
+//     return rejectWithValue({ message: error.message || 'Failed to sign-in' });
+//   }
+// });
 
 const signUpOperation = createAsyncThunk<void, SignUpValues, { rejectValue: ErrorResponse }>(
   'auth/signUp',
