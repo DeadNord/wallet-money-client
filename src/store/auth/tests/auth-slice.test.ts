@@ -60,6 +60,7 @@ describe('authSlice', () => {
       email: 'newuser@example.com',
       password: 'password123',
       name: 'New User',
+      mobile: '1234567890',
     });
     store.dispatch(action);
 
@@ -136,6 +137,7 @@ describe('authSlice', () => {
       email: 'newuser@example.com',
       password: 'password123',
       name: 'New User',
+      mobile: '1234567890',
     });
 
     store.dispatch(action);

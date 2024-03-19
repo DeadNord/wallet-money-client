@@ -1,141 +1,48 @@
 @import '../../sass/variables';
 
-
 .loginContainer {
     width: 322px;
 }
 
-.icon {
-    width: 144px
-}
-
-.loginHeader {
+.loginHeader,
+.loginFooter {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 42px; // Footer margin-top is handled separately
 
-    margin-bottom: 42px;
-}
+    h1 {
+        margin-bottom: 24px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 35px;
+    }
 
-.loginHeader h1 {
-    margin-bottom: 24px;
-
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 35px;
-    
-}
-
-.loginHeader p {
-    font-weight: 300;
-
-    line-height: 24px;
-    
-    ;
-}
-
-.loginForm {
-    display: flex;
-    flex-direction: column;
-}
-
-.input {
-    margin-bottom: 18px;
-
-    padding: 12px;
-    border-radius: 6px;
-    background-color: $buttonAuthBackground;
-
-    font-weight: 300;
-    line-height: 24px;
-    
-}
-
-.input::placeholder {
-    font-weight: 300;
-    line-height: 24px;
-    
-}
-
-.inputLink {
-    margin-left: auto;
-    margin-bottom: 18px;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-    
-}
-
-.checkboxContainer {
-    margin-bottom: 18px;
-
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-}
-
-.checkboxContainer input {
-    width: 22px;
-    height: 22px;
-}
-
-.checkboxContainer label {
-    margin-left: 12px;
-    font-weight: 700;
-    line-height: 16.94px;
-    
-}
-
-.button {
-    margin-bottom: 18px;
-
-    padding: 12px;
-    border-radius: 6px;
-    
-}
-
-.button:hover {
-    opacity: 0.8;
-}
-
-.mainLogin {
-    background: $mainGradient;
-}
-
-.altLoginText {
-    align-self: center;
-    // margin-bottom: 18px;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-    
-}
-
-.googleLogin {
-    background-color: $buttonAuthBackground;
+    p {
+        font-weight: 300;
+        line-height: 24px;
+    }
 }
 
 .loginFooter {
     margin-top: 42px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .navText {
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    
-}
 
-.navText:first-child {
-    margin-bottom: 42px;
+    &:first-child {
+        margin-bottom: 42px;
+    }
 }
 
 .navLink {
     color: $mainColor;
+    transition: color 0.3s;
+
+    &:hover {
+        color: darken($mainColor, 10%);
+    }
 }

@@ -1,80 +1,57 @@
-import { NavLink } from 'react-router-dom';
-import s from './SignUpPage.module.scss';
-import sprite from '../../assets/svg/sprites.svg';
-// import { useDispatch } from 'react-redux';
-// import { signInOperation } from '../../store/auth/auth-operation';
-import { Formik, Form, Field } from 'formik';
+// SignUpPage.tsx
+import React from 'react';
 import AuthContainer from 'components/shared/authContainer/AuthContainer';
-import classnames from 'classnames';
 import Logo from 'components/shared/icons/logo/Logo';
-// import { useState } from 'react';
+import s from './SignUpPage.module.scss';
+import { ToastContainer } from 'react-toastify'; // Import toastify
+import { AppDispatch } from 'store/store';
+import { useDispatch } from 'react-redux';
+import { signInOperation, signUpOperation } from 'store/auth/auth-operations';
+import { SignUpValues } from 'store/auth/AuthTypes';
+import { notifyError, notifySuccess } from 'components/shared/notifications/Notifications';
+import SignUpForm from 'components/widgets/signUp/SignUpForm';
 
 const SignUpPage = () => {
-  //   const [passwordState, setPasswordToogle] = useState(false);
+  const dispatch: AppDispatch = useDispatch();
 
-  //   const dispatch = useDispatch<any>();
-
-  //   const passwordToogle = () => {
-  //     setPasswordToogle(!passwordState);
-  //   };
-  const TestAuth = () => {
-    // Implement your authentication test logic here
-    console.log('Testing Authentication');
+  const handleTestAuth = () => {
+    const user = {
+      email: 'testuser@gmail.com',
+      password: '1234567890',
+      name: 'TestUser',
+    };
+    dispatch(signInOperation(user));
   };
 
-  const signIn = (values: any) => {
-    // Implement your authentication test logic here
-    console.log('Testing Authentication');
+  const handleSignUp = (values: SignUpValues, setSubmitting: (isSubmitting: boolean) => void) => {
+    const { email, password, name, mobile } = values; // Destructure for readability
+    dispatch(signUpOperation({ email, password, name, mobile }))
+      .unwrap() // Proceeds if the promise is resolved
+      .then(() => notifySuccess('SignUp successful')) // Notify success
+      .catch(error => notifyError(error.message || 'SignUp failed')) // Notify error
+      .finally(() => setSubmitting(false)); // Always stop submitting after operation
   };
 
   return (
     <>
       <AuthContainer>
-        <div className={s.loginContainer}>
-          <div className={s.loginHeader}>
-            <Logo />
-            <h1>Register</h1>
-            <p>Enter your details to register</p>
-          </div>
-          <Formik
-            initialValues={{
-              username: '',
-              email: '',
-              mobile: '',
-              password: '',
-              passwordConfirm: '',
-            }}
-            onSubmit={values => {
-              signIn(values);
-            }}
-          >
-            <Form className={s.loginForm}>
-              <Field type="text" name="username" placeholder="Name" className={s.input} />
-              <Field type="text" name="email" placeholder="Email" className={s.input} />
-              <Field type="text" name="mobile" placeholder="Mobile Number" className={s.input} />
-              <Field type="password" name="password" placeholder="Password" className={s.input} />
-              <Field
-                type="password"
-                name="passwordConfirm"
-                placeholder="Confirm Password"
-                className={s.input}
-              />
-              <div className={s.checkboxContainer}>
-                <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" />
-                <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
-              </div>
-              <button type="submit" className={`${s.button} ${s.mainLogin}`}>
-                Login
-              </button>
-            </Form>
-          </Formik>
-          <div className={s.loginFooter}>
-            <p className={s.navText}>
-              Want test? Visit our{' '}
-              <button onClick={TestAuth} className={s.navLink}>
-                Test Page
-              </button>
-            </p>
+        <div>
+          <ToastContainer />
+          <div className={s.loginContainer}>
+            <div className={s.loginHeader}>
+              <Logo />
+              <h1>Register</h1>
+              <p>Enter your details to register</p>
+            </div>
+            <SignUpForm handleSignUp={handleSignUp} />
+            <div className={s.loginFooter}>
+              <p className={s.navText}>
+                Want to test? Visit our
+                <button onClick={() => handleTestAuth} className={s.navLink}>
+                  Test Page
+                </button>
+              </p>
+            </div>
           </div>
         </div>
       </AuthContainer>
