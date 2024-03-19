@@ -14,75 +14,7 @@
     height: 335px;
 }
 
-.categoriesTitle {
-    margin-bottom: 22px;
-
-    font-weight: 600;
-    line-height: 24px;
-}
-
-// .categoriesChart {
-//     width: 180px;
-//     height: 180px;
-
-//     margin-left: auto;
-//     margin-right: auto;
-//     margin-bottom: 22px;
-
-//     background-color: white;
-// }
-
-// .chartBudget {
-//     font-weight: 700;
-//     font-size: 28px;
-//     line-height: 36px;
-
-//     fill: white;
-// }
-
-// .chartText {
-//     font-weight: 300;
-//     font-size: 12px;
-//     line-height: 18px;
-
-//     fill: white;
-// }
-
 
 .categoriesListContainer {
     scrollbar-color: $mainColor transparent;
-}
-
-.basicBackground {
-    background-color: $mainColor;
-}
-
-.categoryItem {
-    display: flex;
-    justify-content: space-between;
-
-    padding-right: 10px;
-}
-
-.categoryNameContainer {
-    display: flex;
-
-    align-items: center;
-}
-
-.icon {
-    width: 9px;
-    height: 9px;
-
-    border-radius: 10px;
-}
-
-.categoryText {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 21px;
-}
-
-.categoryName {
-    margin-left: 16px;
 }

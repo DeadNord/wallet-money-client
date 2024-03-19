@@ -1,6 +1,6 @@
 @import "../../../sass/variables";
 
-
+// Main background for the Dashboard
 .background {
     background-color: black;
     height: 100vh;
@@ -11,51 +11,46 @@
     justify-content: center;
 }
 
+// Container for dashboard content
 .dashboardContainer {
     width: 1032px;
-
-    margin-top: 32px;
-    margin-bottom: 36px;
-    margin-left: 79px;
-    margin-right: 81px;
+    margin: 32px 81px 36px 79px;
 }
 
+// Container for the hero section including title and add icon
 .heroContainer {
     display: flex;
     justify-content: space-between;
-
     margin-bottom: 16px;
 }
 
-.titleName {
-    color: white;
-}
-
+// Styling for the main title in the hero section
+.titleName,
 .textName {
     color: white;
 }
 
+// Container for the plus icon
 .iconContainer {
     width: 60px;
     height: 60px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    border-radius: 100px;
+    border-radius: 100%;
     background-image: $mainGradient;
 }
 
+// Plus icon inside the icon container
 .iconAdd {
     width: 24px;
     height: 24px;
 }
 
+// Container for middle section components like Categories and Analytics
 .middleContainer {
     width: 1032px;
     margin-bottom: 24px;
-
     display: flex;
     justify-content: space-between;
 }

@@ -1,86 +1,74 @@
 @import "../../../../sass/variables";
 
-
 .contentBackground {
     background: $dachboardGradient;
     box-shadow: $dashboardShadow;
-
     border-radius: 6px;
     padding: 16px;
 }
 
 .budgetContainer {
     margin-bottom: 24px;
-
     height: 165px;
 }
 
+// Uses flex display to arrange elements horizontally and space them efficiently.
 .flex {
     display: flex;
-
     justify-content: space-between;
-
     margin-bottom: 12px;
 }
 
+// Styling for the budget title with emphasis on clarity and prominence.
 .budgetTitle {
-    margin-bottom: 12px;
-
     font-weight: 600;
-    margin-left: 12px;
+    margin: 0 12px 12px; // Combined margin properties for cleaner code
     line-height: 24px;
 }
 
+// Container for budget amounts to align items on the same line and center them vertically.
 .countContainer {
     display: flex;
     align-items: center;
 }
 
+// Styling for the budget amount showing emphasis and larger text for clarity.
 .budgetCount {
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
 }
 
+// Text styling for supplementary information about the budget for readability.
 .budgetText {
     margin-left: 8px;
-
     font-weight: 300;
     font-size: 14px;
     line-height: 21px;
 }
 
+// Additional information tracking budget spending against limits for visibility.
 .budgetTrack {
     font-weight: 600;
     line-height: 24px;
 }
 
-.tracker {
-    margin-bottom: 12px;
-
-    height: 17px;
-    background-color: violet;
-}
-
+// Container for icons to ensure alignment and proper spacing.
 .iconContainer {
     display: flex;
+    align-items: center; // Ensures vertical alignment for icons
 }
 
+// Specific dimensions for budget-related icons for uniformity.
 .iconBudget {
     width: 20px;
     height: 20px;
-
-    // background-color: white;
 }
 
-// .barFill{
-//     fill: $mainGradient;
-// }
-
+// Container for the bar chart with fixed height and full width for consistency.
 .barContainer {
-    margin-bottom: 12px;
-
     width: 100%;
     height: 17px;
-    fill: $barColor;
+    background-color: $barColor; // Use background-color for divs instead of fill
+    margin-bottom: 12px;
 }

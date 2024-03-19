@@ -1,0 +1,47 @@
+@import "../../../../../sass/variables";
+
+
+.categoriesTitle {
+    margin-bottom: 22px;
+
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.categoriesListContainer {
+    scrollbar-color: $mainColor transparent;
+}
+
+.basicBackground {
+    background-color: $mainColor;
+}
+
+.categoryItem {
+    display: flex;
+    justify-content: space-between;
+
+    padding-right: 10px;
+}
+
+.categoryNameContainer {
+    display: flex;
+
+    align-items: center;
+}
+
+.icon {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 10px;
+}
+
+.categoryText {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.categoryName {
+    margin-left: 16px;
+}
