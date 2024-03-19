@@ -1,47 +1,54 @@
+// Importing Sass variables for consistent theming and easier changes
 @import "../../../sass/variables";
 
-// Main background for the Dashboard
+// Mixin for flexbox layout
+@mixin flexLayout($justify-content: flex-start, $align-items: center) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// Mixin for common container sizes
+@mixin containerSize($width: 1032px, $margin: 0) {
+    width: $width;
+    margin: $margin;
+}
+
+// Background styling for the Dashboard
 .background {
     background-color: black;
     height: 100vh;
     width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexLayout(center); // Centralizing content
 }
 
 // Container for dashboard content
 .dashboardContainer {
-    width: 1032px;
-    margin: 32px 81px 36px 79px;
+    @include containerSize($margin: 32px 81px 36px 79px);
 }
 
-// Container for the hero section including title and add icon
+// Container for the hero section including title and icon
 .heroContainer {
-    display: flex;
-    justify-content: space-between;
+    @include flexLayout(space-between); // Space between title and add icon
     margin-bottom: 16px;
 }
 
-// Styling for the main title in the hero section
+// Styling for titles and texts in the hero section, shared styles
 .titleName,
 .textName {
-    color: white;
+    color: white; // Grouped for DRY principle
 }
 
-// Container for the plus icon
+// Container for the plus icon with styling
 .iconContainer {
     width: 60px;
     height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexLayout(center); // Centering content
     border-radius: 100%;
     background-image: $mainGradient;
 }
 
-// Plus icon inside the icon container
+// Plus icon styling within its container
 .iconAdd {
     width: 24px;
     height: 24px;
@@ -49,8 +56,7 @@
 
 // Container for middle section components like Categories and Analytics
 .middleContainer {
-    width: 1032px;
+    @include containerSize; // Default width and no specified margin
     margin-bottom: 24px;
-    display: flex;
-    justify-content: space-between;
+    @include flexLayout(space-between); // Space between contained elements
 }

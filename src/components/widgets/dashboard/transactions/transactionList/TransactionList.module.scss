@@ -1,37 +1,45 @@
+// Importing the SASS variables
 @import "../../../../../sass/variables";
 
+// Mixin for common flex container styles
+@mixin flexContainer($justify-content: flex-start) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify-content;
+}
+
+// Mixin for common text styles
+@mixin textStyle($font-weight, $font-size, $line-height) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+// Styling for the container of the table
 .tableContainer {
     scrollbar-color: $mainColor transparent;
 }
 
+// Styling for each item in the table
 .tableItem {
-    display: flex;
-    align-items: center;
+    @include flexContainer;
 }
 
+// Styling for each cell in the table
 .tableCell {
     width: 25%;
-
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 21px;
+    @include textStyle(300, 14px, 21px);
 }
 
-
+// Styling for amount values in the table
 .amount {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
+    @include textStyle(600, 16px, 24px);
 }
 
+// Styling for the type category in the table
 .type {
     width: 71px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    @include flexContainer(center); // Using mixin with justification
     border-radius: 4px;
-
     box-shadow: $searchShadow;
 }

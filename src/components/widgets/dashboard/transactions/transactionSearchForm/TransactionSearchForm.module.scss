@@ -1,46 +1,49 @@
+// Importing the SASS variables for colors, gradients, and shadows
 @import "../../../../../sass/variables";
 
-
-.formContainer {
+// Mixin for common flex container styles
+@mixin flexContainer {
     display: flex;
     align-items: center;
 }
 
-.seachContainer {
-    display: flex;
-    align-items: center;
+// Mixin for common text styles
+@mixin inputTextStyle {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: $mainTextColor;
+}
 
+// General container for form elements
+.formContainer {
+    @include flexContainer;
+}
+
+// Container specifically for search functionality
+.searchContainer {
+    @include flexContainer;
     padding: 12px;
-
     border-radius: 6px;
-
     background-image: $mainGradient;
     box-shadow: $searchShadow;
-
 }
 
+// Styling for the search input field
 .searchInput {
     width: 124px;
-
     background-color: transparent;
+    @include inputTextStyle;
 
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-    color: $mainTextColor;
+    &::placeholder {
+        // Styling for the placeholder text
+        @include inputTextStyle;
+    }
 }
 
-.searchInput::placeholder {
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-
-    color: $mainTextColor;
-}
-
+// Styling for the search icon
 .searchIcon {
     width: 10px;
     height: 10px;
-
     margin-left: 26px;
 }

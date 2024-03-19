@@ -1,6 +1,6 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import s from './ExpensePieChart.module.scss'; // Убедитесь, что у вас правильные пути к файлам стилей
+import s from './ExpensePieChart.module.scss';
 import { CategoryExpense } from 'store/finances/FinancesTypes';
 
 interface ExpensePieChartProps {
@@ -28,19 +28,19 @@ const ExpensePieChart = React.memo(({ expenses, monthlyExpenses }: ExpensePieCha
         </Pie>
         <text
           x="50%"
-          y="45%" // Поднимаем текст чуть выше центра
+          y="45%"
           textAnchor="middle"
           dominantBaseline="central"
-          className={s.chartBudget} // Применяем стили для бюджета
+          className={s.chartBudget}
         >
           {`€${monthlyExpenses}`}
         </text>
         <text
           x="50%"
-          y="55%" // Размещаем текст чуть ниже центра
+          y="55%"
           textAnchor="middle"
           dominantBaseline="central"
-          className={s.chartText} // Применяем стили для описательного текста
+          className={s.chartText}
         >
           Total expenses
         </text>

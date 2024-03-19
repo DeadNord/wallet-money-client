@@ -1,7 +1,8 @@
 import React from 'react';
-import { List, AutoSizer } from 'react-virtualized';
+import { List } from 'react-virtualized';
 import s from './TransactionList.module.scss'; // Убедитесь, что у вас правильные пути к файлам стилей
 import { Transaction } from 'store/finances/FinancesTypes';
+import variables from '../../../../../sass/variables.scss';
 
 interface TransactionListProps {
   data: Transaction[];
@@ -27,7 +28,7 @@ const TransactionList: React.FC<TransactionListProps> = React.memo(({ data }) =>
           className={`${s.tableCell} ${s.type}`}
           style={{
             backgroundColor:
-              transaction.type === 'Income' ? 'var(--income-color)' : 'var(--outcome-color)',
+              transaction.type === 'Income' ? variables.incomeColor : variables.outcomeColor,
           }}
         >
           {transaction.type}
@@ -39,7 +40,7 @@ const TransactionList: React.FC<TransactionListProps> = React.memo(({ data }) =>
   return (
     <div className={s.tableContainer}>
       <List
-        width={938}
+        width={1000}
         height={52}
         rowCount={data.length}
         rowHeight={26}

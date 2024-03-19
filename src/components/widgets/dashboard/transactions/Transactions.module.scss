@@ -1,125 +1,53 @@
+// Importing Sass variables for consistency and easy maintenance
 @import "../../../../sass/variables";
 
-.contentBackground {
-    background: $dachboardGradient;
-    box-shadow: $dashboardShadow;
-
-    border-radius: 6px;
-    padding: 10px 16px 16px 16px;
+// Mixin for setting flexbox properties efficiently
+@mixin flexDisplay($align-items: center, $justify-content: flex-start) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
 }
 
+// Mixin for common text styles
+@mixin textStyle($font-weight, $font-size: 12px, $line-height: 18px) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+// Background settings for content areas
+.contentBackground {
+    background: $dashboardGradient;
+    box-shadow: $dashboardShadow;
+    border-radius: 6px;
+    padding: 10px 16px; // Simplified padding notation
+}
+
+// Container for transaction sections
 .transactionsContainer {
     width: 1032px;
     height: 165px;
 }
 
+// Container for titles, applying flexbox mixin
 .titleContainer {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
+    @include flexDisplay(space-between); // Utilizing mixin with justify-content
     margin-bottom: 12px;
 }
 
+// Styles for title text
 .title {
-    font-weight: 600;
-    line-height: 24px;
+    @include textStyle(600, null, 24px); // Using mixin with specific line-height
 }
 
-.formContainer {
-    display: flex;
-    align-items: center;
-}
-
-.seachContainer {
-    display: flex;
-    align-items: center;
-
-    padding: 12px;
-
-    border-radius: 6px;
-
-    background-image: $mainGradient;
-    box-shadow: $searchShadow;
-
-}
-
-.searchInput {
-    width: 124px;
-
-    background-color: transparent;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-    color: $mainTextColor;
-}
-
-.searchInput::placeholder {
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-
-    color: $mainTextColor;
-}
-
-.searchIcon {
-    width: 10px;
-    height: 10px;
-
-    margin-left: 26px;
-}
-
-
+// Container for header elements, reusing the flex display mixin
 .headerContainer {
-    display: flex;
-    align-items: center;
-
+    @include flexDisplay; // Default alignment
     margin-bottom: 14px;
 }
 
+// Individual items within the header, applying text style mixin
 .headerItem {
-    width: 25%;
-
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
+    width: 25%; // Maintain specific width for alignment
+    @include textStyle(300); // Default font-size and line-height from mixin
 }
-
-
-// .tableContainer {
-//     scrollbar-color: $mainColor transparent;
-// }
-
-// .tableItem {
-//     display: flex;
-//     align-items: center;
-// }
-
-// .tableCell {
-//     width: 25%;
-
-//     font-weight: 300;
-//     font-size: 14px;
-//     line-height: 21px;
-// }
-
-
-// .amount {
-//     font-weight: 600;
-//     font-size: 16px;
-//     line-height: 24px;
-// }
-
-// .type {
-//     width: 71px;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-
-//     border-radius: 4px;
-
-//     box-shadow: $searchShadow;
-// }

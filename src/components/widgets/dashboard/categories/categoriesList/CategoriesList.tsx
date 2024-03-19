@@ -1,6 +1,6 @@
 import React from 'react';
 import { List } from 'react-virtualized';
-import s from './CategoriesList.module.scss'; // Adjust the path as necessary
+import s from './CategoriesList.module.scss';
 import { CategoryExpense } from 'store/finances/FinancesTypes';
 
 interface CategoriesListProps {

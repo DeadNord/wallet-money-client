@@ -1,66 +1,69 @@
 @import "../../../../sass/variables";
 
+// General styling for content background areas
 .contentBackground {
-    background: $dachboardGradient;
+    background: $dashboardGradient;
     box-shadow: $dashboardShadow;
-
-    border-radius: 6px;
-    padding: 16px;
+    border-radius: 6px; // Rounded corners for modern look
+    padding: 16px; // Consistent spacing inside the container
 }
 
-
+// Specific styling for the analytics section
 .analyticsContainer {
-    // margin-left: 25px;
-    width: 667px;
-    height: 333px;
+    width: 667px; // Fixed width for consistency
+    height: 333px; // Fixed height for consistency
 }
 
-.titleContainer{
-    margin-bottom: 21px;
+// Container for the title to ensure proper margin and alignment
+.titleContainer {
+    margin-bottom: 21px; // Provides separation from the next elements
 }
 
-.flex{
+// Utility class for flexbox layout
+.flex {
     display: flex;
-
-    align-items: center;
-    justify-content: space-around;
+    align-items: center; // Centers items vertically
+    justify-content: space-around; // Evenly spaces out items
 }
 
-.title{
-    font-weight: 600;
-    line-height: 24px;
+// Styling for titles within analytics
+.title {
+    font-weight: 600; // Bold for emphasis
+    line-height: 24px; // Proper line height for readability
 }
 
-.text{
-    font-weight: 300;
-    line-height: 21px;
+// General text styling within the analytics component
+.text {
+    font-weight: 300; // Lighter for less emphasis
+    line-height: 21px; // Adequate spacing between lines
 }
 
-.iconContainer{
-    margin-left: 32px;
+// Container for icons to ensure they are properly spaced
+.iconOutcomeContainer {
+    margin-left: 32px; // Separates this group from other content
 }
 
-.icon{
+// Base styling for icons in the analytics section
+.icon {
     width: 9px;
     height: 9px;
-
-    margin-right: 16px;
-
-    border-radius: 10px;
+    margin-right: 16px; // Adds spacing to the right of the icon
+    border-radius: 50%; // Ensures the icon is always round
 }
 
-.iconIncome{
-    background-color: $incomeColor;
+// Color variations for income and outcome icons
+.iconIncome {
+    background-color: $incomeColor; // Specific color for income
 }
 
-.iconOutcome{
-    background-color: $outcomeColor;
+.iconOutcome {
+    background-color: $outcomeColor; // Specific color for outcome
 }
 
-.charText{
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 18;
-
-    color: $mainTextColor;
+// Styling for any text associated with charts
+.chartText {
+    font-size: 12px; // Smaller size for subtlety
+    font-weight: 300; // Light for regular information
+    line-height: 18px; // Ensures text is not cramped
+    color: $mainTextColor; // Standard text color for consistency
 }

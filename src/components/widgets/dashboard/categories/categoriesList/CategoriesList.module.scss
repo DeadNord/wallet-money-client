@@ -1,47 +1,51 @@
 @import "../../../../../sass/variables";
 
-
+// Title styling for the categories section
 .categoriesTitle {
     margin-bottom: 22px;
-
-    font-weight: 600;
-    line-height: 24px;
+    font-weight: 600; // Semibold for emphasis
+    line-height: 24px; // Ensures proper spacing between lines
 }
 
+// Styling for the container holding the list of categories
 .categoriesListContainer {
-    scrollbar-color: $mainColor transparent;
+    scrollbar-color: $mainColor transparent; // Customizes the scrollbar colors
 }
 
+// Default background style for items without a specific category color
 .basicBackground {
-    background-color: $mainColor;
+    background-color: $mainColor; // Uses the primary color from variables
 }
 
+// Individual category item styling
 .categoryItem {
     display: flex;
-    justify-content: space-between;
-
-    padding-right: 10px;
+    justify-content: space-between; // Distributes space between elements inside
+    padding-right: 10px; // Adds some spacing on the right for breathing room
 }
 
+// Container for the category name and icon
 .categoryNameContainer {
     display: flex;
-
-    align-items: center;
+    align-items: center; // Aligns items vertically in the center
 }
 
+// Styling for the category icon
 .icon {
     width: 9px;
     height: 9px;
-
-    border-radius: 10px;
+    border-radius: 50%; // Makes the icon circular
+    background-color: $mainColor; // Default background color
 }
 
+// General text styling for category-related texts
 .categoryText {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 21px;
+    font-weight: 300; // Light for regular text
+    font-size: 14px; // Standard font size
+    line-height: 21px; // Adequate spacing between lines
 }
 
+// Specific styling for the category name text
 .categoryName {
-    margin-left: 16px;
+    margin-left: 16px; // Adds spacing to separate from the icon
 }
