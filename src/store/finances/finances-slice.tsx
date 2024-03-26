@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   addTransactionOperation,
   getBudgetOperation,
+  getCategories,
   getExpensesByCategoriesOperation,
   getTransactionsByWeekOperation,
   getTransactionsOperation,
@@ -13,6 +14,8 @@ import {
   WeeklyTransactionSummary,
   CategoryExpense,
   BudgetResponceData,
+  TransactionReturnedData,
+  Category,
 } from './FinancesTypes';
 
 // Initial state setup with types applied correctly
@@ -24,17 +27,19 @@ const initialState: FinancesState = {
   },
   transactions: [
     {
+      id: null,
       type: null,
       name: null,
       date: null,
       amount: 0,
       fromAccount: null,
       category: null,
-      notes: null,
+      note: null,
     },
   ],
   transactionsByWeek: [{ name: null, income: 0, outcome: 0 }],
   expensesByCategories: [{ category: null, value: 0, color: null }],
+  categories: [],
   error: null,
 };
 
@@ -85,20 +90,39 @@ const financesSlice = createSlice({
       state.error = action.error.message || 'Failed to fetch expenses by categories';
     });
 
-    // builder.addCase(addTransactionOperation.fulfilled, (state, action) => {
-    //   state.error = action.error.message || 'Adding transaction failed';
-    // });
+    builder.addCase(
+      addTransactionOperation.fulfilled,
+      (state, action: PayloadAction<TransactionReturnedData>) => {
+        const newTransaction = {
+          ...action.payload,
+          fromAccount: action.payload['from-account'],
+          category:
+            state.categories.find(cat => cat.id === action.payload['category-id'])?.name || null,
+        };
+
+        state.transactions.push(newTransaction);
+      },
+    );
 
     builder.addCase(addTransactionOperation.rejected, (state, action) => {
       state.error = action.error.message || 'Adding transaction failed';
     });
 
-    // builder.addCase(removeTransactionOperation.fulfilled, (state, action) => {
-    //   state.error = action.error.message || 'Removing transaction failed';
-    // });
+    builder.addCase(
+      removeTransactionOperation.fulfilled,
+      (state, action: PayloadAction<string>) => {
+        state.transactions = state.transactions.filter(
+          transaction => transaction.id !== action.payload,
+        );
+      },
+    );
 
     builder.addCase(removeTransactionOperation.rejected, (state, action) => {
       state.error = action.error.message || 'Removing transaction failed';
+    });
+
+    builder.addCase(getCategories.fulfilled, (state, action: PayloadAction<Category[]>) => {
+      state.categories = action.payload;
     });
   },
 });

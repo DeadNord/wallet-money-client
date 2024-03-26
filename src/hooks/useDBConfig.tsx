@@ -7,10 +7,11 @@ import { getUserAccess } from 'store/auth/auth-selectors';
 export const useDBConfig = () => {
   const token = useSelector(getUserAccess); // Retrieve user's access token from Redux store
 
+  axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api`; // Set the base URL for all Axios requests
+
   useEffect(() => {
     // Set up Axios defaults only if the token exists
     if (token) {
-      axios.defaults.baseURL = process.env.REACT_APP_API_URL; // Set the base URL for all Axios requests
       axios.defaults.headers.common.Authorization = `Bearer ${token}`; // Set the Authorization header for all Axios requests
     }
   }, [token]); // This effect depends on the token and runs whenever the token changes
