@@ -16,9 +16,8 @@ const SignUpPage = () => {
 
   const handleTestAuth = () => {
     const user = {
-      email: 'testuser@gmail.com',
-      password: '1234567890',
-      name: 'TestUser',
+      email: 'user@example.com',
+      password: 'SecurePassword123!',
     };
     dispatch(signInOperation(user));
   };

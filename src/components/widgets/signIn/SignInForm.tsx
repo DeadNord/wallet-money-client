@@ -12,9 +12,15 @@ const signInValidationSchema = Yup.object().shape({
     .required('Password is required'),
 });
 
+type SignInFormValues = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
 // Define props type
 interface SignInFormProps {
-  handleSignIn: (values: any, setSubmitting: (isSubmitting: boolean) => void) => void; // Update 'any' to your specific type
+  handleSignIn: (values: SignInFormValues, setSubmitting: (isSubmitting: boolean) => void) => void; // Update 'any' to your specific type
 }
 
 const SignInForm: React.FC<SignInFormProps> = ({ handleSignIn }) => {

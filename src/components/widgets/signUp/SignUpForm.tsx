@@ -4,14 +4,23 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup'; // Import Yup for validation
 import s from './SignUpForm.module.scss'; // Adjust the path as necessary
 
+type SignUpFormValues = {
+  name: string;
+  email: string;
+  mobile: string;
+  password: string;
+  passwordConfirm: string;
+  agreeToTerms: boolean;
+};
+
 // Props type for SignUpForm
 interface SignUpFormProps {
-  handleSignUp: (values: any, setSubmitting: (isSubmitting: boolean) => void) => void; // Update 'any' to your specific type
+  handleSignUp: (values: SignUpFormValues, setSubmitting: (isSubmitting: boolean) => void) => void; // Update 'any' to your specific type
 }
 
 // Validation schema for the sign-up form using Yup
 const signUpValidationSchema = Yup.object().shape({
-  username: Yup.string().required('Name is required'),
+  name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   mobile: Yup.string()
     .matches(/^[0-9]+$/, 'Must be only digits')
@@ -30,7 +39,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ handleSignUp }) => {
   return (
     <Formik
       initialValues={{
-        username: '',
+        name: '',
         email: '',
         mobile: '',
         password: '',
@@ -44,8 +53,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ handleSignUp }) => {
     >
       {({ errors, touched, isValid, values }) => (
         <Form className={s.loginForm}>
-          <Field type="text" name="username" placeholder="Name" className={s.input} />
-          {errors.username && touched.username && <div className={s.error}>{errors.username}</div>}
+          <Field type="text" name="name" placeholder="Name" className={s.input} />
+          {errors.name && touched.name && <div className={s.error}>{errors.name}</div>}
           <Field type="text" name="email" placeholder="Email" className={s.input} />
           {errors.email && touched.email && <div className={s.error}>{errors.email}</div>}
           <Field type="text" name="mobile" placeholder="Mobile Number" className={s.input} />
