@@ -18,6 +18,7 @@ const initialState: FinancesState = {
   transactions: [],
   transactionsByWeek: [],
   expensesByCategories: [],
+  categories: [],
   error: null,
 };
 
@@ -51,22 +52,24 @@ describe('financesSlice', () => {
   test('should handle fulfillment of getTransactionsOperation', async () => {
     const mockTransactions: Transaction[] = [
       {
+        id : '1',
         name: 'Coffee',
         date: '2024-03-20',
         amount: 5,
         type: TransactionType.expense,
         category: 'Food',
         fromAccount: 'Savings',
-        notes: 'Cafe',
+        note: 'Cafe',
       },
       {
+        id : '2',
         name: 'Book',
         date: '2024-03-21',
         amount: 15,
         type: TransactionType.expense,
         category: 'Entertainment',
         fromAccount: 'Savings',
-        notes: 'Book',
+        note: 'Book',
       },
     ];
     const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);

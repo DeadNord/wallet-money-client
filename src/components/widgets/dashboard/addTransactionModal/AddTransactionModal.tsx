@@ -2,10 +2,11 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import s from './AddTransactionModal.module.scss';
 import SvgIcon from 'components/shared/icons/SvgIcon';
-import { addTransactionOperation } from 'store/finances/finances-operations';
+import { addTransactionOperation, getCategoriesOperation } from 'store/finances/finances-operations';
 import { AppDispatch } from 'store/store';
 import { useDispatch } from 'react-redux';
-import { Transaction, TransactionType } from 'store/finances/FinancesTypes';
+import {  TransactionSentData, TransactionType } from 'store/finances/FinancesTypes';
+import { useEffect } from 'react';
 
 // Validation schema using Yup
 const TransactionSchema = Yup.object().shape({
@@ -20,10 +21,16 @@ const TransactionSchema = Yup.object().shape({
 const AddTransactionModal = () => {
   const dispatch: AppDispatch = useDispatch();
 
-  const handleSubmit = (values: Transaction) => {
-    const { type, amount, date, fromAccount, category, notes } = values;
+
+  // Dispatch action to fetch transactions on component mount
+  useEffect(() => {
+    dispatch(getCategoriesOperation());
+  }, [dispatch]);
+
+  const handleSubmit = (values: TransactionSentData) => {
+    const { type, amount, date, fromAccount, category, note } = values;
     dispatch(
-      addTransactionOperation({ type, name: category, amount, date, fromAccount, category, notes }),
+      addTransactionOperation({ type, name: category, amount, date, fromAccount, category, note }),
     );
   };
 
@@ -37,11 +44,11 @@ const AddTransactionModal = () => {
           date: '',
           fromAccount: '',
           category: '',
-          notes: '',
+          note: '',
         }}
         validationSchema={TransactionSchema}
         onSubmit={(values, { setSubmitting }) => {
-          const transactionData: Transaction = {
+          const transactionData: TransactionSentData = {
             ...values,
             amount: parseFloat(values.amount), // Convert string to number
             type: values.type as TransactionType, // Assert to TransactionType
@@ -105,7 +112,7 @@ const AddTransactionModal = () => {
                 <SvgIcon name={'icon-pen'} className={s.icon} />
                 <p className={s.label}>Add Notes</p>
               </div>
-              <Field as="textarea" name="notes" className={s.textInput} />
+              <Field as="textarea" name="note" className={s.textInput} />
             </div>
 
             <div className={s.saveButtonContainer}>

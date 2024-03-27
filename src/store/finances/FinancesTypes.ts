@@ -15,6 +15,16 @@ export interface Transaction {
   note: string | null; // Additional notes about the transaction or null if not available
 }
 
+export interface TransactionSentData {
+  type: TransactionType | null; // The type of transaction (e.g., "income" or "expense")
+  name: string | null; // The name or description of the transaction
+  date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
+  amount: number; // The monetary amount of the transaction
+  fromAccount: string | null; // The account this transaction was made from or null if not available
+  category: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
+  note: string | null; // Additional notes about the transaction or null if not available
+}
+
 // Defines the structure of the response data returned by the getTransactions endpoint.
 export interface TransactionReturnedData {
   id: string; // The unique identifier for the transaction

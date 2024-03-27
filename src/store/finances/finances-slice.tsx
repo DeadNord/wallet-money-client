@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   addTransactionOperation,
   getBudgetOperation,
-  getCategories,
+  getCategoriesOperation,
   getExpensesByCategoriesOperation,
   getTransactionsByWeekOperation,
   getTransactionsOperation,
@@ -121,7 +121,7 @@ const financesSlice = createSlice({
       state.error = action.error.message || 'Removing transaction failed';
     });
 
-    builder.addCase(getCategories.fulfilled, (state, action: PayloadAction<Category[]>) => {
+    builder.addCase(getCategoriesOperation.fulfilled, (state, action: PayloadAction<Category[]>) => {
       state.categories = action.payload;
     });
   },

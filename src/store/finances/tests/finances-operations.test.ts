@@ -20,6 +20,7 @@ const initialState: FinancesState = {
   transactions: [],
   transactionsByWeek: [],
   expensesByCategories: [],
+  categories: [],
   error: null,
 };
 
@@ -55,22 +56,24 @@ describe('Finances operations', () => {
   test('should handle fulfillment of getTransactionsOperation', async () => {
     const mockTransactions = [
       {
+        id : '1',
         name: 'Salary',
         date: '2024-03-15',
         amount: 3000,
         type: TransactionType.income,
         category: 'Job',
         fromAccount: 'Savings',
-        notes: 'Monthly',
+        note: 'Monthly',
       },
       {
+        id : '2',
         name: 'Rent',
         date: '2024-03-01',
         amount: 1200,
         type: TransactionType.expense,
         category: 'Housing',
         fromAccount: 'Savings',
-        notes: 'Monthly',
+        note: 'Monthly',
       },
     ];
     const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);
@@ -167,7 +170,7 @@ describe('Finances operations', () => {
         type: TransactionType.expense,
         category: 'Food',
         fromAccount: 'Savings',
-        notes: 'Groceries',
+        note: 'Groceries',
       },
     );
     await store.dispatch(rejectAction);

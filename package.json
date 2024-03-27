@@ -9,7 +9,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "",
+    "deploy": "netlify deploy -p",
     "stylelint": "npx stylelint **/*.{css,scss}",
     "stylelintFix": "npx stylelint **/*.{css,scss} --fix"
   },

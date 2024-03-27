@@ -6,6 +6,7 @@ import {
   CategoryExpense,
   Transaction,
   TransactionReturnedData,
+  TransactionSentData,
   TransactionType,
   WeeklyTransactionSummary,
 } from './FinancesTypes';
@@ -42,7 +43,7 @@ const getExpensesByCategoriesOperation = createAsyncThunk<
   CategoryExpense[],
   void,
   { rejectValue: ErrorResponse }
->('finances/categories', async (_, { rejectWithValue }) => {
+>('finances/expensesByCategories', async (_, { rejectWithValue }) => {
   try {
     const response = await axios.get<CategoryExpense[]>('finances/expenses-by-categories');
     return response.data;
@@ -66,7 +67,7 @@ const getTransactionsByWeekOperation = createAsyncThunk<
 
 const addTransactionOperation = createAsyncThunk<
   TransactionReturnedData,
-  Transaction,
+  TransactionSentData,
   { rejectValue: ErrorResponse }
 >('finances/add-transaction', async (transactionData, { rejectWithValue }) => {
   try {
@@ -98,7 +99,7 @@ const removeTransactionOperation = createAsyncThunk<string, string, { rejectValu
 );
 
 // Removing an existing transaction
-const getCategories = createAsyncThunk<Category[], void, { rejectValue: ErrorResponse }>(
+const getCategoriesOperation = createAsyncThunk<Category[], void, { rejectValue: ErrorResponse }>(
   'finances/categories',
   async (_, { rejectWithValue }) => {
     try {
@@ -119,5 +120,5 @@ export {
   removeTransactionOperation,
   getTransactionsByWeekOperation,
   getExpensesByCategoriesOperation,
-  getCategories,
+  getCategoriesOperation,
 };

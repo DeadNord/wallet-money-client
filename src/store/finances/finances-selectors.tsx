@@ -4,6 +4,7 @@ import {
   WeeklyTransactionSummary,
   CategoryExpense,
   BudgetData,
+  Category,
 } from './FinancesTypes';
 
 // Selector to get the budget details
@@ -20,4 +21,7 @@ const getTransactionsByWeek = (state: RootState): WeeklyTransactionSummary[] =>
 const getExpensesByCategories = (state: RootState): CategoryExpense[] =>
   state.finances.expensesByCategories;
 
-export { getBudget, getTransactions, getTransactionsByWeek, getExpensesByCategories };
+// Selector to get categories
+const getCategories = (state: RootState): Category[] => state.finances.categories;
+
+export { getCategories, getBudget, getTransactions, getTransactionsByWeek, getExpensesByCategories };

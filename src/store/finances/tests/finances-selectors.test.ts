@@ -19,22 +19,24 @@ const mockState: FinancesState = {
   },
   transactions: [
     {
+      id: '1',
       name: 'Groceries',
       date: '2024-03-20',
       amount: 150,
       type: TransactionType.expense,
       category: 'Food',
       fromAccount: 'Savings',
-      notes: 'Groceries',
+      note: 'Groceries',
     },
     {
+      id: '2',
       name: 'Salary',
       date: '2024-03-15',
       amount: 3000,
       type: TransactionType.income,
       category: 'Job',
       fromAccount: 'Savings',
-      notes: 'Salary',
+      note: 'Salary',
     },
   ],
   transactionsByWeek: [
@@ -45,6 +47,7 @@ const mockState: FinancesState = {
     { category: 'Food', value: 500, color: '#FF0000' },
     { category: 'Utilities', value: 150, color: '#00FF00' },
   ],
+  categories: [{id: '1', name: 'Food'}, {id: '2', name: 'Utilities'}],
   error: null,
 };
 
@@ -94,6 +97,7 @@ describe('getBudget with initial values', () => {
     transactions: [],
     transactionsByWeek: [],
     expensesByCategories: [],
+    categories: [],
     error: null,
   };
 
