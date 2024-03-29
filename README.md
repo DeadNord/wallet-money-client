@@ -32,7 +32,13 @@ cd wallet-money-client
 npm install
 ```
 
-4. Start the project:
+4. Create and populate a variable file(.env). You can find an example in:
+
+```bash
+.env.examples
+```
+
+5. Start the project:
 
 ```bash
 npm start
