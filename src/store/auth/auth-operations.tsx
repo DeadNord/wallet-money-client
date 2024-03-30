@@ -9,7 +9,7 @@ const signInOperation = createAsyncThunk<
   { rejectValue: ErrorResponse }
 >('auth/signIn', async (values, { rejectWithValue }) => {
   try {
-    const response = await axios.post<AuthResponse>('/auth/signIn', values);
+    const response = await axios.post<AuthResponse>('/auth/signIn/', values);
     const { accessToken } = response.data;
     return { accessToken };
   } catch (error: any) {
@@ -35,7 +35,7 @@ const signUpOperation = createAsyncThunk<void, SignUpValues, { rejectValue: Erro
   'auth/signUp',
   async (values, { rejectWithValue }) => {
     try {
-      await axios.post('/auth/signUp', values);
+      await axios.post('/auth/signUp/', values);
       // No need to return anything for a void operation
     } catch (error: any) {
       // Ensure rejection is handled correctly
@@ -48,7 +48,7 @@ const signOutOperation = createAsyncThunk<void, void, { rejectValue: ErrorRespon
   'auth/signOut',
   async (_, { rejectWithValue }) => {
     try {
-      await axios.get('/auth/signOut');
+      await axios.get('/auth/signOut/');
       // No need to return anything for a void operation
     } catch (error: any) {
       return rejectWithValue({ message: error.message || 'Failed to sign-in' });
@@ -59,7 +59,7 @@ const refreshTokenOperation = createAsyncThunk<AuthResponse, void, { rejectValue
   'auth/refresh',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get<AuthResponse>('/auth/refresh');
+      const response = await axios.get<AuthResponse>('/auth/refresh/');
       const { accessToken } = response.data;
       return { accessToken };
     } catch (error: any) {
@@ -73,7 +73,7 @@ const getUserOperation = createAsyncThunk<User, void, { rejectValue: ErrorRespon
   'auth/user',
   async (_, { dispatch, rejectWithValue }) => {
     try {
-      const response = await axios.get<User>('/auth/user');
+      const response = await axios.get<User>('/auth/user/');
       return response.data;
     } catch (error: any) {
       if (axios.isAxiosError(error) && error.response?.status === 401) {
