@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   BudgetResponceData,
@@ -7,11 +6,10 @@ import {
   Transaction,
   TransactionReturnedData,
   TransactionSentData,
-  TransactionType,
   WeeklyTransactionSummary,
 } from './FinancesTypes';
 import { ErrorResponse } from 'store/ReduxTypes';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const getBudgetOperation = createAsyncThunk<
   BudgetResponceData,
@@ -21,8 +19,9 @@ const getBudgetOperation = createAsyncThunk<
   try {
     const response = await axios.get<BudgetResponceData>('finances/budget/');
     return response.data;
-  } catch (error: any) {
-    return rejectWithValue({ message: error.message || 'Failed to fetch budget information' });
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
+    return rejectWithValue({ message: axiosError.message || 'Failed to fetch budget information' });
   }
 });
 
@@ -34,8 +33,9 @@ const getTransactionsOperation = createAsyncThunk<
   try {
     const response = await axios.get<Transaction[]>('finances/transactions/');
     return response.data;
-  } catch (error: any) {
-    return rejectWithValue({ message: error.message || 'Failed to fetch transactions' });
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
+    return rejectWithValue({ message: axiosError.message || 'Failed to fetch transactions' });
   }
 });
 
@@ -47,8 +47,11 @@ const getExpensesByCategoriesOperation = createAsyncThunk<
   try {
     const response = await axios.get<CategoryExpense[]>('finances/expenses-by-categories/');
     return response.data;
-  } catch (error: any) {
-    return rejectWithValue({ message: error.message || 'Failed to fetch expenses by categories' });
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
+    return rejectWithValue({
+      message: axiosError.message || 'Failed to fetch expenses by categories',
+    });
   }
 });
 
@@ -60,8 +63,11 @@ const getTransactionsByWeekOperation = createAsyncThunk<
   try {
     const response = await axios.get<WeeklyTransactionSummary[]>('finances/transactions-by-week/');
     return response.data;
-  } catch (error: any) {
-    return rejectWithValue({ message: error.message || 'Failed to fetch weekly transactions' });
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
+    return rejectWithValue({
+      message: axiosError.message || 'Failed to fetch weekly transactions',
+    });
   }
 });
 
@@ -76,9 +82,10 @@ const addTransactionOperation = createAsyncThunk<
       transactionData,
     );
     return response.data;
-  } catch (error: any) {
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
     return rejectWithValue({
-      message: error.response?.data?.message || 'Failed to add transaction',
+      message: axiosError.message || 'Failed to add transaction',
     });
   }
 });
@@ -90,9 +97,10 @@ const removeTransactionOperation = createAsyncThunk<string, string, { rejectValu
     try {
       await axios.delete(`finances/delete-transaction/${transactionId}/`);
       return transactionId;
-    } catch (error: any) {
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
       return rejectWithValue({
-        message: error.response?.data?.message || 'Failed to remove transaction',
+        message: axiosError.message || 'Failed to remove transaction',
       });
     }
   },
@@ -105,9 +113,10 @@ const getCategoriesOperation = createAsyncThunk<Category[], void, { rejectValue:
     try {
       const response = await axios.get(`finances/categories/`);
       return response.data;
-    } catch (error: any) {
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
       return rejectWithValue({
-        message: error.response?.data?.message || 'Failed to remove transaction',
+        message: axiosError.message || 'Failed to remove transaction',
       });
     }
   },

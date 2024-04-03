@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthResponse, SignInValues, SignUpValues, User } from './AuthTypes';
 import { ErrorResponse } from 'store/ReduxTypes';
@@ -12,8 +12,9 @@ const signInOperation = createAsyncThunk<
     const response = await axios.post<AuthResponse>('/auth/signIn/', values);
     const { accessToken } = response.data;
     return { accessToken };
-  } catch (error: any) {
-    return rejectWithValue({ message: error.message || 'Failed to sign-in' });
+  } catch (error) {
+    const axiosError = error as AxiosError<ErrorResponse>;
+    return rejectWithValue({ message: axiosError.message || 'Failed to sign-in' });
   }
 });
 
@@ -37,9 +38,10 @@ const signUpOperation = createAsyncThunk<void, SignUpValues, { rejectValue: Erro
     try {
       await axios.post('/auth/signUp/', values);
       // No need to return anything for a void operation
-    } catch (error: any) {
+    } catch (error) {
       // Ensure rejection is handled correctly
-      return rejectWithValue({ message: error.message || 'Failed to sign-up' });
+      const axiosError = error as AxiosError<ErrorResponse>;
+      return rejectWithValue({ message: axiosError.message || 'Failed to sign-up' });
     }
   },
 );
@@ -50,8 +52,9 @@ const signOutOperation = createAsyncThunk<void, void, { rejectValue: ErrorRespon
     try {
       await axios.get('/auth/signOut/');
       // No need to return anything for a void operation
-    } catch (error: any) {
-      return rejectWithValue({ message: error.message || 'Failed to sign-in' });
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
+      return rejectWithValue({ message: axiosError.message || 'Failed to sign-in' });
     }
   },
 );
@@ -62,8 +65,9 @@ const refreshTokenOperation = createAsyncThunk<AuthResponse, void, { rejectValue
       const response = await axios.get<AuthResponse>('/auth/refresh/');
       const { accessToken } = response.data;
       return { accessToken };
-    } catch (error: any) {
-      return rejectWithValue({ message: error.message || 'Token refresh failed' });
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
+      return rejectWithValue({ message: axiosError.message || 'Token refresh failed' });
     }
   },
 );
@@ -75,8 +79,9 @@ const getUserOperation = createAsyncThunk<User, void, { rejectValue: ErrorRespon
     try {
       const response = await axios.get<User>('/auth/user/');
       return response.data;
-    } catch (error: any) {
-      if (axios.isAxiosError(error) && error.response?.status === 401) {
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
+      if (axios.isAxiosError(axiosError) && axiosError.response?.status === 401) {
         // Attempt to refresh the token
         const refreshAction = await dispatch(refreshTokenOperation());
         if (refreshAction.meta.requestStatus === 'fulfilled') {
@@ -86,7 +91,7 @@ const getUserOperation = createAsyncThunk<User, void, { rejectValue: ErrorRespon
         }
       }
       // If error is not due to 401, reject with the original error
-      return rejectWithValue({ message: error.message || 'Failed to fetch user' });
+      return rejectWithValue({ message: axiosError.message || 'Failed to fetch user' });
     }
   },
 );

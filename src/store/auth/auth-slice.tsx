@@ -40,11 +40,6 @@ const authSlice = createSlice({
       state.error = action.error.message || null;
     });
 
-    // Handle successful sign-up
-    builder.addCase(signUpOperation.fulfilled, (state, action) => {
-      console.log('Sign up successful');
-    });
-
     builder.addCase(signUpOperation.rejected, (state, action) => {
       state.error = action.error.message || null;
     });
