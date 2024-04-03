@@ -71,10 +71,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ handleSignUp }) => {
             <div className={s.error}>{errors.passwordConfirm}</div>
           )}
           <div className={s.checkboxContainer}>
-            <div>
-              <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" className={s.checkbox} />
-              <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
-            </div>
+            <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" className={s.checkbox} />
+            <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
           </div>
           <button
             type="submit"
