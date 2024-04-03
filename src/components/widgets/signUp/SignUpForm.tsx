@@ -71,11 +71,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ handleSignUp }) => {
             <div className={s.error}>{errors.passwordConfirm}</div>
           )}
           <div className={s.checkboxContainer}>
-            <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" className={s.checkbox} />
-            <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
-            {errors.agreeToTerms && touched.agreeToTerms && (
-              <div className={s.error}>{errors.agreeToTerms}</div>
-            )}
+            <div>
+              <Field type="checkbox" name="agreeToTerms" id="agreeToTerms" className={s.checkbox} />
+              <label htmlFor="agreeToTerms">I agree with the terms and conditions</label>
+            </div>
           </div>
           <button
             type="submit"
