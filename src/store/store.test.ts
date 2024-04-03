@@ -18,17 +18,19 @@ describe('Redux Store Integration Tests', () => {
       budgetData: { budget: 0, budgetLimit: 0, monthlyExpenses: 0 },
       transactions: [
         {
+          id: null,
           name: null,
           date: null,
           amount: 0,
           type: null,
           category: null,
           fromAccount: null,
-          notes: null,
+          note: null,
         },
       ],
       transactionsByWeek: [{ name: null, income: 0, outcome: 0 }],
       expensesByCategories: [{ category: null, value: 0, color: null }],
+      categories: [],
       error: null,
     });
   });

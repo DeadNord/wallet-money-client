@@ -27,7 +27,7 @@ const TransactionSchema = Yup.object().shape({
   amount: Yup.number().positive('Amount must be positive').required('Required'),
   fromAccount: Yup.string().required('Required'),
   category: Yup.string().required('Required'),
-  notes: Yup.string(),
+  note: Yup.string(),
 });
 
 interface IDate {

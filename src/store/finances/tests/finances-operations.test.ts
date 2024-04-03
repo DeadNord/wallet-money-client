@@ -56,7 +56,7 @@ describe('Finances operations', () => {
   test('should handle fulfillment of getTransactionsOperation', async () => {
     const mockTransactions = [
       {
-        id : '1',
+        id: '1',
         name: 'Salary',
         date: '2024-03-15',
         amount: 3000,
@@ -66,7 +66,7 @@ describe('Finances operations', () => {
         note: 'Monthly',
       },
       {
-        id : '2',
+        id: '2',
         name: 'Rent',
         date: '2024-03-01',
         amount: 1200,
@@ -168,7 +168,7 @@ describe('Finances operations', () => {
         date: '2024-03-20',
         amount: 100,
         type: TransactionType.expense,
-        category: 'Food',
+        category_id: '122',
         fromAccount: 'Savings',
         note: 'Groceries',
       },
