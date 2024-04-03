@@ -21,7 +21,7 @@ export interface TransactionSentData {
   date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
   amount: number; // The monetary amount of the transaction
   fromAccount: string | null; // The account this transaction was made from or null if not available
-  category: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
+  category_id: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
   note: string | null; // Additional notes about the transaction or null if not available
 }
 

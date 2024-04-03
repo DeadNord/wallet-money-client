@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Formik, Form, Field } from 'formik';
 import Select, { SingleValue } from 'react-select';
 import * as Yup from 'yup';
@@ -57,16 +58,16 @@ const AddTransactionModal = () => {
   };
 
   const handleSubmit = (values: TransactionSentData) => {
-    const { type, amount, fromAccount, category, note } = values;
+    const { name, type, amount, fromAccount, category_id, note } = values;
     const formattedDate = startDate.date ? formatDate(startDate.date) : '';
     dispatch(
       addTransactionOperation({
         type,
-        name: category,
+        name,
         amount,
         date: formattedDate,
         fromAccount,
-        category,
+        category_id,
         note,
       }),
     );
@@ -96,10 +97,13 @@ const AddTransactionModal = () => {
         }}
         validationSchema={TransactionSchema}
         onSubmit={(values, { setSubmitting }) => {
+          const categoryId = categories.find(c => c.name === values.category)?.id ?? null;
           const transactionData: TransactionSentData = {
             ...values,
             amount: parseFloat(values.amount), // Convert string to number
             type: values.type as TransactionType, // Assert to TransactionType
+            category_id: categoryId,
+            name: values.category,
           };
           handleSubmit(transactionData);
           setSubmitting(false);
@@ -111,14 +115,14 @@ const AddTransactionModal = () => {
               <button
                 type="button"
                 onClick={() => setFieldValue('type', 'expense')}
-                className={`${s.typeButton} ${values.type === 'expense' ? s.active : ''}`}
+                className={`${s.typeButton} ${values.type === 'Expense' ? s.active : ''}`}
               >
                 Expense
               </button>
               <button
                 type="button"
                 onClick={() => setFieldValue('type', 'income')}
-                className={`${s.typeButton} ${values.type === 'income' ? s.active : ''}`}
+                className={`${s.typeButton} ${values.type === 'Income' ? s.active : ''}`}
               >
                 Income
               </button>
@@ -148,7 +152,7 @@ const AddTransactionModal = () => {
                     options={accountOptions}
                     className={s.select}
                     onChange={(option: SingleValue<string | OptionType>) => {
-                      if (option !== null && typeof option !== 'string') {
+                      if (option !== undefined && option !== null && typeof option !== 'string') {
                         setFieldValue('fromAccount', option.value);
                       }
                     }}
@@ -167,7 +171,7 @@ const AddTransactionModal = () => {
                     options={categoryOptions}
                     className={s.select}
                     onChange={(option: SingleValue<string | OptionType>) => {
-                      if (option !== null && typeof option !== 'string') {
+                      if (option !== undefined && option !== null && typeof option !== 'string') {
                         setFieldValue('category', option.value);
                       }
                     }}
