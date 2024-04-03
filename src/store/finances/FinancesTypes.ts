@@ -59,7 +59,7 @@ export interface Category {
 
 // Represents expenses aggregated by category, typically for visualization.
 export interface CategoryExpense {
-  category: string | null; // Name of the category (e.g., "Utilities", "Groceries") or null if not available
+  name: string | null; // Name of the category (e.g., "Utilities", "Groceries") or null if not available
   value: number; // Total expense amount for this category
   color: string | null; // Color code (hex, RGB, etc.) used for distinguishing this category in charts or null if not defined
 }

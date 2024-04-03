@@ -31,7 +31,7 @@ describe('Redux Store Integration Tests', () => {
         },
       ],
       transactionsByWeek: [{ name: null, income: 0, outcome: 0 }],
-      expensesByCategories: [{ category: null, value: 0, color: null }],
+      expensesByCategories: [{ name: null, value: 0, color: null }],
       categories: [],
       error: null,
     });

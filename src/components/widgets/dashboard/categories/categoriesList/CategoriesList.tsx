@@ -23,7 +23,7 @@ export const CategoriesList: React.FC<CategoriesListProps> = ({ expenses }) => {
             className={s.icon}
             style={{ backgroundColor: expense.color || s.basicBackground }}
           ></div>
-          <p className={`${s.categoryText} ${s.categoryName}`}>{expense.category}</p>
+          <p className={`${s.categoryText} ${s.categoryName}`}>{expense.name}</p>
         </div>
         <p className={s.categoryText}>€{expense.value}</p>
       </li>
