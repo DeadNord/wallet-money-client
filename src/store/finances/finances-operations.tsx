@@ -84,6 +84,9 @@ const addTransactionOperation = createAsyncThunk<
       'finances/add-transaction/',
       transactionData,
     );
+    await axios.get<WeeklyTransactionSummary[]>('finances/transactions-by-week/');
+    await axios.get<CategoryExpense[]>('finances/expenses-by-categories/');
+    await axios.get<BudgetResponceData>('finances/budget/');
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<ErrorResponse>;

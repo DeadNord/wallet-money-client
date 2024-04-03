@@ -46,7 +46,7 @@ const Dashboard = () => {
         </div>
       </section>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <AddTransactionModal />
+        <AddTransactionModal onСlose={closeModal} />
       </Modal>
     </>
   );

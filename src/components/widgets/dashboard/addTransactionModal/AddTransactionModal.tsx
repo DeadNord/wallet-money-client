@@ -34,7 +34,7 @@ interface IDate {
   date: Date | null;
 }
 
-const AddTransactionModal = () => {
+const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
   const [startDate, setStartDate] = useState<IDate>({ date: new Date() });
   const dispatch: AppDispatch = useDispatch();
 
@@ -57,10 +57,10 @@ const AddTransactionModal = () => {
     return `${year}-${month}-${day}`;
   };
 
-  const handleSubmit = (values: TransactionSentData) => {
+  const handleSubmit = async (values: TransactionSentData) => {
     const { name, type, amount, from_account, category_id, note } = values;
     const formattedDate = startDate.date ? formatDate(startDate.date) : '';
-    dispatch(
+    await dispatch(
       addTransactionOperation({
         type,
         name,
@@ -71,6 +71,7 @@ const AddTransactionModal = () => {
         note,
       }),
     );
+    closeModal();
   };
 
   const categoryOptions: OptionType[] = categories.map(category => ({
