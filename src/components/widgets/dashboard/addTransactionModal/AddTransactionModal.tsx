@@ -1,38 +1,86 @@
 import { Formik, Form, Field } from 'formik';
+import Select, { SingleValue } from 'react-select';
 import * as Yup from 'yup';
 import s from './AddTransactionModal.module.scss';
 import SvgIcon from 'components/shared/icons/SvgIcon';
-import { addTransactionOperation, getCategoriesOperation } from 'store/finances/finances-operations';
+import {
+  addTransactionOperation,
+  getCategoriesOperation,
+} from 'store/finances/finances-operations';
 import { AppDispatch } from 'store/store';
-import { useDispatch } from 'react-redux';
-import {  TransactionSentData, TransactionType } from 'store/finances/FinancesTypes';
-import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { TransactionSentData, TransactionType } from 'store/finances/FinancesTypes';
+import { useEffect, useState } from 'react';
+import { getCategories } from 'store/finances/finances-selectors';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+interface OptionType {
+  value: string;
+  label: string;
+}
 
 // Validation schema using Yup
 const TransactionSchema = Yup.object().shape({
   type: Yup.string().required('Required'),
   amount: Yup.number().positive('Amount must be positive').required('Required'),
-  //   date: Yup.date().required('Required'),
-  //   fromAccount: Yup.string().required('Required'),
-  //   category: Yup.string().required('Required'),
+  fromAccount: Yup.string().required('Required'),
+  category: Yup.string().required('Required'),
   notes: Yup.string(),
 });
 
+interface IDate {
+  date: Date | null;
+}
+
 const AddTransactionModal = () => {
+  const [startDate, setStartDate] = useState<IDate>({ date: new Date() });
   const dispatch: AppDispatch = useDispatch();
 
+  const categories = useSelector(getCategories);
+
+  const accounts = [
+    { id: '1', name: 'Savings' },
+    { id: '2', name: 'Checking' },
+  ];
 
   // Dispatch action to fetch transactions on component mount
   useEffect(() => {
     dispatch(getCategoriesOperation());
   }, [dispatch]);
 
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}.${month}.${day}`;
+  };
+
   const handleSubmit = (values: TransactionSentData) => {
-    const { type, amount, date, fromAccount, category, note } = values;
+    const { type, amount, fromAccount, category, note } = values;
+    const formattedDate = startDate.date ? formatDate(startDate.date) : '';
     dispatch(
-      addTransactionOperation({ type, name: category, amount, date, fromAccount, category, note }),
+      addTransactionOperation({
+        type,
+        name: category,
+        amount,
+        date: formattedDate,
+        fromAccount,
+        category,
+        note,
+      }),
     );
   };
+
+  const categoryOptions: OptionType[] = categories.map(category => ({
+    value: category.name,
+    label: category.name,
+  }));
+
+  const accountOptions: OptionType[] = accounts.map(account => ({
+    value: account.name,
+    label: account.name,
+  }));
 
   return (
     <div className={s.modalContent}>
@@ -57,7 +105,7 @@ const AddTransactionModal = () => {
           setSubmitting(false);
         }}
       >
-        {({ setFieldValue, values }) => (
+        {({ setFieldValue, values, setFieldTouched }) => (
           <Form className={s.form}>
             <div className={s.buttonGroup}>
               <button
@@ -81,6 +129,14 @@ const AddTransactionModal = () => {
                 <span className={s.inputLabel}>$</span>
                 <Field type="number" name="amount" className={s.input} placeholder="0" />
               </div>
+              <div className={s.flex}>
+                <SvgIcon name={'icon-calendar'} className={s.iconSmall} />
+                <DatePicker
+                  className={s.datePicker}
+                  selected={startDate.date}
+                  onChange={date => setStartDate({ date })}
+                />
+              </div>
             </div>
 
             <div className={s.sectionContainer}>
@@ -88,21 +144,36 @@ const AddTransactionModal = () => {
                 <SvgIcon name={'icon-money-cycle'} className={s.icon} />
                 <div>
                   <p className={s.label}>From account</p>
-                  <Field as="select" name="fromAccount" className={s.select}>
-                    <option value="">Select account</option>
-                  </Field>
+                  <Select
+                    options={accountOptions}
+                    className={s.select}
+                    onChange={(option: SingleValue<string | OptionType>) => {
+                      if (option !== null && typeof option !== 'string') {
+                        setFieldValue('fromAccount', option.value);
+                      }
+                    }}
+                    onBlur={() => setFieldTouched('fromAccount', true)}
+                    value={accountOptions.find(option => option.value === values.fromAccount) || ''}
+                  />
                 </div>
               </div>
             </div>
-
             <div className={s.sectionContainer}>
               <div className={s.flex}>
                 <SvgIcon name={'icon-cart'} className={s.icon} />
                 <div>
                   <p className={s.label}>To category</p>
-                  <Field as="select" name="category" className={s.select}>
-                    <option value="">Select category</option>
-                  </Field>
+                  <Select
+                    options={categoryOptions}
+                    className={s.select}
+                    onChange={(option: SingleValue<string | OptionType>) => {
+                      if (option !== null && typeof option !== 'string') {
+                        setFieldValue('category', option.value);
+                      }
+                    }}
+                    onBlur={() => setFieldTouched('category', true)}
+                    value={categoryOptions.find(option => option.value === values.category) || ''}
+                  />
                 </div>
               </div>
             </div>

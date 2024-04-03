@@ -66,6 +66,13 @@
     margin-right: 12px;
 }
 
+.iconSmall {
+    width: 15px;
+    height: 14px;
+
+    margin-right: 8px
+}
+
 .flex {
     @include flexbox(center); // Assuming default alignment, modify as needed
 }
@@ -112,7 +119,39 @@
 }
 
 .select {
+
+    [class$="-control"] {
+        background-color: transparent;
+        border: none;
+    }
+
+    [class$="-singleValue"] {
+        color: $mainTextColor;
+    }
+
+    [class$="-placeholder"] {
+        color: $mainTextColor;
+    }
+
+    [class$="-indicatorSeparator"] {
+        display: none;
+    }
+
+    [class$="-menu"] {
+        background-color: $buttonAuthBackground;
+
+        [class$="-option"] {
+            background-color: $buttonAuthBackground;
+
+            &:hover {
+                background-color: $mainColor;
+            }
+        }
+    }
+}
+
+
+.datePicker {
     background-color: transparent;
-    border: none;
     color: $mainTextColor;
 }
