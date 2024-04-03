@@ -99,6 +99,7 @@ const financesSlice = createSlice({
           category:
             state.categories.find(cat => cat.id === action.payload['category-id'])?.name || null,
         };
+        state.transactions.unshift(newTransaction);
       },
     );
 
