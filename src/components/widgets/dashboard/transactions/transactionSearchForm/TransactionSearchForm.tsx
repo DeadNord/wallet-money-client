@@ -5,7 +5,7 @@ import s from './TransactionSearchForm.module.scss'; // Убедитесь, чт
 import { addDays } from 'date-fns';
 
 export interface FormValues {
-  value: string;
+  name: string;
   startDate: Date;
   endDate: Date;
 }
@@ -15,23 +15,33 @@ interface TransactionSearchFormProps {
 }
 
 const TransactionSearchForm: React.FC<TransactionSearchFormProps> = React.memo(({ onSubmit }) => {
-  console.log('TransactionSearchForm rendered');
+  const handleSubmitButtonClick = (values: FormValues) => {
+    onSubmit(values);
+  };
   return (
     <Formik
-      initialValues={{ value: '', startDate: new Date(), endDate: addDays(new Date(), 30) }}
+      initialValues={{
+        name: '',
+        startDate: addDays(new Date(), -30),
+        endDate: new Date(),
+      }}
       onSubmit={onSubmit}
     >
-      <Form className={s.formContainer}>
-        <div className={s.searchContainer}>
-          <Field
-            name="search"
-            className={s.searchInput}
-            type="text"
-            placeholder="Search for anything..."
-          />
-          <SvgIcon name="icon-search" className={s.searchIcon} />
-        </div>
-      </Form>
+      {({ values }) => (
+        <Form className={s.formContainer}>
+          <div className={s.searchContainer}>
+            <Field
+              name="name"
+              className={s.searchInput}
+              type="text"
+              placeholder="Search for anything..."
+            />
+            <div onClick={() => handleSubmitButtonClick(values)}>
+              <SvgIcon name="icon-search" className={s.searchIcon} />
+            </div>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 });

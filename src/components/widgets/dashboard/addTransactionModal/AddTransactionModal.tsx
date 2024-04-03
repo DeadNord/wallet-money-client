@@ -54,11 +54,11 @@ const AddTransactionModal = () => {
     const year = date.getFullYear();
     const month = ('0' + (date.getMonth() + 1)).slice(-2);
     const day = ('0' + date.getDate()).slice(-2);
-    return `${year}.${month}.${day}`;
+    return `${year}-${month}-${day}`;
   };
 
   const handleSubmit = (values: TransactionSentData) => {
-    const { name, type, amount, fromAccount, category_id, note } = values;
+    const { name, type, amount, from_account, category_id, note } = values;
     const formattedDate = startDate.date ? formatDate(startDate.date) : '';
     dispatch(
       addTransactionOperation({
@@ -66,7 +66,7 @@ const AddTransactionModal = () => {
         name,
         amount,
         date: formattedDate,
-        fromAccount,
+        from_account,
         category_id,
         note,
       }),
@@ -87,7 +87,7 @@ const AddTransactionModal = () => {
     <div className={s.modalContent}>
       <Formik
         initialValues={{
-          type: 'expense',
+          type: 'Expense',
           name: '',
           amount: '',
           date: '',
@@ -103,6 +103,7 @@ const AddTransactionModal = () => {
             amount: parseFloat(values.amount), // Convert string to number
             type: values.type as TransactionType, // Assert to TransactionType
             category_id: categoryId,
+            from_account: values.fromAccount,
             name: values.category,
           };
           handleSubmit(transactionData);

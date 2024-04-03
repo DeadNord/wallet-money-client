@@ -3,6 +3,7 @@ import { store, persistor } from './store';
 describe('Redux Store Integration Tests', () => {
   // Test to ensure the initial state of the 'auth' slice is correct
   test('should have the correct initial auth state', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { _persist, ...initialState } = store.getState().auth;
     expect(initialState).toEqual({
       accessToken: null,
@@ -13,6 +14,7 @@ describe('Redux Store Integration Tests', () => {
   });
 
   test('should have the correct initial finances state', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { _persist, ...initialState } = store.getState().finances;
     expect(initialState).toEqual({
       budgetData: { budget: 0, budgetLimit: 0, monthlyExpenses: 0 },

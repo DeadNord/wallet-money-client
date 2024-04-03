@@ -19,13 +19,30 @@ const Transactions = () => {
 
   // Dispatch action to fetch transactions on component mount
   useEffect(() => {
-    dispatch(getTransactionsOperation());
+    dispatch(getTransactionsOperation({ name: '', startDate: '', endDate: '' }));
   }, [dispatch]);
+
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  };
 
   // Function to handle form submission
   const submitForm = (values: FormValues) => {
-    const { value, startDate, endDate } = values;
-    console.log(value, startDate, endDate);
+    const { name, startDate, endDate } = values;
+    const formattedName = name ?? null;
+    const formattedStartDate = startDate ? formatDate(startDate) : null;
+    const formattedEndDate = endDate ? formatDate(endDate) : null;
+
+    dispatch(
+      getTransactionsOperation({
+        name: formattedName,
+        startDate: formattedStartDate,
+        endDate: formattedEndDate,
+      }),
+    );
   };
 
   return (

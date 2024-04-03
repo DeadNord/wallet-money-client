@@ -4,6 +4,7 @@ import {
   Category,
   CategoryExpense,
   Transaction,
+  TransactionPaginationData,
   TransactionReturnedData,
   TransactionSentData,
   WeeklyTransactionSummary,
@@ -27,11 +28,13 @@ const getBudgetOperation = createAsyncThunk<
 
 const getTransactionsOperation = createAsyncThunk<
   Transaction[],
-  void,
+  TransactionPaginationData,
   { rejectValue: ErrorResponse }
->('finances/transactions', async (_, { rejectWithValue }) => {
+>('finances/transactions', async (transactionPagination, { rejectWithValue }) => {
   try {
-    const response = await axios.get<Transaction[]>('finances/transactions/');
+    const response = await axios.get<Transaction[]>(
+      `finances/transactions/?name=${transactionPagination.name}&start_date=${transactionPagination.startDate}&end_date=${transactionPagination.endDate}`,
+    );
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<ErrorResponse>;

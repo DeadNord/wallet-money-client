@@ -76,7 +76,11 @@ describe('Finances operations', () => {
         note: 'Monthly',
       },
     ];
-    const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);
+    const action = getTransactionsOperation.fulfilled(mockTransactions, '', {
+      name: null,
+      startDate: null,
+      endDate: null,
+    });
     await store.dispatch(action);
     const state = store.getState().finances as FinancesState;
     expect(state.transactions).toEqual(mockTransactions);
@@ -127,7 +131,11 @@ describe('Finances operations', () => {
     const rejectAction = getTransactionsOperation.rejected(
       new Error('Transactions fetch failed'),
       '',
-      undefined,
+      {
+        name: null,
+        startDate: null,
+        endDate: null,
+      },
     );
     await store.dispatch(rejectAction);
     const state = store.getState();
@@ -168,8 +176,8 @@ describe('Finances operations', () => {
         date: '2024-03-20',
         amount: 100,
         type: TransactionType.expense,
-        category_id: '122',
-        fromAccount: 'Savings',
+        category_id: 122,
+        from_account: 'Savings',
         note: 'Groceries',
       },
     );

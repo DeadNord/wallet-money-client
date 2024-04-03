@@ -3,6 +3,13 @@ export enum TransactionType {
   expense = 'Expense',
 }
 
+// Defines the structure of the pagination data for transactions.
+export interface TransactionPaginationData {
+  name: string | null;
+  startDate: string | null;
+  endDate: string | null;
+}
+
 // Defines the structure of a single financial transaction.
 export interface Transaction {
   id: string | null; // The unique identifier for the transaction
@@ -20,8 +27,8 @@ export interface TransactionSentData {
   name: string | null; // The name or description of the transaction
   date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
   amount: number; // The monetary amount of the transaction
-  fromAccount: string | null; // The account this transaction was made from or null if not available
-  category_id: string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
+  from_account: string | null; // The account this transaction was made from or null if not available
+  category_id: number | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
   note: string | null; // Additional notes about the transaction or null if not available
 }
 
@@ -33,7 +40,7 @@ export interface TransactionReturnedData {
   date: string | null; // The date of the transaction in YYYY-MM-DD format or null if not available
   amount: number; // The monetary amount of the transaction
   'from-account': string | null; // The account this transaction was made from or null if not available
-  'category-id': string | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
+  'category-id': number | null; // The category this transaction belongs to (e.g., "food", "rent") or null if not categorized
   note: string | null; // Additional notes about the transaction or null if not available
 }
 
@@ -46,7 +53,7 @@ export interface WeeklyTransactionSummary {
 
 // Represents expenses aggregated by category, typically for visualization.
 export interface Category {
-  id: string; // Unique identifier
+  id: number; // Unique identifier
   name: string; // Name of the category (e.g., "Utilities", "Groceries")
 }
 

@@ -52,7 +52,7 @@ describe('financesSlice', () => {
   test('should handle fulfillment of getTransactionsOperation', async () => {
     const mockTransactions: Transaction[] = [
       {
-        id : '1',
+        id: '1',
         name: 'Coffee',
         date: '2024-03-20',
         amount: 5,
@@ -62,7 +62,7 @@ describe('financesSlice', () => {
         note: 'Cafe',
       },
       {
-        id : '2',
+        id: '2',
         name: 'Book',
         date: '2024-03-21',
         amount: 15,
@@ -72,7 +72,11 @@ describe('financesSlice', () => {
         note: 'Book',
       },
     ];
-    const action = getTransactionsOperation.fulfilled(mockTransactions, '', undefined);
+    const action = getTransactionsOperation.fulfilled(mockTransactions, '', {
+      name: null,
+      startDate: null,
+      endDate: null,
+    });
     await store.dispatch(action);
     const state = store.getState().finances;
     expect(state.transactions).toEqual(mockTransactions);
@@ -119,7 +123,11 @@ describe('financesSlice', () => {
     const action = getTransactionsOperation.rejected(
       new Error('Failed to fetch transactions'),
       '',
-      undefined,
+      {
+        name: null,
+        startDate: null,
+        endDate: null,
+      },
     );
     await store.dispatch(action);
     const state = store.getState().finances;

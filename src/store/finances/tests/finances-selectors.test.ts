@@ -47,7 +47,10 @@ const mockState: FinancesState = {
     { category: 'Food', value: 500, color: '#FF0000' },
     { category: 'Utilities', value: 150, color: '#00FF00' },
   ],
-  categories: [{id: '1', name: 'Food'}, {id: '2', name: 'Utilities'}],
+  categories: [
+    { id: 1, name: 'Food' },
+    { id: 2, name: 'Utilities' },
+  ],
   error: null,
 };
 
