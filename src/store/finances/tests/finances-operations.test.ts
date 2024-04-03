@@ -101,8 +101,8 @@ describe('Finances operations', () => {
   // Testing fulfillment for getExpensesByCategoriesOperation
   test('should handle fulfillment of getExpensesByCategoriesOperation', async () => {
     const mockExpensesByCategories = [
-      { category: 'Utilities', value: 300, color: '#00FF00' },
-      { category: 'Groceries', value: 150, color: '#FF0000' },
+      { name: 'Utilities', value: 300, color: '#00FF00' },
+      { name: 'Groceries', value: 150, color: '#FF0000' },
     ];
     const action = getExpensesByCategoriesOperation.fulfilled(
       mockExpensesByCategories,

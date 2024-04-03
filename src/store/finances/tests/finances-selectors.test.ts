@@ -44,8 +44,8 @@ const mockState: FinancesState = {
     { name: 'Week 2', income: 1000, outcome: 300 },
   ],
   expensesByCategories: [
-    { category: 'Food', value: 500, color: '#FF0000' },
-    { category: 'Utilities', value: 150, color: '#00FF00' },
+    { name: 'Food', value: 500, color: '#FF0000' },
+    { name: 'Utilities', value: 150, color: '#00FF00' },
   ],
   categories: [
     { id: 1, name: 'Food' },

@@ -97,8 +97,8 @@ describe('financesSlice', () => {
   // Testing fulfillment for getExpensesByCategoriesOperation
   test('should handle fulfillment of getExpensesByCategoriesOperation', async () => {
     const mockExpensesByCategory = [
-      { category: 'Food', value: 200, color: '#FF0000' },
-      { category: 'Utilities', value: 150, color: '#00FF00' },
+      { name: 'Food', value: 200, color: '#FF0000' },
+      { name: 'Utilities', value: 150, color: '#00FF00' },
     ];
     const action = getExpensesByCategoriesOperation.fulfilled(
       mockExpensesByCategory,
