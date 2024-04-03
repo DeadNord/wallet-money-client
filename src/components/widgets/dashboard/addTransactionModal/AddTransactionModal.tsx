@@ -114,14 +114,14 @@ const AddTransactionModal = () => {
             <div className={s.buttonGroup}>
               <button
                 type="button"
-                onClick={() => setFieldValue('type', 'expense')}
+                onClick={() => setFieldValue('type', 'Expense')}
                 className={`${s.typeButton} ${values.type === 'Expense' ? s.active : ''}`}
               >
                 Expense
               </button>
               <button
                 type="button"
-                onClick={() => setFieldValue('type', 'income')}
+                onClick={() => setFieldValue('type', 'Income')}
                 className={`${s.typeButton} ${values.type === 'Income' ? s.active : ''}`}
               >
                 Income
