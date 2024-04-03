@@ -20,7 +20,7 @@ const Transactions = () => {
   // Dispatch action to fetch transactions on component mount
   useEffect(() => {
     dispatch(getTransactionsOperation({ name: '', startDate: '', endDate: '' }));
-  }, [transactions, dispatch]);
+  }, [dispatch]);
 
   const formatDate = (date: Date) => {
     const year = date.getFullYear();

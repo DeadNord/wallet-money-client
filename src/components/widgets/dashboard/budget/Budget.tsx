@@ -19,7 +19,7 @@ const Budget = () => {
 
   useEffect(() => {
     dispatch(getBudgetOperation());
-  }, [budget, dispatch]);
+  }, [dispatch]);
 
   return (
     <>

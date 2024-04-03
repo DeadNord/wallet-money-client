@@ -14,7 +14,7 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(getExpensesByCategoriesOperation());
-  }, [expenses, budget, dispatch]);
+  }, [dispatch]);
 
   return (
     <div className={`${s.contentBackground} ${s.categoriesContainer}`}>

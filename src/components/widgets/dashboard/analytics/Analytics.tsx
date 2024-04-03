@@ -15,7 +15,7 @@ const Analytics = () => {
   // Fetching the weekly transactions data when the component mounts
   useEffect(() => {
     dispatch(getTransactionsByWeekOperation());
-  }, [data, dispatch]);
+  }, [dispatch]);
 
   return (
     <div className={`${s.contentBackground} ${s.analyticsContainer}`}>
