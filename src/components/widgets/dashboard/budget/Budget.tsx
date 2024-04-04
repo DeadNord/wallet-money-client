@@ -27,11 +27,11 @@ const Budget = () => {
         <h2 className={s.budgetTitle}>Monthly budget</h2>
         <div className={s.flex}>
           <div className={s.countContainer}>
-            <span className={s.budgetCount}>$ {budget.budget}</span>{' '}
+            <span className={s.budgetCount}>€ {budget.budget}</span>{' '}
             <span className={s.budgetText}>left</span>
           </div>
           <p className={s.budgetTrack}>
-            $ {budget.monthlyExpenses} / $ {budget.budgetLimit}
+            € {budget.monthlyExpenses} / € {budget.budgetLimit}
           </p>
         </div>
         <div className={s.barContainer}>
