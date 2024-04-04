@@ -47,3 +47,30 @@
     height: 10px;
     margin-left: 26px;
 }
+
+.calendarIcon {
+    width: 15px;
+    height: 14px;
+
+    margin-right: 8px
+}
+
+
+.dateContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+
+    padding: 12px;
+
+    border-radius: 6px;
+    border: 1px solid transparent;
+    border-image: $mainGradient 1;
+}
+
+.datePicker {
+    width: 50px;
+    background-color: transparent;
+    color: $mainTextColor;
+
+}

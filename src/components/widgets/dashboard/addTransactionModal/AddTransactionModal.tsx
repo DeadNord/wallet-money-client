@@ -11,7 +11,7 @@ import {
 import { AppDispatch } from 'store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { TransactionSentData, TransactionType } from 'store/finances/FinancesTypes';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getCategories } from 'store/finances/finances-selectors';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -30,19 +30,13 @@ const TransactionSchema = Yup.object().shape({
   note: Yup.string(),
 });
 
-interface IDate {
-  date: Date | null;
-}
-
 const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
-  const [startDate, setStartDate] = useState<IDate>({ date: new Date() });
   const dispatch: AppDispatch = useDispatch();
 
   const categories = useSelector(getCategories);
-
   const accounts = [
-    { id: '1', name: 'Savings' },
-    { id: '2', name: 'Checking' },
+    { id: 1, name: 'Savings' },
+    { id: 2, name: 'Checking' },
   ];
 
   // Dispatch action to fetch transactions on component mount
@@ -58,14 +52,13 @@ const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
   };
 
   const handleSubmit = async (values: TransactionSentData) => {
-    const { name, type, amount, from_account, category_id, note } = values;
-    const formattedDate = startDate.date ? formatDate(startDate.date) : '';
+    const { name, date, type, amount, from_account, category_id, note } = values;
     await dispatch(
       addTransactionOperation({
         type,
         name,
         amount,
-        date: formattedDate,
+        date,
         from_account,
         category_id,
         note,
@@ -91,7 +84,7 @@ const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
           type: 'Expense',
           name: '',
           amount: '',
-          date: '',
+          date: new Date(),
           fromAccount: '',
           category: '',
           note: '',
@@ -99,6 +92,7 @@ const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
         validationSchema={TransactionSchema}
         onSubmit={(values, { setSubmitting }) => {
           const categoryId = categories.find(c => c.name === values.category)?.id ?? null;
+          const formattedDate = values.date ? formatDate(values.date) : '';
           const transactionData: TransactionSentData = {
             ...values,
             amount: parseFloat(values.amount), // Convert string to number
@@ -106,6 +100,7 @@ const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
             category_id: categoryId,
             from_account: values.fromAccount,
             name: values.category,
+            date: formattedDate,
           };
           handleSubmit(transactionData);
           setSubmitting(false);
@@ -139,8 +134,9 @@ const AddTransactionModal = ({ closeModal }: { closeModal: () => void }) => {
                 <SvgIcon name={'icon-calendar'} className={s.iconSmall} />
                 <DatePicker
                   className={s.datePicker}
-                  selected={startDate.date}
-                  onChange={date => setStartDate({ date })}
+                  selected={values.date}
+                  onChange={date => setFieldValue('date', date)}
+                  dateFormat="d MMMM YYYY"
                 />
               </div>
             </div>
