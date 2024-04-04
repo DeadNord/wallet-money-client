@@ -46,7 +46,7 @@ export interface TransactionReturnedData {
 
 // Summarizes transactions over a weekly period, categorizing them as income or outcome.
 export interface WeeklyTransactionSummary {
-  name: string | null; // The name representing the week or identifier, or null if not available
+  day: string | null; // The name representing the week or identifier, or null if not available
   income: number; // Total income for the week
   outcome: number; // Total expenses/outcome for the week
 }

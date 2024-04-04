@@ -85,8 +85,8 @@ describe('financesSlice', () => {
   // Testing fulfillment for getTransactionsByWeekOperation
   test('should handle fulfillment of getTransactionsByWeekOperation', async () => {
     const mockWeeklyTransactions = [
-      { name: 'Week 1', income: 3000, outcome: 1000 },
-      { name: 'Week 2', income: 2500, outcome: 1500 },
+      { day: 'Week 1', income: 3000, outcome: 1000 },
+      { day: 'Week 2', income: 2500, outcome: 1500 },
     ];
     const action = getTransactionsByWeekOperation.fulfilled(mockWeeklyTransactions, '', undefined);
     await store.dispatch(action);

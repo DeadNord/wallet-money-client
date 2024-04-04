@@ -40,8 +40,8 @@ const mockState: FinancesState = {
     },
   ],
   transactionsByWeek: [
-    { name: 'Week 1', income: 2000, outcome: 500 },
-    { name: 'Week 2', income: 1000, outcome: 300 },
+    { day: 'Week 1', income: 2000, outcome: 500 },
+    { day: 'Week 2', income: 1000, outcome: 300 },
   ],
   expensesByCategories: [
     { name: 'Food', value: 500, color: '#FF0000' },
