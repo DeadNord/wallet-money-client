@@ -99,7 +99,22 @@ const financesSlice = createSlice({
           category:
             state.categories.find(cat => cat.id === action.payload['category-id'])?.name || null,
         };
-        state.transactions.unshift(newTransaction);
+        if (typeof newTransaction.date === 'string' && newTransaction.date !== null) {
+          const newTransactionDate = new Date(newTransaction.date);
+          let transactionIndex = state.transactions.findIndex(transaction => {
+            if (typeof transaction.date === 'string' && transaction.date !== null) {
+              const transactionDate = new Date(transaction.date);
+              return transactionDate <= newTransactionDate;
+            }
+            return false;
+          });
+          if (transactionIndex === -1) {
+            transactionIndex = 0;
+          }
+          state.transactions.splice(transactionIndex, 0, newTransaction);
+        } else {
+          console.error('Invalid date format:', newTransaction.date);
+        }
       },
     );
 

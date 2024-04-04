@@ -69,8 +69,11 @@
 }
 
 .datePicker {
-    width: 50px;
+    width: 60px;
     background-color: transparent;
     color: $mainTextColor;
 
+    &:last-child {
+        margin-left: 5px;
+    }
 }
