@@ -18,7 +18,7 @@ const AnalyticsChart: React.FC<AnalyticsChartProps> = React.memo(({ data }) => {
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <XAxis
         tick={{ fontSize: 12, fontWeight: 300, fill: variables.mainTextColor }}
-        dataKey="name"
+        dataKey="day"
         dy={5}
         axisLine={false}
         tickLine={false}
