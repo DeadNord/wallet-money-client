@@ -23,6 +23,7 @@
 // Styling for each item in the table
 .tableItem {
     @include flexContainer;
+    padding-left: 8px;
 
     &:hover,
     &:focus {
