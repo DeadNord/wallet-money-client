@@ -16,7 +16,7 @@
 
 // Background styling for the Dashboard
 .background {
-    background-color: black;
+    background-color: $dashboardBackground;
     height: 100vh;
     width: 100%;
     @include flexLayout(center); // Centralizing content
@@ -36,7 +36,7 @@
 // Styling for titles and texts in the hero section, shared styles
 .titleName,
 .textName {
-    color: white; // Grouped for DRY principle
+    color: $mainTextColor; // Grouped for DRY principle
 }
 
 // Container for the plus icon with styling

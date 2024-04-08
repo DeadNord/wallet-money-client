@@ -2,7 +2,7 @@
 
 
 .headerContainer {
-    background: linear-gradient(221.56deg, #585F82 -67.81%, #13141C 19.56%);
+    background: $headerBackground;
     width: 300px;
     height: 100vh;
     display: flex;
