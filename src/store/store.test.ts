@@ -18,20 +18,9 @@ describe('Redux Store Integration Tests', () => {
     const { _persist, ...initialState } = store.getState().finances;
     expect(initialState).toEqual({
       budgetData: { budget: 0, budgetLimit: 0, monthlyExpenses: 0 },
-      transactions: [
-        {
-          id: null,
-          name: null,
-          date: null,
-          amount: 0,
-          type: null,
-          category: null,
-          fromAccount: null,
-          note: null,
-        },
-      ],
-      transactionsByWeek: [{ day: null, income: 0, outcome: 0 }],
-      expensesByCategories: [{ name: null, value: 0, color: null }],
+      transactions: [],
+      transactionsByWeek: [],
+      expensesByCategories: [],
       categories: [],
       error: null,
     });

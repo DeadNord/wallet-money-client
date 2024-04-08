@@ -23,6 +23,12 @@
 // Styling for each item in the table
 .tableItem {
     @include flexContainer;
+
+    &:hover,
+    &:focus {
+        border-radius: 6px;
+        background-color: $transactionHoverBackground;
+    }
 }
 
 // Styling for each cell in the table
