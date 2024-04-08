@@ -17,6 +17,10 @@ const Budget = () => {
 
   const dispatch: AppDispatch = useDispatch();
 
+  const changeBudgetHandler = () => {
+    console.log('Change budget');
+  };
+
   useEffect(() => {
     dispatch(getBudgetOperation());
   }, [dispatch]);
@@ -37,9 +41,16 @@ const Budget = () => {
         <div className={s.barContainer}>
           <BudgetBarChart budgetProgress={budgetProgress} />
         </div>
-        <div className={s.iconContainer}>
-          <SvgIcon name={'icon-checkCircle'} className={s.iconBudget} />
-          <p className={s.budgetText}>Budget on track</p>
+        <div className={s.flex}>
+          <div className={s.iconContainer}>
+            <SvgIcon name={'icon-checkCircle'} className={s.iconBudget} />
+            <p className={s.budgetText}>Budget on track</p>
+          </div>
+          <div>
+            <button className={s.button} type="button" onClick={() => changeBudgetHandler()}>
+              Change budget
+            </button>
+          </div>
         </div>
       </div>
     </>

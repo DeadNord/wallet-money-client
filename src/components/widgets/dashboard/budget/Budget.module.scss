@@ -72,3 +72,11 @@
     background-color: $barColor; // Use background-color for divs instead of fill
     margin-bottom: 12px;
 }
+
+.button {
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $mainColor;
+}
